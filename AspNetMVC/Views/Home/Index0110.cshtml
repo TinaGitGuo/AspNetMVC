@@ -1,0 +1,29 @@
+﻿@{
+    ViewBag.Title = "Contact";
+}
+<h2>@ViewBag.Title.</h2>
+<h3>@ViewBag.Message</h3>
+
+<address>
+    One Microsoft Way<br />
+    Redmond, WA 98052-6399<br />
+    <abbr title="Phone">P:</abbr>
+    425.555.0100
+</address>
+
+<address>
+    <strong>Support:</strong>   <a href="mailto:Support@example.com">Support@example.com</a><br />
+    <strong>Marketing:</strong> <a href="mailto:Marketing@example.com">Marketing@example.com</a>
+</address>
+@*@Html.ListBox("UnAssignedGroupList", (IEnumerable<SelectListItem>)ViewBag.UnAssignedGroupList, new { @title = "Unassgined Groups", @style = "font-weight:normal; " })
+    <br />
+    @Html.ValidationMessage("UnAssignedGroupList", "At least one unassgined group is Required.")*@
+  
+@model BookMaster
+@using (Html.BeginForm()) {
+@Html.ValidationSummary()
+@Html.ListBox("strAccessionId", new List<SelectListItem>(new SelectList(Model.Publishers, "PublisherId", "PublisherName")))
+        //("UnAssignedGroupList", "Company name is required.");
+        //@Html.ValidationMessage("strAccessionId");
+        <input type="submit" value="click" />
+ }

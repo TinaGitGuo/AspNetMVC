@@ -1,0 +1,126 @@
+﻿@{
+    ViewBag.Title = "About";
+
+    Layout = null;
+}
+@*<h2>@ViewBag.Title.</h2>
+    <h3>@ViewBag.Message</h3>
+
+    <p>Use this area to provide additional information.</p>*@
+<!--<link href="~/content/jquery-ui.css" rel="stylesheet" />-->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta charset="utf-8" />
+    <link href="../../Content/jquery-ui-1.12.1.custom/jquery-ui.css" rel="stylesheet" />
+
+    
+</head>
+<body>
+    <input type="text" id="txtCustomer" name="txtCustomer" />
+<input type="button" id="btntxt" value="click" />
+<!--<script src="~/scripts/jquery.min.js"></script>
+<script src="~/content/jquery-ui.js"></script>-->
+<script src="../../Content/jquery-ui-1.12.1.custom/external/jquery/jquery.js"></script>
+<script src="../../Content/jquery-ui-1.12.1.custom/jquery-ui.js"></script>
+    <script>
+        $(document).ready(function () {
+            var data = [
+
+      "ActionScript",
+
+      "AppleScript",
+
+      "Asp",
+
+      "BASIC",
+
+      "C",
+
+      "C++",
+
+      "Clojure",
+
+      "COBOL",
+
+      "ColdFusion",
+
+      "Erlang",
+
+      "Fortran",
+
+      "Groovy",
+
+      "Haskell",
+
+      "Java",
+
+      "JavaScript",
+
+      "Lisp",
+
+      "Perl",
+
+      "PHP",
+
+      "Python",
+
+      "Ruby",
+
+      "Scala",
+
+      "Scheme"
+
+            ];
+
+
+            $("#txtCustomer").autocomplete({
+                source: function (request, response) {
+                    //$.ajax({
+                    //    url: "/Customer/Autocomplete",
+                    //    type: "POST",
+                    //    dataType: "json",
+                    //    data: { term: request.term },
+                    //    success: function (data) {
+
+                    response($.map(data, function (item) {
+                        //alert(item);
+                                data = {
+                                    label: item,
+                                    value: item
+
+                                }
+                                return true;
+
+                            }))
+
+                    //    }
+                    //})
+                },
+                messages: {
+                    noResults: "", results: ""
+                }
+            });
+        })
+        $("#btntxt").click(function () {
+            var a = $("#txtCustomer").val();
+            //debugger;
+            //$.ajax({
+            //    url: "/Customer/abc",
+            //    type: "POST",
+            //    dataType: "json",
+            //    contentType: "application/json; charset=utf-8",
+            //    data: JSON.stringify({ a: a }),
+            //    success: function (data) {
+            //        $.each(data.data, function (k, v) {
+            //            alert(JSON.stringify(data));
+            //        });
+            //    }
+            //})
+        });
+
+    </script>
+</body>
+</html>

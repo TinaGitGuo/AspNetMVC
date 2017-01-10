@@ -1,0 +1,19 @@
+﻿@model BookMaster
+@{
+    ViewBag.Title = "Home Page";
+}
+@using AspNetMVC.Controllers;
+ 
+@using (Html.BeginForm())
+{
+    @*@Html.ValidationSummary();*@
+    @Html.ListBox("strAccessionId",  new List<SelectListItem>( new SelectList(Model.Publishers, "PublisherId", "PublisherName")) ));
+    //("UnAssignedGroupList", "Company name is required.");
+
+
+    //@Html.ValidationMessage("strAccessionId");
+    <input type="submit" value="click" />
+}
+   @* @Html.DropDownList("strBookTypeId", new  SelectList( Model.Publishers, "PublisherId", "PublisherName" ))*@
+@*@Html.DropDownListFor(t=>t.Publishers.Select(x=>x.PublisherId), new SelectList(Model.Publishers, "PublisherId", "PublisherName",2))*@
+@*m => m.Publishers.Select(o => o.PublisherId)*@
