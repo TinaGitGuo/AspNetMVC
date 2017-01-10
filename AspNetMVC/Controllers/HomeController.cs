@@ -25,57 +25,71 @@ namespace AspNetMVC.Controllers
             var ui = db.BookMasters.ToList();
             //var model = db.BookMasters.Where(u => u.Id == 1).FirstOrDefault();
 
-            List<Publisher> listP=new List<Publisher> ();
+            List<Publisher> listP = new List<Publisher>();
             List<Publisher> listP2 = GetPublishers();
             var model = db.BookMasters.Where(u => u.Id == 1).FirstOrDefault();
 
             db.BookMasters.Where(u => u.Id == 1).FirstOrDefault().Publishers.ToList();
             foreach (var p in model.Publishers)
             {
-                listP.Add(new Publisher() { PublisherId = p.PublisherId ,PublisherName=p.PublisherName});
+                listP.Add(new Publisher() { PublisherId = p.PublisherId, PublisherName = p.PublisherName });
             }
             // ..ToList().Select(i=>i.FirstOrDefault()) ;
             //x.Publishers.Select(c => new Publisher() { PublisherId = c.PublisherId, PublisherName = c.PublisherName }
             //var pus = (from a in model select a.Publishers).Select(r=>r);
-         //   SelectList Publishers = new SelectList(listP as List<Publisher>,  "PublisherId", "PublisherName", 2);
-            SelectList Publishers = new SelectList(db.BookMasters.Where(u => u.Id == 1).FirstOrDefault().Publishers  , "PublisherId", "PublisherName", 2);
+            //   SelectList Publishers = new SelectList(listP as List<Publisher>,  "PublisherId", "PublisherName", 2);
+            SelectList Publishers = new SelectList(db.BookMasters.Where(u => u.Id == 1).FirstOrDefault().Publishers, "PublisherId", "PublisherName", 2);
             ViewData["list"] = Publishers;
-            return View(model );
+            return View(model);
         }
 
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";
-             
+
             return View();
         }
         //If UnAssignedGroupList  Is a property  in  MyViewModel class and please refer to code below:
-public class MyViewModel
+        public class MyViewModel
         {
             [Required(ErrorMessage = " At least one unassgined group is Required.")]
             public string UnAssignedGroupList { get; set; }
 
         }
-       
 
-//If not:
-//In controller.cs :
-     [HttpPost]
-    public ActionResult Index0110(string UnAssignedGroupList)
+
+        //If not:
+        //In controller.cs :
+        [HttpPost]
+        public ActionResult Index0110(string UnAssignedGroupList)
         {
-            if (!string.IsNullOrEmpty(UnAssignedGroupList))
+            if (string.IsNullOrEmpty(UnAssignedGroupList))
             {
-                ModelState.AddModelError("strBookTypeId ", " At least one unassgined group is Required.");
+                ModelState.AddModelError("error ", " At least one unassgined group is Required."); 
+                ViewData["UnAssignedGroupList"] = GetSelectListItem();
+                return View();            
             }
-            return View();
+            return Redirect("");
+       }
+        public List<SelectListItem> GetSelectListItem()
+        {
+            return  new List<SelectListItem>()
+                {
+                new SelectListItem(){Text="null",Value=""},
+                new SelectListItem(){Text="one",Value="001"},
+                new SelectListItem(){Text="two",Value="002",Selected=true}
+                 };
         }
-
         public ActionResult Index0110()
         {
+            
+            ViewData["UnAssignedGroupList"] = GetSelectListItem(); 
+            //ViewData["nameList"] = list;
+
             //At least one unassgined group is Required.
             ViewBag.Message = "Your contact page.";
-            var model = db.BookMasters.Where(u => u.Id == 1).FirstOrDefault();
-            return View(model);
+            //var model = db.BookMasters.Where(u => u.Id == 1).FirstOrDefault();
+            return View(new BookMaster());
         }
     }
 }

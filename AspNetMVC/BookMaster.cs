@@ -22,7 +22,7 @@ namespace AspNetMVC
         }
     
         public int Id { get; set; }
-        [Required(ErrorMessage = " At least one unassgined group is Required.")]
+        [Required(ErrorMessage = "Required At least one unassgined group is Required.")]
         public string strBookTypeId { get; set; }
         public string strAccessionId { get; set; }
     

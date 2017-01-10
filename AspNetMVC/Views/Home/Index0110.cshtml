@@ -22,8 +22,17 @@
 @model BookMaster
 @using (Html.BeginForm()) {
 @Html.ValidationSummary()
-@Html.ListBox("strAccessionId", new List<SelectListItem>(new SelectList(Model.Publishers, "PublisherId", "PublisherName")))
-        //("UnAssignedGroupList", "Company name is required.");
-        //@Html.ValidationMessage("strAccessionId");
-        <input type="submit" value="click" />
- }
+    @Html.ListBox("UnAssignedGroupList" );
+    @Html.ValidationMessage("UnAssignedGroupList");
+@*@Html.ListBox("strAccessionId", (IEnumerable<SelectListItem>)ViewData["nameList"]  );*@
+    @*@Html.TextBoxFor(u=>u.strAccessionId)*@
+
+    @Html.EditorFor(model => model.strAccessionId)
+    @Html.ValidationMessageFor(model => model.strAccessionId, "", new { @class = "text-danger" });
+    <input type="submit" value="click" />
+}
+
+@*@Html.LabelFor(u=>u.)*@
+
+@*//("UnAssignedGroupList", "Company name is required.");*@
+@*@Html.ListBox("strAccessionId", new List<SelectListItem>(new SelectList(Model.Publishers, "PublisherId", "PublisherName")))*@
