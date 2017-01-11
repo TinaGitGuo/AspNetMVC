@@ -1,0 +1,22 @@
+﻿@model IEnumerable<AspNetMVC.BookMaster>
+@{
+    ViewBag.Title = "Index";
+}
+<h2>Index</h2>
+<table class="table">
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                Home value:   @Html.DisplayFor(modelItem => item.strBookTypeId)
+            </td>
+            <td>
+                Home value:   @Html.DisplayFor(modelItem => item.strAccessionId)
+            </td>
+            <td> @Html.Action("_PartialView", new { strBookTypeId = item.strBookTypeId })</td>
+            <td> @Html.Partial("_PartialView1", Model)</td>
+            <td>    </td>
+        </tr>
+    }
+</table>

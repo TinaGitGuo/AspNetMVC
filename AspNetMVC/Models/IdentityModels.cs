@@ -29,5 +29,7 @@ namespace AspNetMVC.Models
         {
             return new ApplicationDbContext();
         }
+
+        public System.Data.Entity.DbSet<AspNetMVC.BookMaster> BookMasters { get; set; }
     }
 }

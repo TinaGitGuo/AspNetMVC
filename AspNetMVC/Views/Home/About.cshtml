@@ -87,25 +87,24 @@
 
                     response($.map(data, function (item) {
                         //alert(item);
-                                data = {
-                                    label: item,
-                                    value: item
+                                 
+                        return { label: item, value: item }
 
-                                }
-                                return true;
 
                             }))
 
                     //    }
                     //})
-                },
-                messages: {
-                    noResults: "", results: ""
                 }
+                //,
+                //messages: {
+                //    noResults: "", results: ""
+                //}
             });
         })
         $("#btntxt").click(function () {
             var a = $("#txtCustomer").val();
+            alert(a);
             //debugger;
             //$.ajax({
             //    url: "/Customer/abc",

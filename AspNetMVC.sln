@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeFirst", "CodeFirst\Code
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "identy", "identy\identy.csproj", "{4B3102E0-9030-41CE-80F2-1861AC686C5C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApplicationForm", "WebApplicationForm\WebApplicationForm.csproj", "{B1F02A67-12D8-4AD3-A85D-82EB9A53D4B0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{4B3102E0-9030-41CE-80F2-1861AC686C5C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4B3102E0-9030-41CE-80F2-1861AC686C5C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4B3102E0-9030-41CE-80F2-1861AC686C5C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B1F02A67-12D8-4AD3-A85D-82EB9A53D4B0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B1F02A67-12D8-4AD3-A85D-82EB9A53D4B0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B1F02A67-12D8-4AD3-A85D-82EB9A53D4B0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B1F02A67-12D8-4AD3-A85D-82EB9A53D4B0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

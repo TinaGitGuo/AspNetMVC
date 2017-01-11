@@ -1,0 +1,15 @@
+﻿@model IEnumerable<AspNetMVC.BookMaster>
+
+<table class="table">
+ 
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            _PartialView2 : @Html.DisplayFor(modelItem => item.strBookTypeId)
+        </td>
+        <td>
+            _PartialView2: @Html.DisplayFor(modelItem => item.strAccessionId)
+        </td>
+    </tr>
+}
+</table>
