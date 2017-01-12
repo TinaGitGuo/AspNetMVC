@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <entry>
+        <id>http://arxiv.org/abs/1609.09166v2</id>
+        <updated>2017-01-10T19:29:23Z</updated>
+        <published>2016-09-29T01:36:42Z</published>
+        <title>Quantum simulation of driven para-Bose oscillators</title>
+        <summary>
+            Quantum mechanics allows paraparticles with mixed Bose-Fermi statistics that
+            have not been experimentally confirmed. We propose a trapped-ion scheme whose
+            effective dynamics are equivalent to a driven para-Bose oscillator of even
+            order. Our mapping suggest highly entangled vibrational and internal ion states
+            as the laboratory equivalent of quantum simulated parabosons. Furthermore, we
+            show the generation and reconstruction of coherent oscillations and para-Bose
+            analogs of Gilmore-Perelomov coherent states from population inversion
+            measurements in the laboratory frame. Our proposal, apart from demonstrating an
+            analog quantum simulator of para-Bose oscillators, provides a quantum state
+            engineering tool that foreshadows the potential use of paraparticle dynamics in
+            the design of quantum information systems.
+        </summary>
+        <author>
+            <name>C. Huerta Alderete</name>
+        </author>
+        <author>
+            <name>B. M. Rodríguez-Lara</name>
+        </author>
+    </entry>
+    <entry>
+        <id>http://arxiv.org/abs/1701.02683v1</id>
+        <updated>2017-01-10T16:52:17Z</updated>
+        <published>2017-01-10T16:52:17Z</published>
+        <title>Recovering the ideal results of a perturbed analog quantum simulator</title>
+        <summary>
+            Well controlled quantum systems can potentially be used as quantum
+            simulators. However a quantum simulator is inevitably perturbed by coupling to
+            additional degrees of freedom. This constitutes a major roadblock to useful
+            quantum simulations. So far there are only limited means to understand the
+            effect of perturbation on the results of quantum simulation. Here, we present a
+            method, which in certain circumstances, allows for the reconstruction of the
+            ideal result from measurements on a perturbed quantum simulator. We consider
+            extracting the value of correlator $\langle\hat{O}^i(t) \hat{O}^j(0)\rangle$
+            from the simulated system, where $\hat{O}^i$ are the operators which couple the
+            system to its environment. The ideal correlator can be straightforwardly
+            reconstructed by using statistical knowledge of the environment, if any
+            $n$-time correlator of operators $\hat{O}^i$ of the ideal system can be written
+            as products of two-time correlators. We give an approach to verify the validity
+            of this assumption experimentally by additional measurements on the perturbed
+            quantum simulator. The proposed method can allow for reliable quantum
+            simulations with systems subjected to environmental noise without adding an
+            overhead to the quantum system.
+        </summary>
+        <author>
+            <name>Iris Schwenk</name>
+        </author>
+        <author>
+            <name>Jan-Michael Reiner</name>
+        </author>
+        <author>
+            <name>Sebastian Zanker</name>
+        </author>
+        <author>
+            <name>Lin Tian</name>
+        </author>
+        <author>
+            <name>Juha Leppäkangas</name>
+        </author>
+        <author>
+            <name>Michael Marthaler</name>
+        </author>
+      
+    </entry>  
+</feed>

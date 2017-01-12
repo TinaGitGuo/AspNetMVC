@@ -265,6 +265,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="HtmlPage1.xml" />
     <Content Include="Model1.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>Model1.edmx</DependentUpon>
@@ -350,6 +351,10 @@
     <Content Include="Views\Common\Details.cshtml" />
     <Content Include="Views\Common\Edit.cshtml" />
     <Content Include="Views\Common\Index.cshtml" />
+    <Content Include="Views\MVC0112\Index3.cshtml" />
+    <None Include="Views\XMLSchema1.xsd">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -15,6 +15,9 @@ using System.Net.Http;
 using System.Net.Mail;
 using System.Web.Mail;
 using System.Threading.Tasks;
+using System.Xml;
+using System.Xml.Linq;
+using System.Xml.XPath;
 
 namespace AspNetMVC.Controllers
 {
@@ -87,19 +90,51 @@ namespace AspNetMVC.Controllers
             NewsModels objNews = new NewsModels() { entryList=new List<ArticleDetails>() { new ArticleDetails() { id="2" } } };
             using (var client = new HttpClient())
             {
-                
+
                 string url = string.Format("http://export.arxiv.org/api/query?search_query=ti:{0}&sortBy=lastUpdatedDate&sortOrder=descending", Server.UrlEncode("\"quantum simulator\""));
                 var uri = new Uri(url);
-               
-               string getxml=await client.GetStringAsync(uri);
-                var deserializer = new System.Xml.Serialization.XmlSerializer(typeof(ArticleDetails));
-                 var xmlReader = System.Xml.XmlReader.Create(uri.ToString());
+
+                //string getxml = await client.GetStringAsync(uri);
+                //var deserializer = new System.Xml.Serialization.XmlSerializer(typeof(ArticleDetails));
+                 //var xmlReader = System.Xml.XmlReader.Create(uri.ToString());
                 //var xmlReader = System.Xml.XmlReader.Create(getxml);
-               
-                var obj = (ArticleDetails)deserializer.Deserialize(ForBytes.GetStreamFromBytes( ForBytes.GetByteFromString( getxml)));
+                 XmlDocument xmlDoc = new XmlDocument();
+                //ForBytes.GetStreamFromBytes(ForBytes.GetByteFromString(getxml));
+                //xmlDoc.LoadXml(getxml);
+                //doc.Load(@"C:\Users\Administrator\Source\Repos\AspNetMVC\AspNetMVC\HtmlPage1.xml");
+                ////string str  = doc.ChildNodes.Item(1).OuterXml;
+                //XmlDocument xmlDoc = new XmlDocument();
+                // XmlReaderSettings settings = new XmlReaderSettings();
+                // settings.IgnoreComments = true;//忽略文档里面的注释
+                //XmlReader reader = XmlReader.Create(@"C:\Users\Administrator\Source\Repos\AspNetMVC\AspNetMVC\HtmlPage1.xml", settings);
+                XmlReader reader = XmlReader.Create(uri.ToString());
+                xmlDoc.Load(reader);
+                XmlNamespaceManager nsmgr = new XmlNamespaceManager(xmlDoc.NameTable);
+                nsmgr.AddNamespace("bk", "http://www.w3.org/2005/Atom");
+
+                // Select the first book written by an author whose last name is Atwood.
+                XmlNodeList book;
+                XmlElement root = xmlDoc.DocumentElement;
+                book = root.SelectNodes("descendant::bk:entry", nsmgr);
 
 
-                return  View("Index", obj);
+                //XmlElement xefeed = (XmlElement)xmlDoc.ChildNodes.Item(1);
+                foreach (XmlNode node in book) {
+                    XmlElement xe = (XmlElement)node;
+                    XmlNodeList xn10 = xe.ChildNodes;
+                    string id = xn10.Item(0).InnerText;// <id>http://arxiv.org/abs/1701.02683v1</id>
+                }   
+                //string str = XDocument.Load(getxml)
+                //.XPathSelectElements("/feed/entry").ToList().ToString();
+                //doc.LoadXml(str);
+
+                           //.ToList();
+                //XmlNode  root = .SelectSingleNode("feed/link") ;
+                //var obj2 = (ArticleDetails)deserializer.Deserialize(ForBytes.GetStreamFromBytes(ForBytes.GetByteFromString(str)));
+                //var obj = (ArticleDetails)deserializer.Deserialize(ForBytes.GetStreamFromBytes(ForBytes.GetByteFromString(str)));
+
+
+                return  View("Index" );
             }
         }
         // GET: MVC0112/Details/5
