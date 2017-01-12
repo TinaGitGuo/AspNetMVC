@@ -29,7 +29,7 @@ namespace AspNetMVC.Controllers
         }
         // GET: Reports/ClientInvestmentsSince
         public ActionResult ClientInvestmentsSince()
-            {
+            { 
               
                 ViewData["client"] = GetSelectListItem(); ;
 

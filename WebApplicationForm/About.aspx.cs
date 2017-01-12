@@ -65,7 +65,7 @@ namespace WebApplicationForm
             }
             else
             {
-                data = new List<Product>();
+                //data = new List<Product>();
                 
             }
             GridView1.DataSource = data;
