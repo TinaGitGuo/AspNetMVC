@@ -123,22 +123,35 @@ namespace AspNetMVC.Controllers
                     XmlElement xe = (XmlElement)node;
                     XmlNodeList xn10 = xe.ChildNodes;
                     string id = xn10.Item(0).InnerText;// <id>http://arxiv.org/abs/1701.02683v1</id>
-                }   
+                }
                 //string str = XDocument.Load(getxml)
                 //.XPathSelectElements("/feed/entry").ToList().ToString();
                 //doc.LoadXml(str);
 
-                           //.ToList();
+                //.ToList();
                 //XmlNode  root = .SelectSingleNode("feed/link") ;
                 //var obj2 = (ArticleDetails)deserializer.Deserialize(ForBytes.GetStreamFromBytes(ForBytes.GetByteFromString(str)));
                 //var obj = (ArticleDetails)deserializer.Deserialize(ForBytes.GetStreamFromBytes(ForBytes.GetByteFromString(str)));
-
+                Conexion conexion = new Conexion();
+                //conexion conexion.AbreConexion();
+                bool bo=true;
+               //if( conn.State == ConnectionState.Closed)
+               // {
+               //     Console.Write("close");
+               //     // or bo = false;
+               // }
 
                 return  View("Index" );
             }
         }
+        public class Conexion
+        {
+            public void AbreConexion()
+            {
+            }
+        }
         // GET: MVC0112/Details/5
-        public ActionResult Details(int? id)
+            public ActionResult Details(int? id)
         {
             //IfxConnection
             //         IfxConnection(myConnectionString)

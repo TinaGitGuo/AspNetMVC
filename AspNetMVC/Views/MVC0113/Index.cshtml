@@ -1,0 +1,83 @@
+﻿@model IEnumerable<AspNetMVC.BookMaster>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.strBookTypeId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.strAccessionId)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.strBookTypeId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.strAccessionId)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+        </td>
+    </tr>
+}
+
+</table>
+<select id="chartkey">
+    <option value="1">category1</option>
+    <option value="2">category2</option>
+</select>
+<select id="chartType">
+    <option value="Bar">Bar</option>
+    <option value="Pie">Pie</option>
+    <option value="Line">Line</option>
+</select>
+<div id="onediv">
+   @Html.Partial("_GetChartImage")
+       @*<img src="@Url.Action("CreatePieChart")" alt="chart" />*@
+</div>
+
+<script src="~/Content/jquery-ui-1.12.1.custom/external/jquery/jquery.js"></script>
+<script>
+    $(function () {
+        var mySite = {
+            actions: {
+                userDetails: '@Url.Action("_GetChartImage","MVC0113")'
+            }
+        }
+        $("#chartkey,#chartType").change(function () {
+            $("#onediv").load(mySite.actions.userDetails + "?chartkey=" + $("#chartkey").val() + "&chartType=" + $("#chartType").val());
+            //$.ajax({
+            //    type: 'Post',
+            //    url: '/MVC0113/_GetChartImage',
+            //    dataType: 'json',     
+            //    data:  {
+            //        chartkey: $("#chartkey").val(),
+            //        chartType: $("#chartType").val()
+            //    },
+            //    contentType:"application/json"
+            //    , success: function (data) {
+            //        $('#onediv').html=data;
+            //    }
+            //    , error: function (a,b,c) {
+            //        alert(a + b + c);
+            //    }
+            //})
+        });
+    });
+   
+</script>
