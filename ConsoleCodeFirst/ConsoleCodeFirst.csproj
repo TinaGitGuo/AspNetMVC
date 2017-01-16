@@ -4,15 +4,17 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{F70447C7-7F63-44B2-8434-4299DB3F6541}</ProjectGuid>
-    <OutputType>Library</OutputType>
+    <ProjectGuid>{048C27F1-364B-42C3-8E5F-69EF6C14D82C}</ProjectGuid>
+    <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>CodeFirst</RootNamespace>
-    <AssemblyName>CodeFirst</AssemblyName>
+    <RootNamespace>ConsoleCodeFirst</RootNamespace>
+    <AssemblyName>ConsoleCodeFirst</AssemblyName>
     <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -22,6 +24,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -49,25 +52,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ApplicationDbContext.cs" />
+    <Compile Include="ApplicatioDbContext.cs" />
     <Compile Include="Contact1.cs" />
-    <Compile Include="Contact2.cs" />
+    <Compile Include="Contact4.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\AspNetMVC\AspNetMVC.csproj">
-      <Project>{98634383-CAB3-47F3-B90A-797D2044A407}</Project>
-      <Name>AspNetMVC</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\identy\identy.csproj">
-      <Project>{4B3102E0-9030-41CE-80F2-1861AC686C5C}</Project>
-      <Name>identy</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\WebApplicationForm\WebApplicationForm.csproj">
-      <Project>{B1F02A67-12D8-4AD3-A85D-82EB9A53D4B0}</Project>
-      <Name>WebApplicationForm</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
