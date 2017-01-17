@@ -211,6 +211,7 @@
     <Compile Include="Controllers\MVC0112Controller.cs" />
     <Compile Include="Controllers\MVC0113Controller.cs" />
     <Compile Include="Controllers\MVC0116Controller.cs" />
+    <Compile Include="Controllers\MVC0117Controller.cs" />
     <Compile Include="Controllers\PartalController.cs" />
     <Compile Include="C__MigrationHistory.cs">
       <DependentUpon>Model1.tt</DependentUpon>
@@ -246,6 +247,7 @@
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\bootstrap.min.js" />
     <Content Include="Content\jquery-ui-1.12.1.custom\AUTHORS.txt" />
     <Content Include="Content\jquery-ui-1.12.1.custom\external\jquery\jquery.js" />
     <Content Include="Content\jquery-ui-1.12.1.custom\images\ui-icons_444444_256x240.png" />
@@ -264,6 +266,8 @@
     <Content Include="Content\jquery-ui-1.12.1.custom\jquery-ui.theme.css" />
     <Content Include="Content\jquery-ui-1.12.1.custom\jquery-ui.theme.min.css" />
     <Content Include="Content\jquery-ui-1.12.1.custom\LICENSE.txt" />
+    <Content Include="Content\jquery.dataTables.css" />
+    <Content Include="Content\jquery.dataTables.js" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -366,6 +370,9 @@
     <Content Include="Views\MVC0116\Details.cshtml" />
     <Content Include="Views\MVC0116\Edit.cshtml" />
     <Content Include="Views\MVC0116\Index.cshtml" />
+    <Content Include="Views\MVC0117\Index.cshtml" />
+    <Content Include="Views\MVC0117\Index2.cshtml" />
+    <Content Include="Views\MVC0117\Index3.cshtml" />
     <None Include="Views\XMLSchema1.xsd">
       <SubType>Designer</SubType>
     </None>

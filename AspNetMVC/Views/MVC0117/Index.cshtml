@@ -1,0 +1,116 @@
+﻿@model IEnumerable<AspNetMVC.BookMaster>
+
+@{
+    ViewBag.Title = "Index";
+    var grid = new WebGrid(source: Model);
+}<h2>Index</h2>
+<div id="deploymentsGrid">
+    Total: grid.TotalRowCount
+    @grid.GetHtml(columns: grid.Columns(
+
+                                        grid.Column("strBookTypeId", header: "StrBookeType ID"),
+                                        grid.Column("", header: "Edit", format: (item) => @Ajax.BeginForm("Edit", "Edit",
+                                            new { @id = item.strBookTypeId },
+
+                                            new AjaxOptions()
+                                            {
+                                                Confirm = "Do you want to delete it?",
+                                                HttpMethod = "Get",
+                                                OnSuccess = "updateGrid()",
+
+                                            }
+                                            )
+                                        ),
+                                        grid.Column("", header: "Detail", format: (item) => Ajax.ActionLink("Detail", "Detal",
+                                                    new AjaxOptions()
+                                                    {
+                                                        OnSuccess = "ToDisplay()"
+                                                    })
+                                                     
+                                         )
+
+                              )
+          )
+    <script>
+        @{bool abool = false;};
+        function updateGrid() {
+            @*@grid.Bind(Model)*@
+        }
+        function ToDisplay()
+        {
+            @abool=true;
+        }
+
+    </script>
+</div>
+
+@{if (grid.HasSelection&&abool)
+    {
+        var bookMaster = (AspNetMVC.BookMaster)grid.Rows[grid.SelectedIndex].Value;
+        <b>Id</b> @bookMaster.Id<br />
+        abool = false;
+    }  }
+
+@*@grid.GetContainerUpdateScript *@
+@*@{
+        //string url = @Html.ActionLink("Index", "Index","MVC0117").ToString();
+        string javascriptReloard = @grid.GetContainerUpdateScript("/MVC0117/Index").ToString();}
+    @Html.Raw(javascriptReloard);*@
+@*grid.Column("Detail", format: @<text>
+    @Html.ActionLink("Select", "Submit",
+                new { QtId = item.QtId }),*@
+
+
+@*grid.Column("Comments", header: "Comments"),
+    grid.Column("", header: "Done", format: (item) => (string.IsNullOrWhiteSpace(item.ExecutedBy)) ? 
+    @Ajax.ActionLink("Done", "Done", new { id = item.DeploymentID },*@
+@*new AjaxOptions()
+    {
+        Confirm = "Did you check your work?",
+        HttpMethod = "Get",
+        OnSuccess = "updateGrid()"
+    }) :*@
+@*Html.Raw("<a href ='" + item.Environment1.WebsiteURL + "'  target='_new'>
+                                           View</a>"))
+                                           )
+
+    </text>),*@
+@*@if (grid.HasSelection)
+    {
+        product = (InventoryManagement.Models.Product)grid.Rows[grid.SelectedIndex].Value;
+        <b>Id</b> @product.Id<br />
+        <b>Name</b>  @product.Name<br />
+        <b>Description</b> @product.Description<br />
+        <b>Quantity</b> @product.Quantity<br />
+    }*@
+@*<p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.strBookTypeId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.strAccessionId)
+            </th>
+            <th></th>
+        </tr>
+
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.strBookTypeId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.strAccessionId)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+                @Html.ActionLink("Details", "Details", new { id=item.Id }) |
+                @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+            </td>
+        </tr>
+    }
+
+    </table>*@

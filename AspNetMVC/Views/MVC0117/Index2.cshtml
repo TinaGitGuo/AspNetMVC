@@ -1,0 +1,28 @@
+﻿
+@{
+    ViewBag.Title = "Index2";
+}
+
+ 
+<input type="hidden" name="hdn_1" value="2,true" disabled="disabled" />
+<input type="hidden" name="hdn_2" value="3,false"  disabled="disabled"  />
+<button   >click me</button>   
+<script src="~/Content/jquery-ui-1.12.1.custom/external/jquery/jquery.js"></script>
+<script>
+    $(function () {
+       
+        $("button").click(function () {
+
+            alert("1");
+     
+            alert($("[name='hdn_1']").attr("disabled"));
+            alert($("[name='hdn_2']").attr("disabled"));
+        })
+       
+    })
+</script>
+@using (Html.BeginForm()) {
+    <input type="hidden" name="hdn_1" value="2"  disabled="disabled"/>
+    <input type="hidden" name="hdn_2" value="3"    />
+    <input type="submit"  value="submit"/>
+  }

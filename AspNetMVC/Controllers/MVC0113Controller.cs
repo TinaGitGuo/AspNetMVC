@@ -11,6 +11,7 @@ using System.Web.Helpers;
 using System.Web.UI.DataVisualization.Charting;
 using System.Drawing;
 using System.IO;
+using System.Collections;
 //using System.Web.Helpers;
 
 namespace AspNetMVC.Controllers
@@ -40,12 +41,21 @@ namespace AspNetMVC.Controllers
         }     
         public ActionResult CreatePieChart(string chartkey, string chartType)
         {
+            //var chart = new Chart(width: 500, height: 200)
+            //    .AddTitle("GDP Current Prices in Billion($)")
+            //    .AddLegend()
+            //    .AddSeries(
+            //    chartType: "Pie",
+            //    xValue: xValue,
+            //    yValues: yValue)
+            //    .GetBytes("png");
+            List<string> xValue = new List<string>();
+            List<string> yValue = new List<string>();
+            xValue.Add("17968");
+            xValue.Add( "11385");
+            yValue.Add("USA");
+            yValue.Add("China");
 
-            //string[] h =
-            //    db.BookMasters..strBookTypeId
-            //if (id == "0")
-            //{
-            //}
             var chart = new System.Web.UI.DataVisualization.Charting.Chart();
             var statusNumbers = new List<StatusNumber>
  {
@@ -57,40 +67,37 @@ namespace AspNetMVC.Controllers
  new StatusNumber{Number="2423", Status="France"},
  new StatusNumber{Number="2183", Status="India"},
  };
+            chart.Width = 500;
 
+            chart.Height = 200;
 
+            //chart.BackColor = Color.FromArgb(211, 223, 240);
 
-            chart.Width = 350;
+            //chart.BorderlineDashStyle = ChartDashStyle.Solid;
 
-            chart.Height = 400;
+            //chart.BackSecondaryColor = Color.White;
 
-            chart.BackColor = Color.FromArgb(211, 223, 240);
+            //chart.BackGradientStyle = GradientStyle.TopBottom;
 
-            chart.BorderlineDashStyle = ChartDashStyle.Solid;
+            //chart.BorderlineWidth = 1;
 
-            chart.BackSecondaryColor = Color.White;
+            //chart.Palette = ChartColorPalette.BrightPastel;
 
-            chart.BackGradientStyle = GradientStyle.TopBottom;
+            //chart.BorderlineColor = Color.FromArgb(26, 59, 105);
 
-            chart.BorderlineWidth = 1;
+            //chart.RenderType = RenderType.BinaryStreaming;
 
-            chart.Palette = ChartColorPalette.BrightPastel;
+            //chart.BorderSkin.SkinStyle = BorderSkinStyle.Emboss;
 
-            chart.BorderlineColor = Color.FromArgb(26, 59, 105);
+            //chart.AntiAliasing = AntiAliasingStyles.All;
 
-            chart.RenderType = RenderType.BinaryStreaming;
-
-            chart.BorderSkin.SkinStyle = BorderSkinStyle.Emboss;
-
-            chart.AntiAliasing = AntiAliasingStyles.All;
-
-            chart.TextAntiAliasingQuality = TextAntiAliasingQuality.Normal;
+            //chart.TextAntiAliasingQuality = TextAntiAliasingQuality.Normal;
 
             chart.Titles.Add(CreateTitle());
 
-            chart.Legends.Add(CreateLegend());
-
-            chart.Series.Add(CreateSeries(SeriesChartType.Bar, statusNumbers));
+            //chart.Legends.Add(CreateLegend());
+            chart.Series.Add(CreateSeries(SeriesChartType.Bar, xValue,  yValue ));
+            //chart.Series.Add(CreateSeries(SeriesChartType.Bar, statusNumbers));
 
             chart.ChartAreas.Add(CreateChartArea());
             //var chart = new System.Web.Helpers.Chart(width: 300, height: 200);
@@ -131,15 +138,16 @@ namespace AspNetMVC.Controllers
 
             {
 
-                Text = "GDP Current Prices in Billion($)",
+                Text = "GDP Current Prices in Billion($)"
+                //,
 
-                ShadowColor = Color.FromArgb(32, 0, 0, 0),
+                //ShadowColor = Color.FromArgb(32, 0, 0, 0),
 
-                Font = new Font("Trebuchet MS", 14F, FontStyle.Bold),
+                //Font = new Font("Trebuchet MS", 14F, FontStyle.Bold),
 
-                ShadowOffset = 3,
+                //ShadowOffset = 3,
 
-                ForeColor = Color.FromArgb(26, 59, 105)
+                //ForeColor = Color.FromArgb(26, 59, 105)
 
             };
 
@@ -149,54 +157,78 @@ namespace AspNetMVC.Controllers
             return title;
 
         }
-        public Series CreateSeries(SeriesChartType chartType, ICollection<StatusNumber> list)
+        public Series CreateSeries(SeriesChartType chartType, List<string> xValue, List<string> yValue )
         {
             var series = new Series
             {
                 Name = "GDP Current Prices in Billion($)",
-                IsValueShownAsLabel = true,//display label text value
-                Color = Color.FromArgb(198, 99, 99),
-                ChartType = chartType,
-                BorderWidth = 2
+                IsValueShownAsLabel = true//display label text value
+                //,
+                //Color = Color.FromArgb(198, 99, 99),
+                //ChartType = chartType,
+                //BorderWidth = 2
             };
-            foreach (var item in list)
+           
+            for (int i= 0;i< yValue.Count ; i++   )
             {
+
                 var point = new DataPoint
                 {
-                    AxisLabel = item.Status,
-                    YValues = new double[] { double.Parse(item.Number) }
+                    AxisLabel = yValue[i].ToString(),
+                    YValues = new double[] { double.Parse(xValue[i] .ToString())  }
                 };
                 series.Points.Add(point);
             }
             return series;
         }
+        //public Series CreateSeries(SeriesChartType chartType, ICollection<StatusNumber> list)
+        //{
+        //    var series = new Series
+        //    {
+        //        Name = "GDP Current Prices in Billion($)",
+        //        IsValueShownAsLabel = true,//display label text value
+        //        Color = Color.FromArgb(198, 99, 99),
+        //        ChartType = chartType,
+        //        BorderWidth = 2
+        //    };
+        //    foreach (var item in list)
+        //    {
+        //        var point = new DataPoint
+        //        {
+        //            AxisLabel = item.Status,
+        //            YValues = new double[] { double.Parse(item.Number) }
+        //        };
+        //        series.Points.Add(point);
+        //    }
+        //    return series;
+        //}
         public ChartArea CreateChartArea()
 
         {
 
             var chartArea = new ChartArea();
 
-            chartArea.Name = "GDP Current Prices in Billion($)";
+            //chartArea.Name = "GDP Current Prices in Billion($)";
 
-            chartArea.BackColor = Color.Transparent;
+            //chartArea.BackColor = Color.Transparent;
 
-            chartArea.AxisX.IsLabelAutoFit = false;
+            //chartArea.AxisX.IsLabelAutoFit = false;
 
-            chartArea.AxisY.IsLabelAutoFit = false;
+            //chartArea.AxisY.IsLabelAutoFit = false;
 
-            chartArea.AxisX.LabelStyle.Font = new Font("Verdana,Arial,Helvetica,sans-serif", 8F, FontStyle.Regular);
+            //chartArea.AxisX.LabelStyle.Font = new Font("Verdana,Arial,Helvetica,sans-serif", 8F, FontStyle.Regular);
 
-            chartArea.AxisY.LabelStyle.Font = new Font("Verdana,Arial,Helvetica,sans-serif", 8F, FontStyle.Regular);
+            //chartArea.AxisY.LabelStyle.Font = new Font("Verdana,Arial,Helvetica,sans-serif", 8F, FontStyle.Regular);
 
-            chartArea.AxisY.LineColor = Color.FromArgb(64, 64, 64, 64);
+            //chartArea.AxisY.LineColor = Color.FromArgb(64, 64, 64, 64);
 
-            chartArea.AxisX.LineColor = Color.FromArgb(64, 64, 64, 64);
+            //chartArea.AxisX.LineColor = Color.FromArgb(64, 64, 64, 64);
 
-            chartArea.AxisY.MajorGrid.LineColor = Color.FromArgb(64, 64, 64, 64);
+            //chartArea.AxisY.MajorGrid.LineColor = Color.FromArgb(64, 64, 64, 64);
 
-            chartArea.AxisX.MajorGrid.LineColor = Color.FromArgb(64, 64, 64, 64);
+            //chartArea.AxisX.MajorGrid.LineColor = Color.FromArgb(64, 64, 64, 64);
 
-            chartArea.AxisX.Interval = 1;
+            //chartArea.AxisX.Interval = 1;
 
 
 
@@ -204,36 +236,36 @@ namespace AspNetMVC.Controllers
             return chartArea;
 
         }
-        
-        public Legend CreateLegend()
 
-        {
+        //public Legend CreateLegend()
 
-            var legend = new Legend
+        //{
 
-            {
+        //    var legend = new Legend
 
-                Name = "GDP Current Prices in Billion($)",
+        //    {
 
-                Docking = Docking.Bottom,
+        //        Name = "GDP Current Prices in Billion($)",
 
-                Alignment = StringAlignment.Center,
+        //        Docking = Docking.Bottom,
 
-                BackColor = Color.Transparent,
+        //        Alignment = StringAlignment.Center,
 
-                Font = new Font(new FontFamily("Trebuchet MS"), 9),
+        //        BackColor = Color.Transparent,
 
-                LegendStyle = LegendStyle.Row
+        //        Font = new Font(new FontFamily("Trebuchet MS"), 9),
 
-            };
+        //        LegendStyle = LegendStyle.Row
 
-
+        //    };
 
 
-            return legend;
-        }
+
+
+        //    return legend;
+        //}
         #region orengin
-            // GET: MVC0113/Details/5
+        // GET: MVC0113/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
