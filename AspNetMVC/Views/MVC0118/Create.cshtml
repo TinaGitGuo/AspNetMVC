@@ -1,0 +1,76 @@
+﻿@model AspNetMVC.BookMaster
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create</h2>
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>BookMaster</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.strBookTypeId, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.strBookTypeId, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.strBookTypeId, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.strAccessionId, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.strAccessionId, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.strAccessionId, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <script src="~/Content/jquery-ui-1.12.1.custom/external/jquery/jquery.js"></script>
+                <input type="button" value="Create" onclick="Add1()" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+    <script>
+        function Add1() {
+            var exp = { "strBookTypeId": "1", strAccessionId: "2" }
+            $.ajax({
+                url: "/MVC0118/Create2",
+                type: "POST",
+                data: JSON.stringify(exp),
+                dataType: "json",
+                traditional: true,
+                contentType: "application/json; charset=utf-8",
+                success: function (data) {
+                    if (data.status == "Success") {
+                        alert("Done");
+                    }
+                }
+            });
+        }
+       
+        function Add() {
+
+
+            var exp = { "strBookTypeId": "1", strAccessionId: "2" }
+            $.getJSON("/MVC0118/Create2",JSON.stringify( exp)).done(function (date) {
+                if (date != null) {
+                    alert("success");
+                }
+
+            }
+         );
+        }
+     
+</script>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

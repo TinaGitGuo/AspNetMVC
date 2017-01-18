@@ -1,0 +1,85 @@
+﻿@*@model IEnumerable<AspNetMVC.Controllers.MVC0118Controller.tblOpsUserEmpDetail>*@
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<div id="DivEditExpInformation">
+    @*@foreach (var item in Model)
+    {*@
+        <div class="">
+            <div class="row">
+                <input type="hidden"  name="userempID" value="5"/>
+                <div class="col-md-2"><label>Emp Name</label></div>
+                <div class="col-md-2"><input type="text" value="empName" id="empName" placeholder="Emp Name"  class="text" /></div>
+                <div class="col-md-2"><label>Emp Address</label></div>
+                <div class="col-md-2"><input type="text" value="empAddress" placeholder="Emp Address" id="empAddress" class="form-group" /></div>
+                <div class="col-md-2"><label>Current Designation</label></div>
+                <div class="col-md-2"><input type="text" value="currentDesignation" placeholder="currentDesignation" id="currentDesignation" class="form-group" /></div>
+                <div class="col-md-2"><label>Last Designation</label></div>
+                <div class="col-md-2"><input type="text" value="lastDesignation" placeholder="Last Designation" id="lastDesignation" class="text" /></div>
+                <div class="col-md-2"><label>annualSalary</label></div>
+                <div class="col-md-2"><input type="text" value="annualSalary" placeholder="annualSalary" id="annualSalary" class="text" /></div>
+                <div class="col-md-2"><label>joiningDate</label></div>
+                <div class="col-md-2"><input type="text" value="joiningDate" placeholder="joiningDate" id="joiningDate" class="form-group" /></div>
+                <div class="col-md-2"><label>lastDate</label></div>
+                <div class="col-md-2"><input type="text" value="lastDate" placeholder="lastDate" id="lastDate" class="form-group" /></div>
+                <div class="col-md-2"><label>joininSalary</label></div>
+                <div class="col-md-2">
+                    <input type="text" value="joininSalary" placeholder="Exp Year" id="joininSalary" class="text" />
+                </div>
+                <div class="col-md-2"><label>lastSalary</label></div>
+                <div class="col-md-2"><input type="text" value="lastSalary" placeholder="lastSalary" id="lastSalary" class="form-group" /></div>
+            </div>
+            <hr />
+        </div>
+    @*}*@
+    <button id="UpdateExpInformation" value="Update">Update</button>
+    <button id="CancelExpInformation" value="Cancel" style="float:right;">Cancel</button>
+</div>
+
+<div id="user_content"></div>
+<script src="~/Content/jquery-ui-1.12.1.custom/external/jquery/jquery.js"></script>
+<script> 
+$("#UpdateExpInformation").click(function () {
+//$("#DivViewExpInformation").show();
+var exp =
+{
+"userID": $('userID').val(),
+"userempID": $("[name='userempID']").val(),
+"empName": $('#empName').val(),
+"empAddress": $('#empAddress').val(),
+"currentDesignation": $('#currentDesignation').val(),
+"lastDesignation": $('#lastDesignation').val(),
+"annualSalary": $('#annualSalary').val(),
+"joiningDate": $('#joiningDate').val(),
+"lastDate": $('#lastDate').val(),
+"joininSalary": $('#joininSalary').val(),
+"lastSalary": $('#lastSalary').val()
+};
+   
+$('#user_content').load('/User/UserDetails',exp);
+//$.ajax({
+//    url: "/MVC0118/EditUserExpDetails",
+//type: "POST",
+//data: JSON.stringify(exp),
+//dataType: "json",
+//traditional: true,
+//contentType: "application/json; charset=utf-8",
+//success: function (data) {
+//if (data.status == "Success") {
+//alert("Done");
+////$(saveEmpDetails).closest("form").submit(); //<------------ submit form
+//                                                              } else {
+//                                                              alert("Error occurs on the Database level!");
+//                                                              }
+//                                                              },
+//                                                              error: function (data) {
+//// alert("Successfully Updated Your Exp!!!");
+//location.reload();
+//}
+//});
+
+});</script>

@@ -325,6 +325,7 @@ namespace AspNetMVC.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "Id,strBookTypeId,strAccessionId")] BookMaster bookMaster)
         {
+           var c= db.sp_getTreeById(1).ToList();
             if (ModelState.IsValid)
             {
                 db.Entry(bookMaster).State = EntityState.Modified;
