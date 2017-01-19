@@ -105,18 +105,18 @@ namespace AspNetMVC.Controllers
             //        }
             //        return RedirectToAction("ViewUserProfile");
             //    }
-            }
-            catch (DbEntityValidationException dbEx)
-            {
-                foreach (var validationErrors in dbEx.EntityValidationErrors)
-                {
-                    foreach (var validationError in validationErrors.ValidationErrors)
-                    {
-                        Trace.TraceInformation("Property: {0} Error: {1}", validationError.PropertyName, validationError.ErrorMessage);
-                    }
-                }
-            }
-            return View(exp);
+            //}
+            //catch (DbEntityValidationException dbEx)
+            //{
+            //    foreach (var validationErrors in dbEx.EntityValidationErrors)
+            //    {
+            //        foreach (var validationError in validationErrors.ValidationErrors)
+            //        {
+            //            Trace.TraceInformation("Property: {0} Error: {1}", validationError.PropertyName, validationError.ErrorMessage);
+            //        }
+            //    }
+            //}
+            //return View(exp);
         }
         // GET: MVC0118/Delete/5
         public class tblOpsUserEmpDetail

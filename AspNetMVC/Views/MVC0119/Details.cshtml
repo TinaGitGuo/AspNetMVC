@@ -1,0 +1,44 @@
+﻿
+@{
+    ViewBag.Title = "Details";
+}
+@*<html>
+<head>
+</head>
+<body>*@
+
+
+@section scripts {
+    <script src="http://static.runoob.com/assets/jquery-validation-1.14.0/lib/jquery.js"></script>
+<script src="http://static.runoob.com/assets/jquery-validation-1.14.0/dist/jquery.validate.min.js"></script>
+<script src="http://static.runoob.com/assets/jquery-validation-1.14.0/dist/localization/messages_zh.js"></script>
+<script>
+        $().ready(function () {
+            // 在键盘按下并释放及提交后验证提交表单
+            $("#signupForm").validate({
+                rules: {
+                    firstname: "required"
+                },
+                messages: {
+                    firstname: "请输入您的名字"
+                }
+            });
+        });
+</script>
+    
+    }
+    @*<script src="~/Scripts/jquery-1.10.2.js"></script>*@
+    
+   
+
+
+    <form class="cmxform" id="signupForm" method="get">
+
+        <input id="firstname" name="firstname" type="text">
+
+        <input class="submit" type="submit" value="提交">
+
+
+    </form>
+@*</body>
+</html>*@

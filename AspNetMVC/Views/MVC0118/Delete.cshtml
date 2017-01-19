@@ -12,6 +12,14 @@
     <hr />
     <dl class="dl-horizontal">
         <dt>
+            @*@foreach(BookMaster u in Model as BookMaster)
+            {
+
+            }*@
+
+            @*<input type="hidden" name="first_name" value="@Model.first_name" />*@
+            @*or 
+            @Html.HiddenFor()*@
             @Html.DisplayNameFor(model => model.strBookTypeId)
         </dt>
 
