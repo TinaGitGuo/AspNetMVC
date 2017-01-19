@@ -61,20 +61,20 @@ namespace AspNetMVC.Controllers
             //xlWorkSheet = (Microsoft.Office.Interop.Excel.Worksheet)xlWorkBook.Worksheets.get_Item(1);
 
 
-          //  Screenshot().Save(@"C:\Users\v-tiguo\Downloads\jakeydocs\cc.jpg", System.Drawing.Imaging.ImageFormat.Jpeg);
+             Screenshot().Save(@"C:\Users\v-tiguo\Downloads\jakeydocs\cc.jpg", System.Drawing.Imaging.ImageFormat.Jpeg);
             //Create a bitmap with the same dimensions like the screen
             Bitmap b = new Bitmap(@"C:\Users\v-tiguo\Downloads\jakeydocs\cc.jpg", true);
             Clipboard.SetDataObject(b);
-            //Microsoft.Office.Interop.Excel.Application thisApp   ;
-            Microsoft.Office.Interop.Excel.Application thisApp = new Microsoft.Office.Interop.Excel.Application();
+            ////Microsoft.Office.Interop.Excel.Application thisApp   ;
+            //Microsoft.Office.Interop.Excel.Application thisApp = new Microsoft.Office.Interop.Excel.Application();
 
-            //Excel.Application thisApp = 
-            Microsoft.Office.Interop.Excel.Worksheet sheet1 = thisApp.Workbooks.get_Item(1).Worksheets.get_Item(1) as Microsoft.Office.Interop.Excel.Worksheet;
-            Microsoft.Office.Interop.Excel.Range rng = sheet1.get_Range("A1:F40");
-            sheet1.Paste(rng, false);
-            thisApp.SaveAs("csharp.net-informations.xls", Microsoft.Office.Interop.Excel.XlFileFormat.xlWorkbookNormal, misValue, misValue, misValue, misValue, Excel.XlSaveAsAccessMode.xlExclusive, misValue, misValue, misValue, misValue, misValue);
-            thisApp.Close(true, misValue, misValue);
-            thisApp.Quit();
+            ////Excel.Application thisApp = 
+            //Microsoft.Office.Interop.Excel.Worksheet sheet1 = thisApp.Workbooks.get_Item(1).Worksheets.get_Item(1) as Microsoft.Office.Interop.Excel.Worksheet;
+            //Microsoft.Office.Interop.Excel.Range rng = sheet1.get_Range("A1:F40");
+            //sheet1.Paste(rng, false);
+            //thisApp.SaveAs("csharp.net-informations.xls", Microsoft.Office.Interop.Excel.XlFileFormat.xlWorkbookNormal, misValue, misValue, misValue, misValue, Excel.XlSaveAsAccessMode.xlExclusive, misValue, misValue, misValue, misValue, misValue);
+            //thisApp.Close(true, misValue, misValue);
+            //thisApp.Quit();
 
             return View();
         }
