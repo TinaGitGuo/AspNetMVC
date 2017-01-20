@@ -1,0 +1,22 @@
+﻿
+@{
+    ViewBag.Title = "Index5";
+}
+
+<h2>Index5</h2>
+@using (Html.BeginForm())
+{
+    <input type="checkbox" id="ChkPolice" name="ChkPolice" checked="checked" />
+    <input type="checkbox" id="ChkPolice" name="ChkPolice" checked="on" />    <span> Police</span>
+    <input type = "checkbox" id = "ChkCOC" name= "ChkCOC" selected="true" />    <span>COC</span>
+        <input type="checkbox" name="ChkVM" value="@Request["chkVM"]" /><span> VM</span>
+<input type="checkbox" name="ChkPhysical" checked="@Request["ChkPhysical"]"/><span> Physical </span >
+ 
+<br>
+
+
+<input type = "text" id = "HostName" name = "HostName" value = "@Request["HostName"]" />    <br>
+
+
+<input type = "submit" value = "Search" />
+ }

@@ -1,0 +1,117 @@
+﻿
+@model IEnumerable<AspNetMVC.BookMaster>
+
+@{
+    ViewBag.Title = "Index";
+    var grid = new WebGrid(source: Model);
+}<h2>Index</h2>
+ 
+    Total: grid.TotalRowCount
+    @grid.GetHtml(
+
+    tableStyle: "webGrid",
+        headerStyle: "header",
+        selectedRowStyle: "select"
+          //,
+          //columns: grid.Columns(
+
+          //                                    grid.Column("strBookTypeId", header: "StrBookeType ID"),
+          //                                    grid.Column("", header: "Edit", format: (item) => @Ajax.BeginForm("Edit", "Edit",
+          //                                        new { @id = item.strBookTypeId },
+
+          //                                        new AjaxOptions()
+          //                                        {
+          //                                            Confirm = "Do you want to delete it?",
+          //                                            HttpMethod = "Get",
+          //                                            OnSuccess = "updateGrid()",
+
+          //                                        }
+          //                                        )
+          //                                    ),
+          //                                    grid.Column("", header: "Detail", format: (item) => Ajax.ActionLink("Detail", "Detal",
+          //                                                new AjaxOptions()
+          //                                                {
+          //                                                    OnSuccess = "ToDisplay()"
+          //                                                })
+
+          //                                     )
+
+          //                          )
+          )
+    @section csss{
+        <style type="text/css">
+            .webGrid {
+                border: 2px;
+                margin: 4px;
+                border-collapse: collapse;
+                width: 98%;
+                background-color: #FCFCFC;
+                border-top: 1px solid #D6E8FF;
+                border-left: 1px solid #D6E8FF;
+                border-right: 1px solid #D6E8FF;
+                color: #000000;
+                font-family: Verdana;
+                text-align: center;
+            }
+
+            .header {
+                background-color: #C1D4E6;
+                font-weight: bold;
+                color: #FFF;
+            }
+
+            .webGrid th, .webGrid td {
+                border: 1px solid #C0C0C0;
+                padding: 5px;
+                border-collapse: separate;
+                text-align: center;
+            }
+
+            .webGrid-row-style {
+                text-align: center;
+            }
+
+            .alt {
+                background-color: #E4E9F5;
+                color: #000;
+            }
+
+            .gridHead a:hover {
+                text-decoration: underline;
+            }
+
+            .description {
+                width: auto;
+            }
+
+            .select {
+                background-color: #389DF5;
+            }
+
+            .clickable {
+                cursor: pointer;
+                background: #ffff99;
+            }
+        </style>
+    }
+
+
+    @*@hElectricGrid.GetHtml(
+        tableStyle: "webgrid",
+        headerStyle: "header",
+        selectedRowStyle: "select",
+        columns: hElectricGrid.Columns(
+            hElectricGrid.Column(
+                columnName: "ItemID",
+                header: "Humber Electronic Items",
+                canSort: true,
+                format: item => Html.ActionLink(
+                    ((int)item.ItemID).ToString(),
+                    "Humber Electronic Items", "Details",
+                    new { id = item.ItemID }, null)),
+                    hElectricGrid.Column("ItemName", "Item Name"),
+                    hElectricGrid.Column("ItemSerialNumber", "Item Serial Number"),
+                    hElectricGrid.Column("PurchaseDate", "Purchase Date"),
+                    hElectricGrid.Column("Price", "Price"),
+                    hElectricGrid.Column("StorePurchase", "Store Purchased")
+                    ))*@

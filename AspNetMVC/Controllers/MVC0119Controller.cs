@@ -6,7 +6,9 @@ using System.Web;
 using System.Windows.Forms;
 using System.Web.Mvc;
 
-using Microsoft.Office.Interop ;
+using Microsoft.Office.Interop;
+using Microsoft.Office.Interop.Excel;
+
 namespace AspNetMVC.Controllers
 {
     public class MVC0119Controller : Controller
@@ -61,10 +63,10 @@ namespace AspNetMVC.Controllers
             //xlWorkSheet = (Microsoft.Office.Interop.Excel.Worksheet)xlWorkBook.Worksheets.get_Item(1);
 
 
-             Screenshot().Save(@"C:\Users\v-tiguo\Downloads\jakeydocs\cc.jpg", System.Drawing.Imaging.ImageFormat.Jpeg);
+          //  Screenshot().Save(@"C:\Users\v-tiguo\Downloads\jakeydocs\cc.jpg", System.Drawing.Imaging.ImageFormat.Jpeg);
             //Create a bitmap with the same dimensions like the screen
             Bitmap b = new Bitmap(@"C:\Users\v-tiguo\Downloads\jakeydocs\cc.jpg", true);
-            Clipboard.SetDataObject(b);
+            //Clipboard.SetDataObject(b);
             ////Microsoft.Office.Interop.Excel.Application thisApp   ;
             //Microsoft.Office.Interop.Excel.Application thisApp = new Microsoft.Office.Interop.Excel.Application();
 
@@ -72,9 +74,52 @@ namespace AspNetMVC.Controllers
             //Microsoft.Office.Interop.Excel.Worksheet sheet1 = thisApp.Workbooks.get_Item(1).Worksheets.get_Item(1) as Microsoft.Office.Interop.Excel.Worksheet;
             //Microsoft.Office.Interop.Excel.Range rng = sheet1.get_Range("A1:F40");
             //sheet1.Paste(rng, false);
-            //thisApp.SaveAs("csharp.net-informations.xls", Microsoft.Office.Interop.Excel.XlFileFormat.xlWorkbookNormal, misValue, misValue, misValue, misValue, Excel.XlSaveAsAccessMode.xlExclusive, misValue, misValue, misValue, misValue, misValue);
+            //thisApp.GetSaveAsFilename("csharp.net-informations.xls", Microsoft.Office.Interop.Excel.XlFileFormat.xlWorkbookNormal, misValue, misValue, misValue, misValue, Microsoft.Office.Interop.Excel.XlSaveAsAccessMode.xlExclusive, misValue, misValue, misValue, misValue, misValue);
             //thisApp.Close(true, misValue, misValue);
             //thisApp.Quit();
+            //string sFileImage = @"C:\Users\Administrator\Pictures\images\101.jpg";
+            //String sFilePath = @"C:\Users\Administrator\Pictures\images\101" + ".xls";
+            //if (File.Exists(sFilePath)) { File.Delete(sFilePath); }
+
+            ApplicationClass objApp = new ApplicationClass();
+            Worksheet objSheet = new Worksheet();
+            Workbook objWorkBook = null;
+            //object missing = System.Reflection.Missing.Value;
+
+
+            //using (XLWorkbook wb = new XLWorkbook())
+            //{ //here
+            //    wb.Worksheets.Add(dt, "Error Measurements");
+            //    wb.Worksheets.Add(dt2, "Regression Forecast");
+            //    wb.Worksheets.Add(dt3, "Regression Equation");
+            //    wb.Worksheets.Add(headerTable, "Regression Graph");
+
+            //}
+
+            
+
+                try
+                {
+                objWorkBook = objApp.Workbooks.Add(Type.Missing);
+                objSheet = (Worksheet)objWorkBook.ActiveSheet;
+
+                //Add picture to single sheet1 
+                objSheet = (Worksheet)objWorkBook.Sheets[2];
+                objSheet.Name = "Graph with Report";
+                objSheet.Shapes.AddPicture(@"C:\Users\v-tiguo\Downloads\jakeydocs\cc.jpg", Microsoft.Office.Core.MsoTriState.msoFalse, Microsoft.Office.Core.MsoTriState.msoCTrue, 10, 10, 700, 350);
+                objWorkBook.SaveAs(@"C:\Users\v-tiguo\Downloads\jakeydocs\cc.xls", Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing,
+                Microsoft.Office.Interop.Excel.XlSaveAsAccessMode.xlExclusive, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing);
+            }
+            catch (Exception)
+            {
+                //Error Alert
+            }
+            finally
+            {
+                objApp.Quit();
+                objWorkBook = null;
+                objApp = null;
+            }
 
             return View();
         }

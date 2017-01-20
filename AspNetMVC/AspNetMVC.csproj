@@ -59,8 +59,11 @@
     </Reference>
     <Reference Include="Microsoft.Office.Interop.Excel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
       <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Microsoft Office\root\Office16\DCF\Microsoft.Office.Interop.Excel.dll</HintPath>
+    </Reference>
+    <Reference Include="office, Version=16.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -220,6 +223,7 @@
     <Compile Include="Controllers\MVC0117Controller.cs" />
     <Compile Include="Controllers\MVC0118Controller.cs" />
     <Compile Include="Controllers\MVC0119Controller.cs" />
+    <Compile Include="Controllers\MVC0120Controller.cs" />
     <Compile Include="Controllers\PartalController.cs" />
     <Compile Include="C__MigrationHistory.cs">
       <DependentUpon>Model1.tt</DependentUpon>
@@ -393,6 +397,10 @@
     <Content Include="Views\MVC0119\Create.cshtml" />
     <Content Include="Views\MVC0119\Details.cshtml" />
     <Content Include="Views\MVC0119\Edit.cshtml" />
+    <Content Include="Views\MVC0120\Index.cshtml" />
+    <Content Include="Views\MVC0120\Index2.cshtml" />
+    <Content Include="Views\MVC0120\Index5.cshtml" />
+    <Content Include="Views\MVC0120\Index6.cshtml" />
     <None Include="Views\XMLSchema1.xsd">
       <SubType>Designer</SubType>
     </None>
