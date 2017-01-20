@@ -18,6 +18,7 @@ using System.Threading.Tasks;
 using System.Xml;
 using System.Xml.Linq;
 using System.Xml.XPath;
+using Microsoft.Office.Interop.Excel;
 
 namespace AspNetMVC.Controllers
 {
@@ -187,7 +188,8 @@ namespace AspNetMVC.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "Id,strBookTypeId,strAccessionId")] BookMaster bookMaster, FormCollection collection)
         {
-            var c= Request["userId"] ;
+            
+               var c= Request["userId"] ;
             string[] userIds = collection.GetValues("userId");
 
             if (userIds != null)// collection.GetValues("userId") value is string array ,such as  { "1", "2" };
