@@ -224,6 +224,8 @@
     <Compile Include="Controllers\MVC0118Controller.cs" />
     <Compile Include="Controllers\MVC0119Controller.cs" />
     <Compile Include="Controllers\MVC0120Controller.cs" />
+    <Compile Include="Controllers\MVC0124Controller.cs" />
+    <Compile Include="Controllers\MVC0125Controller.cs" />
     <Compile Include="Controllers\PartalController.cs" />
     <Compile Include="C__MigrationHistory.cs">
       <DependentUpon>Model1.tt</DependentUpon>
@@ -248,6 +250,8 @@
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Conexion.cs" />
+    <Compile Include="Models\DateInValidationAttribute.cs" />
+    <Compile Include="Models\DomainAttribute.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -401,6 +405,16 @@
     <Content Include="Views\MVC0120\Index2.cshtml" />
     <Content Include="Views\MVC0120\Index5.cshtml" />
     <Content Include="Views\MVC0120\Index6.cshtml" />
+    <Content Include="Views\MVC0124\Create.cshtml" />
+    <Content Include="Views\MVC0124\Delete.cshtml" />
+    <Content Include="Views\MVC0124\Details.cshtml" />
+    <Content Include="Views\MVC0124\Edit.cshtml" />
+    <Content Include="Views\MVC0124\Index.cshtml" />
+    <Content Include="Views\MVC0125\Create.cshtml" />
+    <Content Include="Views\MVC0125\Delete.cshtml" />
+    <Content Include="Views\MVC0125\Details.cshtml" />
+    <Content Include="Views\MVC0125\Edit.cshtml" />
+    <Content Include="Views\MVC0125\Index.cshtml" />
     <None Include="Views\XMLSchema1.xsd">
       <SubType>Designer</SubType>
     </None>
@@ -423,6 +437,10 @@
     <ProjectReference Include="..\Common\Common.csproj">
       <Project>{b08172a4-fbe5-42b0-9f6b-aa3200c89913}</Project>
       <Name>Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\identy\identy.csproj">
+      <Project>{4B3102E0-9030-41CE-80F2-1861AC686C5C}</Project>
+      <Name>identy</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
