@@ -17,6 +17,12 @@ namespace AspNetMVC.Controllers
         // GET: BookMasters1
         public ActionResult Index()
         {
+            var IssuesList = new List<System.Collections.IList>();
+            IssuesList.Add(new List<string>() { "a" ,"b"} );
+            ViewBag.IssuesList = IssuesList;
+            var IssuesList2 = new List<System.Collections.IList>();
+            IssuesList2.Add(new List<BookMaster>() { new BookMaster() {  strAccessionId="1"} });
+            ViewBag.IssuesList2 = IssuesList2;
             return View(db.BookMasters.ToList());
         }
 

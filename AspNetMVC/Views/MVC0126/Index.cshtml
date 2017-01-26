@@ -1,0 +1,14 @@
+﻿@model AspNetMVC.Controllers.MVC0126Controller.Employee
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+ @*@Html.TextBox("field", @ViewBag.field)*@ 
+@*@Html.EnumDropDownListFor("f")*@
+
+<input type="text" value="@Model.Gender" />
+@Html.TextBoxFor(m=>m.Gender)
+<input type="text" value="@ViewBag.field" /> 
+
