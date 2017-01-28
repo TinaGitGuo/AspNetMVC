@@ -98,28 +98,28 @@ namespace AspNetMVC.Controllers
 
             
 
-                try
-                {
-                objWorkBook = objApp.Workbooks.Add(Type.Missing);
-                objSheet = (Worksheet)objWorkBook.ActiveSheet;
+                //try
+                //{
+                //objWorkBook = objApp.Workbooks.Add(Type.Missing);
+                //objSheet = (Worksheet)objWorkBook.ActiveSheet;
 
-                //Add picture to single sheet1 
-                objSheet = (Worksheet)objWorkBook.Sheets[2];
-                objSheet.Name = "Graph with Report";
-                objSheet.Shapes.AddPicture(@"C:\Users\v-tiguo\Downloads\jakeydocs\cc.jpg", Microsoft.Office.Core.MsoTriState.msoFalse, Microsoft.Office.Core.MsoTriState.msoCTrue, 10, 10, 700, 350);
-                objWorkBook.SaveAs(@"C:\Users\v-tiguo\Downloads\jakeydocs\cc.xls", Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing,
-                Microsoft.Office.Interop.Excel.XlSaveAsAccessMode.xlExclusive, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing);
-            }
-            catch (Exception)
-            {
-                //Error Alert
-            }
-            finally
-            {
-                objApp.Quit();
-                objWorkBook = null;
-                objApp = null;
-            }
+                ////Add picture to single sheet1 
+                //objSheet = (Worksheet)objWorkBook.Sheets[2];
+                //objSheet.Name = "Graph with Report";
+                //objSheet.Shapes.AddPicture(@"C:\Users\v-tiguo\Downloads\jakeydocs\cc.jpg", Microsoft.Office.Core.MsoTriState.msoFalse, Microsoft.Office.Core.MsoTriState.msoCTrue, 10, 10, 700, 350);
+                //objWorkBook.SaveAs(@"C:\Users\v-tiguo\Downloads\jakeydocs\cc.xls", Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing,
+                //Microsoft.Office.Interop.Excel.XlSaveAsAccessMode.xlExclusive, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing);
+            //}
+            //catch (Exception)
+            //{
+            //    //Error Alert
+            //}
+            //finally
+            //{
+            //    objApp.Quit();
+            //    objWorkBook = null;
+            //    objApp = null;
+            //}
 
             return View();
         }

@@ -24,24 +24,30 @@ namespace WebApplicationForm
 
             try
             {
+                System.Data.DataTable a=   new System.Data. DataTable();
+                a.Columns.Add("cc");
+                //XLWorkbook wb = new XLWorkbook()
+                //objWorkBook = objApp.Workbooks.Add(a);
+                //objWorkBook = objApp.Workbooks.Add(a);
                 objWorkBook = objApp.Workbooks.Add(Type.Missing);
+                //objWorkBook = objApp.Workbooks.Add(Type.Missing);
                 objSheet = (Microsoft.Office.Interop.Excel.Worksheet)objWorkBook.ActiveSheet;
 
                 //Add picture to single sheet1 
                 objSheet = (Worksheet)objWorkBook.Sheets[1];
                 objSheet.Name = "Graph with Report";
 
-   //             ////////////// 
+                //             ////////////// 
 
-   //             //Or multiple sheets
-            
-   //for (int iSheet = 0; iSheet < objWorkBook.Sheets.Count - 1; iSheet++)
-   //             {
-   //                 objSheet = objWorkBook.Sheets[iSheet] as Worksheet;
-   //                 ///(objSheet as Microsoft.Office.Interop.Excel._Worksheet).Activate();
-   //             }
+                //             //Or multiple sheets
 
-   //             /////////////////
+                //for (int iSheet = 0; iSheet < objWorkBook.Sheets.Count - 1; iSheet++)
+                //{
+                //    objSheet = objWorkBook.Sheets[iSheet] as Worksheet;
+                 (objSheet as _Worksheet).Activate();
+                //}
+
+                //             /////////////////
 
                 objSheet.Shapes.AddPicture(sFileImage, Microsoft.Office.Core.MsoTriState.msoFalse, Microsoft.Office.Core.MsoTriState.msoCTrue, 10, 10, 700, 350);
                 objWorkBook.SaveAs(sFilePath, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing,
