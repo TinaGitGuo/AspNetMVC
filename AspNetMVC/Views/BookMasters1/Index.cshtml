@@ -1,0 +1,60 @@
+﻿@model IEnumerable<AspNetMVC.BookMaster>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.strBookTypeId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.strAccessionId)
+        </th>
+        <th></th>
+    </tr>
+    @foreach(var item in (ViewBag.IssuesList)[0])
+    {
+        @item
+    }
+    @foreach (var item in (ViewBag.IssuesList2)[0])
+    {
+        @item.strAccessionId
+    }
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem =>  item.strBookTypeId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.strAccessionId)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+        </td>
+    </tr>
+}
+
+</table>
+$(".col1").click(function () {
+ alert("CLICKED id: " + this.id + " html: " + $(this).html());
+});
+Firefox:
+id: col1_2 html: 
+<input id="db_links_2__selected_new" name="db_links[2].selected_new" readonly="readonly" value="true" type="checkbox">
+<input name="db_links[2].selected_new" value="false" type="hidden">
+Chrome:
+id: col1_2 html: 
+<input id="db_links_2__selected_new"  name="db_links[2].selected_new" readonly="readonly" type="checkbox"  value="true">
+
+<input id="db_links_2__selected_new"  name="db_links[2].selected_new" readonly="readonly" type="checkbox"  checked="checked">
+<input name="db_links[2].selected_new" type="hidden"  value="false">
