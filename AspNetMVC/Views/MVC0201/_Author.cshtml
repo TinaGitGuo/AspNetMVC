@@ -1,0 +1,14 @@
+﻿@model IEnumerable< AspNetMVC.BookMaster>
+@{
+    ViewBag.Title = "_Author";
+}
+
+<h2>_Author</h2>
+@foreach(var item in Model)
+{
+   @Html.DisplayFor(a => item.Id)
+
+    @Html.TextBoxFor(a => item.Id)
+}
+
+

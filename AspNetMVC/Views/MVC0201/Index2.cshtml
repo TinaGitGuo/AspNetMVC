@@ -1,0 +1,14 @@
+﻿@model AspNetMVC.BookMaster
+@*@{
+    ViewBag.Title = "Index2";
+}
+
+<h2>Index2</h2>*@
+ 
+  @{
+        //ViewBag.Title = "test_view";
+        Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+ 
+ }
+ @*@Html.DisplayFor(modelitem =>  "abc")*@
+ @Html.Partial("_Author", new List<BookMaster>() { new BookMaster() { Id=1 } })
