@@ -9,12 +9,9 @@
 
 namespace AspNetMVC
 {
-    using Models;
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
-    using System.Resources;
-
+    
     public partial class BookMaster
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -22,13 +19,9 @@ namespace AspNetMVC
         {
             this.Publishers = new HashSet<Publisher>();
         }
-       
+    
         public int Id { get; set; }
-        [Required(ErrorMessage= "You must agree to the Terms and Conditions")]
         public string strBookTypeId { get; set; }
-        //[Required]      
-        //[Domain("M")]
-        [Domain(20, "Bar", "Baz", ErrorMessage = "The combined minimum length of the Foo, Bar and Baz properties should be longer than 20")]
         public string strAccessionId { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

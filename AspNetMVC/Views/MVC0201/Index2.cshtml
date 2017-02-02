@@ -1,4 +1,5 @@
 ﻿@model AspNetMVC.BookMaster
+    @using AspNetMVC
 @*@{
     ViewBag.Title = "Index2";
 }
@@ -6,9 +7,44 @@
 <h2>Index2</h2>*@
  
   @{
-        //ViewBag.Title = "test_view";
-        Layout = "~/Views/Shared/_LayoutPage1.cshtml";
- 
+      //ViewBag.Title = "test_view";
+      Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+
  }
+<script src="~/Content/jquery-ui-1.12.1.custom/external/jquery/jquery.js"></script>
  @*@Html.DisplayFor(modelitem =>  "abc")*@
- @Html.Partial("_Author", new List<BookMaster>() { new BookMaster() { Id=1 } })
+ @Html.Partial("_Author", new List<BookMaster>() { new BookMaster() { Id = 1 } })
+
+<input type="text" id="txt" value="" />
+<select id="sect">
+   <option value="">===</option> 
+</select>
+<script>
+   
+
+    var date = {
+        "navbar": ["1st item", "2nd item"],
+        "itemone": ["LabelTitle", "dropdown1ToSomeBoundDataSource", "dropdown2ToSomeBoundDataSource"],
+        "itemtwo": ["LabelTitle", "Textbox1", "Textbox2"]
+    }
+    //alert(date.navbar)
+    //alert(date.itemone)
+
+
+    $.each(date.itemtwo, function (key, value) {
+        if (key == 2) {
+            alert(value);
+            $("#txt").val(value) //value=Textbox2
+        }
+    });
+    $.each(date.itemone, function (key, value) {
+
+        alert(value);
+        $("#sect").append(' <option value="' + key + '">' + value + ' </option> ') //value=Textbox2
+
+
+    });
+
+
+
+</script>

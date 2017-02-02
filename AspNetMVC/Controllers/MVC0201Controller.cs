@@ -17,7 +17,7 @@ namespace AspNetMVC.Controllers
             return View();
         }
         public ActionResult Index2() {
-
+          
             db.Database.CreateIfNotExists();
             db.MovieTitles.Add(new Movie() { MovieTitle = "e" });
              db.SaveChanges();
