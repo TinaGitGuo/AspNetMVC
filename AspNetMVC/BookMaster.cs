@@ -11,7 +11,8 @@ namespace AspNetMVC
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class BookMaster
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -19,7 +20,7 @@ namespace AspNetMVC
         {
             this.Publishers = new HashSet<Publisher>();
         }
-    
+    [Required]
         public int Id { get; set; }
         public string strBookTypeId { get; set; }
         public string strAccessionId { get; set; }

@@ -27,6 +27,8 @@ namespace AspNetMVC.Controllers
             
             var MovieTitles = from mv in db.MovieTitles  //This is where it blows up
                               select new { mv.MovieTitle };
+
+            //return RedirectToAction(nameof(HomeController.Index), "Home");
             return View(new BookMaster() { Id=6});
         }
        

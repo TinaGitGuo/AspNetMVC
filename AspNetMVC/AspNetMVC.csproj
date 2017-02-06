@@ -229,6 +229,8 @@
     <Compile Include="Controllers\MVC0124Controller.cs" />
     <Compile Include="Controllers\MVC0126Controller.cs" />
     <Compile Include="Controllers\MVC0201Controller.cs" />
+    <Compile Include="Controllers\MVC0202Controller.cs" />
+    <Compile Include="Controllers\MVC0203Controller.cs" />
     <Compile Include="Controllers\PartalController.cs" />
     <Compile Include="C__MigrationHistory.cs">
       <DependentUpon>Model1.tt</DependentUpon>
@@ -427,6 +429,9 @@
     <Content Include="Views\MVC0201\Index2.cshtml" />
     <Content Include="Views\Shared\_partial_header.cshtml" />
     <Content Include="Views\MVC0201\_Author.cshtml" />
+    <Content Include="Views\MVC0202\Index.cshtml" />
+    <Content Include="Views\MVC0201\Index.cshtml" />
+    <Content Include="Views\MVC0203\Index.cshtml" />
     <None Include="Views\XMLSchema1.xsd">
       <SubType>Designer</SubType>
     </None>
