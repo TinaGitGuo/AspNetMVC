@@ -2,8 +2,13 @@
     For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
 *@
 @{
-    
+
 }
+@using (Html.BeginForm("P", "PriorityList" )) { 
+
+    <input type="submit"  value="submit"/>
+}
+
 <form asp-action="Core0206a">
     @Html.RadioButton("a" ,"y1")
     @Html.RadioButton("a" , "y2", true)
@@ -12,6 +17,13 @@
     <input type="checkbox" name="b" value="u1" />
     <input type="checkbox" name="b" value="u2"  checked="checked"/>
     <input type="checkbox" name="b" value="u3"  checked="checked"/>
+
+    <input type="radio" name="c"  value="radio1"/>
+    <input type="radio" name="c" value="radio2" checked="checked" />
+    <input type="radio" name="c" value="radio3"   />
+
+
+
     @*@Html.CheckBox("b" ,true,new { @value=1})
     @Html.CheckBox("b" )
     @Html.CheckBox("b" )*@

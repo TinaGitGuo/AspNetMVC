@@ -43,6 +43,7 @@ namespace AspnetCore.Controllers
         [AllowAnonymous]
         public IActionResult Login(string returnUrl = null)
         {
+            //new UserRole();
             ViewData["ReturnUrl"] = returnUrl;
             return View();
         }
@@ -91,6 +92,7 @@ namespace AspnetCore.Controllers
         [AllowAnonymous]
         public IActionResult Register(string returnUrl = null)
         {
+            //new AspNetUserRoles();
             ViewData["ReturnUrl"] = returnUrl;
             return View();
         }

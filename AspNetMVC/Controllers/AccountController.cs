@@ -9,6 +9,7 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using AspNetMVC.Models;
+using System.Diagnostics;
 
 namespace AspNetMVC.Controllers
 {
@@ -276,6 +277,7 @@ namespace AspNetMVC.Controllers
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
+       
         public ActionResult ExternalLogin(string provider, string returnUrl)
         {
             // Request a redirect to the external login provider
@@ -285,6 +287,7 @@ namespace AspNetMVC.Controllers
         //
         // GET: /Account/SendCode
         [AllowAnonymous]
+       
         public async Task<ActionResult> SendCode(string returnUrl, bool rememberMe)
         {
             var userId = await SignInManager.GetVerifiedUserIdAsync();
@@ -293,7 +296,10 @@ namespace AspNetMVC.Controllers
                 return View("Error");
             }
             var userFactors = await UserManager.GetValidTwoFactorProvidersAsync(userId);
-            var factorOptions = userFactors.Select(purpose => new SelectListItem { Text = purpose, Value = purpose }).ToList();
+            var factorOptions = userFactors.Select(purpose => {
+            Debug.WriteLine("SecondWait is at {0}", 1);
+                return new SelectListItem { Text = purpose, Value = purpose };
+            }).ToList();
             return View(new SendCodeViewModel { Providers = factorOptions, ReturnUrl = returnUrl, RememberMe = rememberMe });
         }
 

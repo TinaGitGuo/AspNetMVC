@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Http;
-
+using AspnetCorea.ViewComponents;
 namespace AspnetCorea.Controllers
 {
     public class HomeController : Controller
@@ -17,7 +17,7 @@ namespace AspnetCorea.Controllers
         public IActionResult About()
         {
             ViewData["Message"] = "Your application description page.";
-
+            //new UserRole();
             return View();
         }
 
@@ -27,7 +27,22 @@ namespace AspnetCorea.Controllers
 
             return View();
         }
+        public class Class4
+        {
+            private int add(int num2, int num3)
+            {
+                int res = num2 + num3;
+                return res;
+            }
 
+            private int obj1;
+
+            public int myprop
+            {
+                get { return obj1; }
+                set { obj1 = add(value, value); }
+            }
+        }
         public IActionResult Error()
         {
             return View();
@@ -41,13 +56,14 @@ namespace AspnetCorea.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Core0206a(FormCollection form, string[] a, string[] b)
+        public IActionResult Core0206a(FormCollection form, string[] a, string[] b,string c)
         {
             var t = Request.Form["a"];
             var h = Request.Form["b"];
-            Microsoft.Extensions.Primitives.StringValues c = new Microsoft.Extensions.Primitives.StringValues("");
+            var y = Request.Form["c"];
+            Microsoft.Extensions.Primitives.StringValues d = new Microsoft.Extensions.Primitives.StringValues("");
             List<string> g = new List<string>();
-            form.TryGetValue("a", out c);
+            form.TryGetValue("a", out d);
             return NotFound();
         }
         //    public bool ValiCheckForDuplicate(string str, string name)
@@ -81,5 +97,14 @@ namespace AspnetCorea.Controllers
 
         //        return RedirectToAction("Index");
         //    }
+
+        public IActionResult Core0207a() {
+            Class4 a = new Class4();
+            a.myprop = 5;
+            string b = a.myprop.ToString();
+            return ViewComponent("PriorityList", new { maxPriority = 3, isDone = false });
+            
+        }
+       
     }
 }

@@ -9,10 +9,15 @@ namespace AspNetMVC.Controllers
     public class MVC0203Controller : Controller
     {
         // GET: MVC0203
-        //public ActionResult Index()
-        //{
-        //    ViewData.Model = data;
-        //    return View(data);
-        //}
+        public ActionResult Index()
+        {
+            //ViewData.Model = data;
+            //return View(data);
+           
+            return View( );
+        }
+        public ActionResult Index2() {
+            return View();
+        }
     }
 }

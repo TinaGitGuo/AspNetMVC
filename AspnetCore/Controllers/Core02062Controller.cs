@@ -27,21 +27,21 @@ namespace AspnetCore.Controllers
         }
 
         // GET: Core02062/Details/5
-        public async Task<IActionResult> Details(string? id)
-        {
-            if (id == null)
-            {
-                return NotFound();
-            }
+        //public async Task<IActionResult> Details(string? id)
+        //{
+        //    if (id == null)
+        //    {
+        //        return NotFound();
+        //    }
 
-            var contact1 = await _context.Contact1ss.SingleOrDefaultAsync(m => m.Accountno == id);
-            if (contact1 == null)
-            {
-                return NotFound();
-            }
+        //    var contact1 = await _context.Contact1ss.SingleOrDefaultAsync(m => m.Accountno == id);
+        //    if (contact1 == null)
+        //    {
+        //        return NotFound();
+        //    }
 
-            return View(contact1);
-        }
+        //    return View(contact1);
+        //}
 
         // GET: Core02062/Create
         public IActionResult Create()
@@ -66,21 +66,21 @@ namespace AspnetCore.Controllers
         }
 
         // GET: Core02062/Edit/5
-        public async Task<IActionResult> Edit(string? id)
-        {
-            if (id == null)
-            {
-                return NotFound();
-            }
+        //public async Task<IActionResult> Edit(string? id)
+        //{
+        //    if (id == null)
+        //    {
+        //        return NotFound();
+        //    }
 
-            //var contact1 = await _context.Contact1ss.SingleOrDefaultAsync(m => m.Accountno == id);
-            //if (contact1 == null)
-            //{
-            //    return NotFound();
-            //}
-            //return View(contact1);
-            return View( );
-        }
+        //    //var contact1 = await _context.Contact1ss.SingleOrDefaultAsync(m => m.Accountno == id);
+        //    //if (contact1 == null)
+        //    //{
+        //    //    return NotFound();
+        //    //}
+        //    //return View(contact1);
+        //    return View( );
+        //}
 
         // POST: Core02062/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
@@ -121,21 +121,21 @@ namespace AspnetCore.Controllers
         }
 
         // GET: Core02062/Delete/5
-        public async Task<IActionResult> Delete(string? id)
-        {
-            if (id == null)
-            {
-                return NotFound();
-            }
+        //public async Task<IActionResult> Delete(string? id)
+        //{
+        //    if (id == null)
+        //    {
+        //        return NotFound();
+        //    }
 
-            var contact1 = await _context.Contact1ss.SingleOrDefaultAsync(m => m.Accountno == id);
-            if (contact1 == null)
-            {
-                return NotFound();
-            }
+        //    var contact1 = await _context.Contact1ss.SingleOrDefaultAsync(m => m.Accountno == id);
+        //    if (contact1 == null)
+        //    {
+        //        return NotFound();
+        //    }
 
-            return View(contact1);
-        }
+        //    return View(contact1);
+        //}
 
         // POST: Core02062/Delete/5
         [HttpPost, ActionName("Delete")]
