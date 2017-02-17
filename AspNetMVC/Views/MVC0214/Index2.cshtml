@@ -1,0 +1,19 @@
+﻿
+@{
+    ViewBag.Title = "Index2";
+}
+<script src="~/Scripts/jquery-1.10.2.js"></script>
+<h2>Index2</h2>
+<script src="~/Scripts/jquery.validate.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.js"></script>
+@model AspNetMVC.Controllers.MVC0214Controller.MemberType
+
+@using (Html.BeginForm("Create","MVC0214", FormMethod.Post))
+{
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+  
+   @Html.EditorFor(model => model.MemberTypeDescription  )
+            @Html.ValidationMessageFor(model => model.MemberTypeDescription, "" )
+          
+<input type="submit" value="Click Me" />
+}

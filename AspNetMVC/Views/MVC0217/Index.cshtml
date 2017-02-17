@@ -1,0 +1,91 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = null;
+}
+<html>
+<head>
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    @*@section csss{*@
+    <style>
+        .customNav {
+            background-color: transparent !important;
+            border: none !important;
+            top: 80px !important;
+            position: absolute;
+            z-index: auto;
+        }
+
+        .affix {
+            top: 0 !important;
+            background-color: rgba(255,255,255,1) !important;
+            width: 100% !important;
+            /*z-index:1003;*/
+        }
+
+        .affixx {
+            top: 0;
+            z-index: 1003;
+        }
+
+        .main-header-wrapper {
+            /*z-index: -1;*/
+            height: 100vh;
+        }
+
+        .main-header {
+            width: 100%;
+            height: 100px;
+            
+            position: absolute;
+            z-index: -1;
+            background-image: url('../../Content/Images/timg[6].jpg');
+        
+            /*background-image: url('../Images/Banner.jpg');*/
+            background-position: center center;
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+            .main-header img {
+                width: 100px;
+            }
+
+        div#anotherdiv {
+            position: relative;
+            height: 100vh;
+        }
+    </style>
+    @*}*@
+</head>
+<body>
+
+    <div class="main-header-wrapper navbar-fixed-top">
+        <div class="main-header"></div>
+    </div>
+    <nav id="nav" class="navbar customNav" data-spy="affix" data-offset-top="10" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                    <span class="glyphicon glyphicon-chevron-down collapseicon"></span>
+                </button>
+                @*<a href="@Url.Action("Index","Home")"><img src="~/Images/logo.png" class="navbar-brand" /></a>*@
+                <a href="@Url.Action("Index","Home")"><img src="~/Content/Images/timg[2].jpg"   class="navbar-brand" /></a>
+                
+            </div>
+            <div class="navbar-collapse collapse" id="navbar">
+                <ul class="nav navbar-nav navbar-right nav-padding-top">
+                    <li><a href="#menu1" class="pointer nav-title">menu1</a></li>
+                    <li><a href="#menu2" class="pointer nav-title">menu2</a></li>
+                    <li><a href="#menu3" class="pointer nav-title">menu3</a></li>
+                    <li><a href="#menu4" class="pointer nav-title">menu4</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div id="anotherdiv" >
+        *omitted other codes
+    </div>
+</body>
+</html>

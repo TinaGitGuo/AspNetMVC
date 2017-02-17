@@ -1,0 +1,63 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+<script src="~/Scripts/jquery-1.10.2.js"></script>
+<h2>Index</h2>
+<table id="#Grid"></table> 
+<script>
+(function ($) {
+    $.fn.CFCGrid = function (options) {
+        // Initialzing default options.
+        var settings = $.extend({
+            // Define defaults values here
+            width: "auto",
+            data: [],
+            enableSort: true,
+            gridSelector: null,
+            clickedCellID: '',
+            clickedCellOrder: 'asc',
+            gridButton: { enable: false, buttons: [{ text: "Edit", clickHandle: function (arg) { } }, { text: "DELTE", clickHandle: function (arg) { } }] }
+        }, options);
+
+        var isFunction = function (functionToCheck) {
+            var getType = {};
+            return functionToCheck && getType.toString.call(functionToCheck) === '[object Function]';
+        };
+
+        settings.gridSelector = $(this);
+        if (settings.enableSort == true) {
+            $(this).on('click', 'th', function () {
+                var id = $(this).attr('id');
+                var asc = ''; // switch the order, true if not set
+                if (id != settings.clickedCellID) {
+                    settings.clickedCellID = id;
+                    settings.clickedCellOrder = 'asc';
+                } else {
+                    if (settings.clickedCellOrder === false) {
+                        settings.clickedCellOrder = true;
+                    } else {
+                        settings.clickedCellOrder = 'asc';
+                    }
+                }
+
+                var cells = $(settings.gridSelector).find("th");
+                settings.data = sortResults(id, settings.clickedCellOrder, settings.data);
+                buildHtmlTable(settings.gridSelector, settings.data);
+
+            });
+        }
+    }
+    
+
+        var gridButtonConfig = {
+            enable: true,
+            buttons: getButtons
+        };
+        result.headerColumns = ["Email", "FullName", "Organization", "Department", "Access", "CreateDate", "Status", "Actions"];
+        result.headerLables = ["User Name / Email ", "Full Name", "Organization", "Department", "Access", "Created Date", "Status", "Actions"];
+        $("#Grid").CFCGrid({ data: result, width: "99%", enableSort: true, gridButton: gridButtonConfig });
+
+    }
+);
+</script>

@@ -1,0 +1,207 @@
+﻿
+@*@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<label class="float-label-select">Company Name</label>
+@if (@Model.SHCLIENTNAME == null)
+{
+    @Html.DropDownListFor(m => m.SHCLIENTNAME, new SelectList(ViewBag.Shipper, "SSPCLIENTID", "CLIENTNAME"), "Shipper Name", new { id = "SHCLIENTNAME", @Class = "agility-select shClearField" })
+}
+else
+{
+    if (ViewBag.Shipper != null)
+    {
+        List<object> ClientNames = new List<object>();
+        foreach (var item in ViewBag.Shipper)
+        {
+            if (item.CLIENTNAME == @Model.SHCLIENTNAME)
+            {
+                <input type="hidden" id="SCHClientId" value=@item.SSPCLIENTID.ToString()>
+            }
+            else
+            {
+                ClientNames.Add(item);
+            }
+        }
+        ViewBag.ShipperNew = ClientNames;
+    }
+    @Html.DropDownListFor(m => m.SHCLIENTNAME, new SelectList(ViewBag.ShipperNew, "SSPCLIENTID", "CLIENTNAME"), @Model.SHCLIENTNAME, new { id = "SHCLIENTNAME", @Class = "agility-select shClearField" })
+}
+
+
+
+<label class="float-label-select">Country</label>
+@if (@Model.SHCOUNTRYNAME == null)
+{
+    @Html.DropDownListFor(m => m.SHCOUNTRYNAME, new SelectList(ViewBag.Country, "COUNTRYID", "NAME"), "Country", new { id = "SHCOUNTRYNAME", @Class = "agility-select", placeholder = "Country", title = "Country Name " })
+}
+else
+{
+    List<SelectListItem> mCountryNames = new List<SelectListItem>(); ;
+    List<object> CountryNames = new List<object>();
+    if (!string.IsNullOrWhiteSpace(Model.SHCOUNTRYNAME))
+    {
+        if (ViewBag.Country != null)
+        {
+            foreach (var item in ViewBag.Country)
+            {
+                if (item.NAME == @Model.SHCOUNTRYNAME)
+                {
+                    <input type="hidden" id="SHCountryId" value=@item.COUNTRYID.ToString()>
+                }
+                else
+                {
+                    mCountryNames.Add(new SelectListItem()
+                    {
+                        Selected = true,
+                        Text = @item.NAME.ToString(),
+                        Value = @item.COUNTRYID.ToString()
+                    });
+                }
+            }
+        }
+        ViewBag.SHCountryNames = mCountryNames;
+    }
+}
+@Html.DropDownListFor(m => m.SHCOUNTRYNAME, new SelectList(ViewBag.SHCountryNames, "Value", "Text"), @Model.SHCOUNTRYNAME, new { id = "SHCOUNTRYNAME", @Class = "agility-select", placeholder = "Country", title = "Country Name " })
+
+
+<label class="float-label-select">State/County/Province</label>
+@if (@Model.SHSTATENAME == null)
+{
+    @Html.DropDownListFor(m => m.SHSTATENAME, new SelectList("", "SUBDIVISIONID", "NAME"), "State/County/Province", new { id = "SHSTATENAME", @Class = "agility-select", placeholder = "State", title = "State Name" })
+}
+else
+{
+    List<object> StateNames = new List<object>();
+    if (ViewBag.SHStateList != null)
+    {
+        foreach (var item in ViewBag.SHStateList)
+        {
+            if (item.NAME == @Model.SHSTATENAME)
+            {
+                <input type="hidden" id="SHStateId" value=@item.SUBDIVISIONID.ToString()>
+            }
+            else
+            {
+                StateNames.Add(item);
+            }
+        }
+    }
+    ViewBag.StateNames = StateNames;
+    @Html.DropDownListFor(m => m.SHSTATENAME, new SelectList(ViewBag.StateNames, "SUBDIVISIONID", "NAME"), @Model.SHSTATENAME, new { id = "SHSTATENAME", @Class = "agility-select", placeholder = "State", title = "State Name" })
+}
+<script>
+
+$('#SHCLIENTNAME').select2({
+            minimumInputLength: 2,
+            tags: true
+        })
+   .on("change", function (e) {
+       debugger;
+       var sspclientid = $(this).val() ? $(this).val() : SCHClientId.value;
+       if ($.isNumeric(sspclientid)) {
+           AutoFillPartydetails(sspclientid, "Shipper", "GetClientMasterForAutoFillBySSPclientId")
+       }
+       else
+           ClearShipperFields();
+   });
+
+ function AutoFillPartydetails(sspclientid, partytype, MethodName) {
+            debugger;
+            $.ajax({
+                url: '/JobBooking/' + MethodName,
+                data: { sspclientid: sspclientid },
+                type: 'GET',
+                dataType: 'json',
+                success: function (data) {
+                    FillClientData(data, partytype);
+                },
+                loadError: function (xhr, status, error) {
+                    msgError = $.parseJSON(xhr.responseText).Message;
+                    ErrMsg(msgError, function () { });
+                }
+
+            });
+        }
+
+ function FillClientData(data, partytype) {
+            if (partytype == "Shipper") {
+                FillCountry(data.party.COUNTRYNAME, data.party.COUNTRYCODE, "SHCOUNTRYNAME");
+                FillShStateByCountryId(data.CounryId, "SHSTATENAME", data.party.STATENAME);
+                FillShCityByStateSubDivisionId(data.SubDivisionId, "SHCITYNAME", data.party.CITYNAME);
+            }
+}
+
+function FillCountry(countryname, countrycode, type) {
+            $.getJSON("/JobBooking/FillCountry",
+            function (modelData) {
+                var select = $("#" + type + "");
+                select.empty();
+                select.append($('<option />'
+            , {
+                value: "",
+                text: "Country"
+            }));
+                debugger;
+                $.each(modelData, function (index, itemData) {
+                    itemData.Text = $.trim(itemData.Text);
+                    debugger;
+                    if (itemData.Text == countryname) {
+                        debugger;
+                        select.append("<option value='" + itemData.Value + "' selected='selected'>" + itemData.Text + "</option>");
+                        if (type == "SHCOUNTRYNAME") {
+                            $('#txtShCountrycode').val(itemData.Value);
+                            $('#txtShCountryName').val(itemData.Text);
+                        }
+                        else {
+                            $('#txtConCountrycode').val(itemData.Value);
+                            $('#txtConCountryName').val(itemData.Text);
+                        }
+                    }
+                    select.append($('<option />',
+            {
+                value: itemData.Value,
+                text: itemData.Text
+            }));
+                });
+            });
+
+        }
+
+ function FillShStateByCountryId(countrid, type, statename) {
+            $.getJSON("/JobBooking/FillStateByCountryId/?CountryId=" + countrid,
+            function (modelData) {
+                var select = $("#" + type + "");
+                select.empty();
+                select.append($('<option />'
+            , {
+                value: "",
+                text: "State"
+            }));
+                $.each(modelData, function (index, itemData) {
+                    itemData.Text = $.trim(itemData.Text);
+                    if (itemData.Text == statename) {
+                        debugger;
+                        select.append("<option value='" + itemData.Value + "' selected='selected'>" + itemData.Text + "</option>")
+                        if (type == "SHSTATENAME1") {
+                            $('#txtShStatecode').val(itemData.Value);
+                            $('#txtShStateName').val(itemData.Text);
+                        }
+                        else {
+                            $('#txtConStatecode').val(itemData.Value);
+                            $('#txtConStateName').val(itemData.Text);
+                        }
+                    }
+                    select.append($('<option />',
+            {
+                value: itemData.Value,
+                text: itemData.Text
+            }));
+                });
+            });
+ }
+</script>*@
