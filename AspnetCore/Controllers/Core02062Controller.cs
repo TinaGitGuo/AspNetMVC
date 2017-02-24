@@ -150,6 +150,8 @@ namespace AspnetCore.Controllers
 
         private bool Contact1Exists(string id)
         {
+            _context.Database.ExecuteSqlCommand("select * from Table");
+            _context.Database.ExecuteSqlCommandAsync("select * from Table");
             return _context.Contact1ss.Any(e => e.Accountno == id);
         }
     }

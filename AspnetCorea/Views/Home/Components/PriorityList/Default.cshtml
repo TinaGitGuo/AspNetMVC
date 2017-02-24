@@ -1,6 +1,26 @@
 ﻿@*
     For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
 *@
-@{
-}
-eeeeee
+ @{ }
+   
+
+        @using(Html.BeginForm("Method1", "Home", FormMethod.Post,new { @id="form1"}))
+
+        {
+
+            <table id="tblTable1" class="table">
+
+                <tr>
+
+                    <td>
+
+                        Field1:&nbsp;&nbsp;@Html.TextBox("txtField1", "", new { style = "width:100px" })
+
+                    </td>
+
+                </tr>
+
+            </table>
+            <button type="submit">Click Me</button>
+        }
+ 

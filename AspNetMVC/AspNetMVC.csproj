@@ -44,6 +44,14 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="FubuCore, Version=1.2.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\FubuCore.1.2.0.272\lib\FubuCore.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="HtmlTags, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\HtmlTags.2.0.0.174\lib\4.0\HtmlTags.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
       <Private>True</Private>
@@ -77,8 +85,21 @@
     <Reference Include="office, Version=16.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c">
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </Reference>
+    <Reference Include="SchoStack.Web, Version=0.6.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\SchoStack.Web.0.6.43\lib\net40\SchoStack.Web.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Data.Common, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Data.Common.4.3.0\lib\net451\System.Data.Common.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Data.SqlClient, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Data.SqlClient.4.3.0\lib\net46\System.Data.SqlClient.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System.Drawing" />
     <Reference Include="System.Net.Http.Formatting, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.3\lib\net45\System.Net.Http.Formatting.dll</HintPath>
@@ -252,6 +273,11 @@
     <Compile Include="Controllers\MVC0215Controller.cs" />
     <Compile Include="Controllers\MVC0216Controller.cs" />
     <Compile Include="Controllers\MVC0217Controller.cs" />
+    <Compile Include="Controllers\MVC0220Controller.cs" />
+    <Compile Include="Controllers\MVC0221Controller.cs" />
+    <Compile Include="Controllers\MVC0222Controller.cs" />
+    <Compile Include="Controllers\MVC0223Controller.cs" />
+    <Compile Include="Controllers\MVC0224Controller.cs" />
     <Compile Include="Controllers\PartalController.cs" />
     <Compile Include="Controllers\SSPClientMasterEntity.cs" />
     <Compile Include="Controllers\StateEntity.cs" />
@@ -307,6 +333,7 @@
     <Content Include="Content\Images\timg[2].jpg" />
     <Content Include="Content\Images\timg[6].jpg" />
     <Content Include="Content\JavaScript.js" />
+    <Content Include="HtmlPage1.html" />
     <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
     <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
     <Content Include="WebForm1.aspx" />
@@ -484,12 +511,22 @@
     <Content Include="Views\MVC0216\Index.cshtml" />
     <Content Include="Views\MVC0217\Index.cshtml" />
     <Content Include="Views\MVC0217\Index2.cshtml" />
+    <Content Include="Views\MVC0220\Index.cshtml" />
+    <Content Include="Views\MVC0220\Index2.cshtml" />
+    <Content Include="Views\MVC0220\ExportData.cshtml" />
+    <Content Include="Views\MVC0222\Index.cshtml" />
+    <Content Include="Views\MVC0222\Index2.cshtml" />
+    <Content Include="Views\MVC0222\Index3.cshtml" />
+    <Content Include="Views\MVC0224\Index.cshtml" />
+    <Content Include="Views\MVC0224\Index2.cshtml" />
     <None Include="Views\XMLSchema1.xsd">
       <SubType>Designer</SubType>
     </None>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\MVC0221\" />
+    <Folder Include="Views\MVC0223\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

@@ -105,6 +105,14 @@ namespace AspnetCorea.Controllers
             return ViewComponent("PriorityList", new { maxPriority = 3, isDone = false });
             
         }
+        [HttpPost]
+        public ActionResult Method1()
+        {
+            return ViewComponent("PriorityList" );
+        }
+        public IActionResult Core0222() {
+            return View();
+        }
        
     }
 }

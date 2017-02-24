@@ -14,7 +14,10 @@ namespace AspnetCore
         {
            
         }
-
+        [Display(Name = "BirthDaterrr")]
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:MM/dd/yyyy}")]
+        public DateTime? Birth_Date { get; set; }
         public string Accountno { get; set; }
         public string Company { get; set; }
         public string Contact { get; set; }

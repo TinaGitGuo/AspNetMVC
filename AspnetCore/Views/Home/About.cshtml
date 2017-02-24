@@ -3,5 +3,9 @@
 }
 <h2>@ViewData["Title"].</h2>
 <h3>@ViewData["Message"]</h3>
-
+ 
+@model Contact1
 <p>Use this area to provide additional information.</p>
+<label asp-for="@Model.Birth_Date" ></label>
+<input asp-for="@Model.Birth_Date"/>  
+@Html.LabelFor(m=>m.Birth_Date,Model.Birth_Date)

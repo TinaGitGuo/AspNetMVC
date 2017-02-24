@@ -53,7 +53,7 @@ namespace AspnetCorea
             {
                 routes.MapRoute(
                     name: "default",
-                    template: "{controller=Home}/{action=Core0207a}/{id?}");
+                    template: "{controller=Home}/{action=Core0222}/{id?}");
             });
         }
     }

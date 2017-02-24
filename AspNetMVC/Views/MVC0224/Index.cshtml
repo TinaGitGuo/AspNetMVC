@@ -1,0 +1,55 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+-->
+<select id="example-getting-started" multiple="multiple">
+    <option value="cheese">Cheese</option>
+    <option value="tomatoes">Tomatoes</option>
+    <option value="mozarella">Mozzarella</option>
+    <option value="mushrooms">Mushrooms</option>
+    <option value="pepperoni">Pepperoni</option>
+    <option value="onions">Onions</option>
+</select>
+
+ 
+
+    <script langauge="javascript">
+function post_value(){
+    opener.document.f1.p_name.value = document.frm.c_name.value;
+//opener.document.f1.n2.value = document.frm.c_name2.value;
+
+self.close();
+}
+    </script>
+
+ 
+
+    <form name="frm" method=post action=''>
+        <table border=0 cellpadding=0 cellspacing=0 width=250>
+
+
+            <tr>
+                <td align="center">
+                    Your name<input type="text" name="c_name" size=12 value=test>
+                    @*<input type="text" name="c_name2" size=12 value=test2>*@
+                    <input type=button value='Submit' onclick="post_value();">
+                </td>
+            </tr>
+        </table>
+    </form>
+    If multiple options are selected in advance and the select lacks the multiple attribute, the last option marked as selected will initially be selected by the plugin.
+
+    Exteral Js file
+
+    $(document).ready(function () {
+    $('#example-getting-started').multiselect({
+    includeSelectAllOption: true
+    });
+    });
+
+
+    File Inclued
+    <script src="http://cdn.rawgit.com/davidstutz/bootstrap-multiselect/master/dist/js/bootstrap-multiselect.js"></script>

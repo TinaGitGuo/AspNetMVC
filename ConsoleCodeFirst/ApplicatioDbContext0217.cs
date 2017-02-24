@@ -53,7 +53,7 @@ public class MyId1
        
             modelBuilder.ComplexType<MyId1>();
             //modelBuilder.ComplexType<MyId1>().Property(p => p.IdPart2) ;
-            modelBuilder.Entity<MyPerson1>().HasKey(p =>new string(p.MyIds.IdPart1.ToString())  );
+            //modelBuilder.Entity<MyPerson1>().HasKey(p =>new string(p.MyIds.IdPart1.ToString())  );
             //base.OnModelCreating(modelBuilder);
         }
         

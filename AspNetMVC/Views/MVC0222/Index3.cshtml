@@ -1,0 +1,24 @@
+﻿
+@{
+    ViewBag.Title = "Index3";
+}
+
+<h2>Index3</h2>
+
+<script src="~/Scripts/jquery-1.10.2.js"></script>
+<div style="width:2000px">
+    @{
+        for (int i = 0; i < 1000; i++)
+        {
+            <input type="text" name="op" value="22" />
+        }
+    }
+  
+
+</div>
+<script>
+    window.onload = function () {      
+        var scroll =document.body.scrollWidth- document.body.offsetWidth ;
+        $("body").scrollLeft(scroll  / 2);
+    }
+</script>

@@ -1,0 +1,30 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{  
+}
+ 
+@section scripts{
+<script src="~/lib/jquery/dist/jquery.js"></script>
+<script src="~/lib/jquery-form/jquery.form.js"></script>
+<script type="text/javascript">
+        $(function () {
+            var options = {
+                success: function (data) {
+                    $("#view1").html(data);
+                    $("#form1").ajaxForm(options);
+                }
+            };
+            $("#form1").ajaxForm(options);
+            //$("#form2").html("");
+            //$("#form2").ajaxForm();
+        });
+</script>
+
+}
+  
+ <div id="view1">     
+        @await Component.InvokeAsync("PriorityList")
+ </div>
+ 
+ 

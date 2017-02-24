@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using AspnetCore.Data;
+using AspnetCore;
 
 namespace AspnetCore.Controllers
 {
@@ -33,9 +34,10 @@ namespace AspnetCore.Controllers
 
         public IActionResult About()
         {
+            //db.Contact1ss.FirstOrDefault();
             ViewData["Message"] = "Your application description page.";
-
-            return View();
+             
+            return View(new Contact1() { Birth_Date = DateTime.Now });
         }
 
         public IActionResult Contact()

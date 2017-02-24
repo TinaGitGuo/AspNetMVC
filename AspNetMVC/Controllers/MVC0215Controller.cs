@@ -118,13 +118,32 @@ namespace AspNetMVC.Controllers
 
             string path=  Server.MapPath("~/Content/JOSN1.json");
             string str=   ForBytes.GetStringFromByte( ForBytes.GetByteData(path));
-            int i=  str.IndexOf("CountryCode");
-            int i1 = str.IndexOf("\"",i+14);
-            string test1= str.Substring(i);
-            string test2 = str.Substring(i1);
-            str= str.Remove(i + 14, i1-(i+14));
-            str=  str.Insert(i + 14,"IN");
+
+            string whichProperty = "CountryCode";
+            string whichasValue = "IN";
+            int i=0;
+            for ( ; str.IndexOf(whichProperty, i) > 0 ;)
+            {
+                i = str.IndexOf(whichProperty,i);
+                i += whichProperty.Length + 1;
+                int i1 = str.IndexOf("\"", i)+1; //find the first " index which need to be replace
+                int i2 = str.IndexOf("\"", i1);//find the second " index which need to be replace
+                string test1 = str.Substring(i1);
+                //The first time ,the test1 value:
+//                US","TimeZoneName":"Central Standard Time","TimeZoneLocation":"America / Indiana / Petersburg","TimeZoneDisplayName":"US / Central Standard Time (UTC - 06:00)","TimeZoneAbbreviation":"CST","UTCOffset":"UTC - 06:00"},"BeginningDayOfWeek":"Tue","PreferredDateDisplayFormat":"yyyy / mm / dd","PreferredLanguageCode":"hi - IN","DefaultLandingPage":"MerchantPortal.Dashboard.GlobalDashboard","EnableNotification":"true","PreferredRegionInfo":{
+//        "AssociatedBusinessPartyID":100488,"CurrencyCode":"SEK","CountryName":"Switzerland",
+//"CountryCode":"CH"}
+        string test2 = str.Substring(i2);
+                //The first time,the test2 value:
+//                ","TimeZoneName":"Central Standard Time","TimeZoneLocation":"America / Indiana / Petersburg","TimeZoneDisplayName":"US / Central Standard Time (UTC - 06:00)","TimeZoneAbbreviation":"CST","UTCOffset":"UTC - 06:00"},"BeginningDayOfWeek":"Tue","PreferredDateDisplayFormat":"yyyy / mm / dd","PreferredLanguageCode":"hi - IN","DefaultLandingPage":"MerchantPortal.Dashboard.GlobalDashboard","EnableNotification":"true","PreferredRegionInfo":{
+//        "AssociatedBusinessPartyID":100488,"CurrencyCode":"SEK","CountryName":"Switzerland",
+//"CountryCode":"CH"}
+                str = str.Remove(i1,  i2-i1);
+                str = str.Insert(i1, whichasValue);
+            }
+
             string a = "vbljadsflvnbaijdlfj654613213";
+
             int b = a.IndexOf('v');
             a = a.Remove(b, 1);
             string content = "这是中国一个中国二个中国";

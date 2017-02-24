@@ -1,0 +1,47 @@
+﻿
+@{
+    ViewBag.Title = "Index2";
+}
+
+<h2>Index2</h2>
+
+<form method=post action='' name="f1">
+    <table border=0 cellpadding=0 cellspacing=0 width=550>
+        <tr>
+            <td>
+                <font size=2 face='Verdana'>Your Name</font>
+
+                @*<input type=text name='p_name' size='8'>
+                <a href="javascript:void(0);" NAME="My Window Name" title="My title here"
+                   onClick=window.open("@Url.Action("Index")","Ratting",
+                   "width=550,height=170,left=150,top=200,toolbar=1,status=1" );>Click here to open the child window</a>
+            <td>*@
+              <input type=text name='p_name' size='8'>&nbsp;<a href="javascript:void(0);" NAME="My Window Name" title=" My title here " onClick=window.open("@Url.Action("Index")","Ratting","width=550,height=170,left=150,top=200,toolbar=1,status=1,");>Click here to open the child window</a>
+
+            </td>
+        </tr>
+    </table>
+</form>
+@secon script
+<script src="~/Scripts/jquery-1.10.2.js"></script>
+<script src="http://cdn.rawgit.com/davidstutz/bootstrap-multiselect/master/dist/js/bootstrap-multiselect.js"></script>
+// 
+<select id="example-getting-started" multiple="multiple">
+    <option value="cheese">Cheese</option>
+    <option value="tomatoes">Tomatoes</option>
+    <option value="mozarella">Mozzarella</option>
+    <option value="mushrooms">Mushrooms</option>
+    <option value="pepperoni">Pepperoni</option>
+    <option value="onions">Onions</option>
+</select>
+
+<script>
+    $(function () {
+        $('#example-getting-started').multiselect({
+            includeSelectAllOption: true
+        });
+
+    });
+   
+</script>
+    
