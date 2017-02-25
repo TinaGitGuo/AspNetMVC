@@ -21,29 +21,29 @@ namespace AspNetMVC.Controllers
 
             return View(db.BookMasters.ToList());
         }
-        public void ToGetCount(List<int> timelist, out int counta, out int countb, out int countc)
-        {
-            counta = countb = countc = 0;
-            foreach (int c in timelist)
-            {
-                DateTime _time = System.DateTime.Now;
-                int _time_num = Convert.ToInt32(_time.Hour);
-                if ((_time_num  >= 0 ) && (_time_num < 12))
-                {
-                    counta++;
-                    //return   true; 
-                }
-                else if ((_time_num >= 12) && (_time_num < 18))
-                {
-                    countb++;
-                    //return   false; 
-                }
-                else if ((_time_num >= 18) && (_time_num <=23))
-                {
-                    countc++;
-                }
-            }
-        }
+        //public void ToGetCount(List<int> timelist, out int counta, out int countb, out int countc)
+        //{
+        //    counta = countb = countc = 0;
+        //    foreach (int c in timelist)
+        //    {
+        //        DateTime _time = System.DateTime.Now;
+        //        int _time_num = Convert.ToInt32(_time.Hour);
+        //        if ((_time_num  >= 0 ) && (_time_num < 12))
+        //        {
+        //            counta++;
+        //            //return   true; 
+        //        }
+        //        else if ((_time_num >= 12) && (_time_num < 18))
+        //        {
+        //            countb++;
+        //            //return   false; 
+        //        }
+        //        else if ((_time_num >= 18) && (_time_num <=23))
+        //        {
+        //            countc++;
+        //        }
+        //    }
+        //}
 
 
         public ActionResult Index3()

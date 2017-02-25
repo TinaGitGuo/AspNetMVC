@@ -31,7 +31,30 @@ namespace ConsoleCodeFirst
 
         public virtual Student Student { get; set; }
     }
+  public  class MyPerson {
+        public MyPerson()
+        {
 
+        }
+        public int IdPart1 { get; set; }
+
+        public int IdPart2 { get; set; }
+        //public MyId MyIds { get; set; }
+       public string Name { get; set; }
+}
+ 
+public class MyId
+    {
+        public MyId()
+        {
+
+        }
+        public   int IdPart1 { get; set; }
+
+      public int IdPart2 { get; set; }
+    }
+
+ 
     public class ApplicatioDbContext : DbContext
 
     {
@@ -46,6 +69,10 @@ namespace ConsoleCodeFirst
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
+           
+
+            //modelBuilder.Entity<MyPerson>().HasRequired(p =>   p.MyIds  );
+            modelBuilder.Entity<MyId>().HasKey(p => new { p. IdPart1 });
             // Configure StudentId as PK for StudentAddress
             modelBuilder.Entity<StudentAddress>()
                 .HasKey(e => e.StudentId);
@@ -106,5 +133,8 @@ namespace ConsoleCodeFirst
         public DbSet<StudentAddress> studentAddress { get; set; }
         public DbSet<Contact1> Contact1ss { get; set; }
         public DbSet<Contact4> Contact2ss { get; set; }
+
+        public DbSet<MyPerson> MyPersons { get; set; }
+        public DbSet<MyId> MyIds { get; set; }
     }
 }

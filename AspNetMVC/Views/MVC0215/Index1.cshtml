@@ -1,0 +1,33 @@
+﻿
+@{
+    ViewBag.Title = "Index1";
+}
+<script src="~/Scripts/jquery-1.10.2.js"></script>
+<script src="~/Scripts/jquery.validate.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.js"></script>
+@model AspNetMVC.Controllers.MVC0215Controller.Contact
+@using (Html.BeginForm())
+{     @Html.ValidationSummary(true)
+    @Html.EditorForModel()
+    @Html.EditorFor(m => m.Address)
+    
+    @*<ul>  //or use code below ,it works
+        3:
+        <li>@Html.ValidationMessage("Name")</li>
+        4:
+        <li>@Html.ValidationMessageFor(c => c.PhoneNo)</li>
+        5:
+        <li>@Html.ValidationMessageFor(c => c.EmailAddress)</li>
+        6:
+        <li>@Html.ValidationMessageFor(c => c.Address.Province)</li>
+        7:
+        <li>@Html.ValidationMessage("Address.City")</li>
+        8:
+        <li>@Html.ValidationMessageFor(c => c.Address.District)</li>
+        9:
+        <li>@Html.ValidationMessageFor(c => c.Address.Street)</li>
+        10:
+    </ul>*@
+    <input type="submit" value="save" />
+}
+

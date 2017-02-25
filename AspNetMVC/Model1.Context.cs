@@ -14,8 +14,7 @@ namespace AspNetMVC
     using System.Data.Entity.Infrastructure;
     using System.Data.Entity.Core.Objects;
     using System.Linq;
-    using static Controllers.MVC0118Controller;
-
+    
     public partial class CodeFirstDbDemoEntities : DbContext
     {
         public CodeFirstDbDemoEntities()
@@ -31,8 +30,7 @@ namespace AspNetMVC
         public virtual DbSet<C__MigrationHistory> C__MigrationHistory { get; set; }
         public virtual DbSet<BookMaster> BookMasters { get; set; }
         public virtual DbSet<Publisher> Publishers { get; set; }
-        public virtual DbSet<tblOpsUserEmpDetail> tblOpsUserEmpDetails { get; set; }
-        
+    
         public virtual ObjectResult<sp_getTreeById_Result> sp_getTreeById(Nullable<int> treeID)
         {
             var treeIDParameter = treeID.HasValue ?

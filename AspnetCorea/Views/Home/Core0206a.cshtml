@@ -1,0 +1,62 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+
+}
+@using (Html.BeginForm("P", "PriorityList" )) { 
+
+    <input type="submit"  value="submit"/>
+}
+
+<form asp-action="Core0206a">
+    @Html.RadioButton("a" ,"y1")
+    @Html.RadioButton("a" , "y2", true)
+    @Html.RadioButton("a", "y3")
+
+    <input type="checkbox" name="b" value="u1" />
+    <input type="checkbox" name="b" value="u2"  checked="checked"/>
+    <input type="checkbox" name="b" value="u3"  checked="checked"/>
+
+    <input type="radio" name="c"  value="radio1"/>
+    <input type="radio" name="c" value="radio2" checked="checked" />
+    <input type="radio" name="c" value="radio3"   />
+
+
+
+    @*@Html.CheckBox("b" ,true,new { @value=1})
+    @Html.CheckBox("b" )
+    @Html.CheckBox("b" )*@
+    <div class="form-horizontal">
+        <h4>Contact1</h4>
+        <hr />
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+      
+        @*<div class="form-group">
+                <label asp-for="Company" class="col-md-2 control-label"></label>
+                <div class="col-md-10">
+                    <input asp-for="Company" class="form-control" />
+                    <span asp-validation-for="Company" class="text-danger" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="Contact" class="col-md-2 control-label"></label>
+                <div class="col-md-10">
+                    <input asp-for="Contact" class="form-control" />
+                    <span asp-validation-for="Contact" class="text-danger" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="Recid" class="col-md-2 control-label"></label>
+                <div class="col-md-10">
+                    <input asp-for="Recid" class="form-control" />
+                    <span asp-validation-for="Recid" class="text-danger" />
+                </div>
+            </div>*@
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+</form>

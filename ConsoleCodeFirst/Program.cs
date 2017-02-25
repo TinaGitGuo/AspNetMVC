@@ -10,6 +10,14 @@ namespace ConsoleCodeFirst
     {
         static void Main(string[] args)
         {
+            using (var db = new ApplicatioDbContext0217())
+            {              
+                db.Database.CreateIfNotExists();
+                db.SaveChanges();
+                 
+                Console.WriteLine("Press any key to exit...");
+                Console.ReadKey();
+            }
             using (var db = new ApplicatioDbContext())
             {
                 // Create and save a new Blog 

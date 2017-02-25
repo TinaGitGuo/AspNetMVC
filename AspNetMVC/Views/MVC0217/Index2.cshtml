@@ -1,0 +1,111 @@
+﻿<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>UserRegistration</title>
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    @*<link href="~/Content/font-awesome.css" rel="stylesheet" />*@
+    @*<script src="~/Scripts/jquery-1.12.4.js"></script>*@
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    @*<script src="~/Scripts/jquery.validate.js"></script>*@
+    @*<script src="~/Scripts/jquery.validate.unobtrusive.js"></script>*@
+    <script src="~/Scripts/jquery.unobtrusive-ajax.js"></script>
+    @*<script src="~/Scripts/respond.js"></script>*@
+    @*<script src="~/Scripts/jquery.unobtrusive-ajax.js"></script>*@
+</head>
+<body>
+    @using (Ajax.BeginForm("UserRegistration", "MVC0217", new AjaxOptions { InsertionMode = InsertionMode.Replace, UpdateTargetId = "RegSuccessDiv", HttpMethod = "Post", LoadingElementId = "Loader", OnSuccess = "RegisterSuccess(data)" }))
+    {
+
+
+        //, OnSuccess = "RegisterSuccess(data)"
+              <div class="container">
+            <div class="row main">
+                <div class="main-login main-center">
+                    @*<h4 class="text-danger">New User Register Here</h4>
+                    <div class="form-group">
+                        <label for="name" class="cols-sm-2 control-label">Your Name</label>
+                        <div class="cols-sm-10">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
+                                @Html.TextBoxFor(m => m.sUserId, new { id = "name", @class = "form-control", placeholder = "Enter your Name" })
+
+                            </div>
+                            @Html.ValidationMessageFor(m => m.sUserId, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="email" class="cols-sm-2 control-label">Your Email</label>
+                        <div class="cols-sm-10">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
+
+                                @Html.TextBoxFor(m => m.sEmail, new { @class = "form-control", id = "email", placeholder = "Eneter your Email" })
+
+                            </div>
+                            @Html.ValidationMessageFor(m => m.sEmail, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="username" class="cols-sm-2 control-label">Username</label>
+                        <div class="cols-sm-10">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-users fa" aria-hidden="true"></i></span>
+                                @Html.TextBoxFor(m => m.sUserId, new { @class = "form-control", id = "username", placeholder = "Enter User Name" })
+
+                            </div>
+                            @Html.ValidationMessageFor(m => m.sUserId, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="password" class="cols-sm-2 control-label">Password</label>
+                        <div class="cols-sm-10">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
+
+                                @Html.PasswordFor(m => m.sPassword, new { @class = "form-control", id = "password", placeholder = "Enter your Password" })
+
+                            </div>
+                            @Html.ValidationMessageFor(m => m.sPassword, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="confirm" class="cols-sm-2 control-label">Confirm Password</label>
+                        <div class="cols-sm-10">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
+                                @Html.PasswordFor(m => m.sPassword, new { @class = "form-control", id = "cnfpassword", placeholder = "Enter your Password" })
+
+                            </div>
+                            @Html.ValidationMessageFor(m => m.sPassword, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="confirm" class="cols-sm-2 control-label">Phone Number</label>
+                        <div class="cols-sm-10">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-phone fa-lg" aria-hidden="true"></i></span>
+                                @Html.TextBoxFor(m => m.iPhoneNumber, new { @class = "form-control", id = "phonenumber", placeholder = "Enter your Phone Number" })
+
+                            </div>
+                            @Html.ValidationMessageFor(m => m.iPhoneNumber, "", new { @class = "text-danger" })
+                        </div>
+                    </div>*@
+                    <div class="form-group ">
+                        <button type="submit" class="btn btn-primary btn-lg btn-block login-button">Register</button>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="alert-success" id="RegSuccessDiv"></h3>
+                </div>
+            </div>
+        </div>
+    }
+</body>
+</html>
+<script>
+    function RegisterSuccess(data) {
+        //debugger
+        $("#RegSuccessDiv").addClass("red");
+        //.val(data+"new one by js");
+    }
+ </script>

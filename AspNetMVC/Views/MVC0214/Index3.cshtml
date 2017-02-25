@@ -1,0 +1,62 @@
+﻿
+@{
+    ViewBag.Title = "Index3";
+}
+
+<h2>Index3</h2>
+@{ int answerCount = 1;}
+<table id="@("Answer" + answerCount + "Items")">
+    <tr>
+        @for (int fieldCount = 0; fieldCount < Model.FacultyScholarshipReportAnswers.ToList()[answerCount].FacultyScholarshipReportAnswerItems.First().FacultyScholarshipReportAnswerItemFields.Count; fieldCount++)
+        {
+            <td>
+                @Model.FacultyScholarshipReportAnswers.ToList()[answerCount].FacultyScholarshipReportAnswerItems.First().FacultyScholarshipReportAnswerItemFields.ToList()[fieldCount].FacultyScholarshipReportAnswerFieldType.Heading
+            </td>
+        }
+    </tr>
+
+    @for (int itemCount = 0; itemCount < Model.FacultyScholarshipReportAnswers.ToList()[answerCount].FacultyScholarshipReportAnswerItems.Count; itemCount++)
+            {
+        <tr id="@("Answer" + answerCount + "Item" + itemCount)">
+            @for (int fieldCount = 0; fieldCount < Model.FacultyScholarshipReportAnswers.ToList()[answerCount].FacultyScholarshipReportAnswerItems.ToList()[itemCount].FacultyScholarshipReportAnswerItemFields.Count; fieldCount++)
+            {
+                Html.EditorFor(m => Model.FacultyScholarshipReportAnswers.ToArray()[answerCount].FacultyScholarshipReportAnswerItems.ToArray()[itemCount].FacultyScholarshipReportAnswerItemFields.ToArray()[fieldCount])
+                    @*<td>
+                            <input type="hidden" name="@("FacultyScholarshipReportAnswers[" + answerCount + "].FacultyScholarshipReportAnswerItems[" + itemCount + "]").Index" value="@itemCount" />
+                            @Html.Hidden("FacultyScholarshipReportAnswers[" + answerCount + "].FacultyScholarshipReportAnswerItems[" + itemCount + "].FacultyScholarshipReportAnswerItemFields[" + fieldCount + "].FacultyScholarshipReportAnswerFieldType.ID", Model.FacultyScholarshipReportAnswers.ToArray()[answerCount].FacultyScholarshipReportAnswerItems.ToArray()[itemCount].FacultyScholarshipReportAnswerItemFields.ToArray()[fieldCount].FacultyScholarshipReportAnswerFieldType.ID)
+                            @Html.Hidden("FacultyScholarshipReportAnswers[" + answerCount + "].FacultyScholarshipReportAnswerItems[" + itemCount + "].FacultyScholarshipReportAnswerItemFields[" + fieldCount + "].FacultyScholarshipReportAnswerFieldType.Heading", Model.FacultyScholarshipReportAnswers.ToArray()[answerCount].FacultyScholarshipReportAnswerItems.ToArray()[itemCount].FacultyScholarshipReportAnswerItemFields.ToArray()[fieldCount].FacultyScholarshipReportAnswerFieldType.Heading)
+
+
+                            @Html.ValidationMessage("FacultyScholarshipReportAnswers[" + answerCount + "].FacultyScholarshipReportAnswerItems[" + itemCount + "].FacultyScholarshipReportAnswerItemFields[" + fieldCount + "].Answer", Model.FacultyScholarshipReportAnswers.ToArray()[answerCount].FacultyScholarshipReportAnswerItems.ToArray()[itemCount].FacultyScholarshipReportAnswerItemFields.ToArray()[fieldCount].FacultyScholarshipReportAnswerFieldType.Heading + " is required" )
+                            @Html.TextBox("FacultyScholarshipReportAnswers[" + answerCount + "].FacultyScholarshipReportAnswerItems[" + itemCount + "].FacultyScholarshipReportAnswerItemFields[" + fieldCount + "].Answer", Model.FacultyScholarshipReportAnswers.ToArray()[answerCount].FacultyScholarshipReportAnswerItems.ToArray()[itemCount].FacultyScholarshipReportAnswerItemFields.ToArray()[fieldCount].Answer)
+
+                        </td>*@
+            }
+            <td><a href="javascript:RemoveAnswerItem('@("Answer" + answerCount + "Item" + itemCount)')">Remove Item</a></td>
+        </tr>
+    }
+    @*@model MvcApp.Models.Contact
+    @Html.ValidationMessageFor(c => c.Name) 
+
+    @Html.ValidationMessageFor(c => c.PhoneNo)
+
+    @Html.ValidationMessageFor(c => c.EmailAddress)
+
+    @Html.ValidationMessageFor(c => c.Address.Province)
+
+    @Html.ValidationMessageFor(c => c.Address.City)
+
+    @Html.ValidationMessageFor(c => c.Address.District)
+
+    @Html.ValidationMessageFor(c => c.Address.Street)
+@model Contact
+    @using (Html.BeginForm())
+         {
+          @Html.EditorForModel()
+                  @Html.EditorFor(m => m.Address)
+                     < input type = "submit" value = "save" />
+      }*@
+</table>
+<div>
+    <a href="javascript:AddAnswerItem('@("Answer" + answerCount + "Items")')"> Add Item </a>
+</div>

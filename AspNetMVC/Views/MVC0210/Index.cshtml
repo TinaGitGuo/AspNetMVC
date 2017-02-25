@@ -1,0 +1,23 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<table>
+    @{ int a = 1;}
+    <tr><td><a  onclick="ToDetail(@a)" src="#" >esfefsfs</a></td><td>dd</td></tr>
+</table>
+<div id="paritalView">
+    //your detail paritalView
+</div>
+<script src="~/Content/jquery-ui-1.12.1.custom/external/jquery/jquery.js"></script>
+<script> 
+        function ToDetail(ID) {
+            alert(ID)
+            $.post("Index", { id: ID }).done(function(data){            
+                $("#paritalView").html(data);
+            });
+        }
+</script>

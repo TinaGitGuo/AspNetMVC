@@ -1,0 +1,23 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    @{
+        Styles.Render("~/css/css_menu.css");
+        Scripts.Render("~/js/js_menu.js");
+    }
+</head>
+<body>
+    <header>
+        <div class="content-wrapper">
+            @Html.Partial("_partial_header")
+        </div>
+    </header>
+    <div id="body">
+        <section class="content-wrapper main-content clear-fix">
+            @RenderBody()
+        </section>
+    </div>
+</body>
+</html>

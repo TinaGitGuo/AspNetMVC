@@ -1,0 +1,50 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<div class="row selectionTypes">
+    <div class="form-group">
+        <div class="col-sm-12">
+            <div class="btn-group blocks " data-toggle="buttons">
+                <label class="btn btn-primary btn-label">
+                    <input type="checkbox" name="options" id="optionAll" checked="checked" value=""><span class="selectionType"><br />All</span>
+                </label>
+                <label class="btn btn-primary btn-label">
+                    <input type="checkbox" name="options" id="option1" value="0"><span class="selectionType"><br />Selection 1</span>
+                </label>
+                <label class="btn btn-primary btn-label">
+                    <input type="checkbox" name="options" id="option2" checked="checked"  value="1"><span class="selectionType"><br />Selection 2</span>
+                </label>
+                <label class="btn btn-primary btn-label">
+                    <input type="checkbox" name="options" id="option3" value="2"><span class="selectionType"><br />Selection 3</span>
+                </label>
+                <label class="btn btn-primary btn-label">
+                    <input type="checkbox" name="options" id="option4" value="3"><span class="selectionType"><br />Selection 4</span>
+                </label>
+            </div>
+        </div>
+    </div>
+</div>
+@section csss{
+    <style>
+    .selectionTypes .active {
+        background-color: #000000;
+        border-color: #000000;
+    }
+</style>
+    }
+<script>
+    function isCookie() {
+        
+        document.cookie = "testcookie";
+        var cookieEnabled = (document.cookie.indexOf("testcookie") != -1) ? true : false;
+        alert(cookieEnabled); //alert true
+        alert(document.cookie.indexOf("testcookie"));  //alert 0
+        alert(document.cookie); //alert testcookie
+        return (cookieEnabled);
+    }
+    isCookie();
+</script>

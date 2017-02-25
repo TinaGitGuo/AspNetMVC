@@ -1,0 +1,69 @@
+﻿
+@{
+    ViewBag.Title = "Index2";
+}
+
+<h2>Index2</h2>
+<form id="myform" @*action="Index2"*@   >
+    <input  type="text" name="txt1" value="txt1"/>
+    <input type="text" name="txt2" value="txt2"/>
+    <input type="submit" value="submit" id="btn"/>
+    <input type="button" value="submit2" id="btn2" />
+</form>
+<script src="~/Content/jquery-ui-1.12.1.custom/external/jquery/jquery.js"></script>
+<script>
+    $(function () {
+        $("#btn2").click(function () {
+            var formData = new FormData();
+
+            formData.append("txt1", 1);
+            formData.append("txt2", 2);
+            $.ajax({
+                url: '/MVC0209/Index2',
+                type: "POST",
+                dataType: 'json',
+                contentType: false, // Not to set any content header  
+                processData: false, // Not to process data  
+                data: formData,
+                success: function (result) {
+                    alert(result);
+                },
+                error: function (err) {
+                    alert(err.statusText);
+                }
+            });
+        });
+        $("form").on("submit", function (e) {
+             e.preventDefault();
+            //alert(this.action)
+            
+
+            var formData = new FormData();
+           
+            formData.append("txt1", 1);
+            formData.append("txt2", 2);
+            //alert(formData.get("txt1"));
+            //$.post(this.action, formData); formData
+
+            //alert($(this).serialize())
+            $.ajax({
+                url: '/MVC0209/Index2',
+                type: "POST",
+                dataType: 'json',
+                contentType: false, // Not to set any content header  
+                processData: false, // Not to process data  
+                data: formData,
+                success: function (result) {
+                    alert(result);
+                },
+                error: function (err) {
+                    alert(err.statusText);
+                }
+            });
+
+            //$.post(this.action,$(this).serialize());
+             
+        });
+    })
+   
+</script>
