@@ -1,0 +1,43 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+@Html.CheckBox("a", true)//work
+=
+<input type="checkbox" checked="checked" value="true" name="a" id="a" />//work
+
+other test example
+<input type="checkbox"   value="true" name="a" id="a" /> //not work
+<input type="checkbox" checked="checked"   name="a" id="a" />//work
+<input type="checkbox" checked=""  name="a" id="a" />//work
+<input type="checkbox" checked name="a" id="a" />//work
+note:The 'work' means that the checkbox can display selected (tested in chrome|ie|firefox)
+so we can rule out problems caused by @*@Html.CheckBox*@.
+@Html.CheckBox("a", "checked")
+
+
+
+<input id="db_links_2__selected_new" name="db_links[2].selected_new" readonly="readonly" type="checkbox" checked="checked" />
+
+@*@Html.CheckBox("db_links[" + @i + "].selected_new", Model[i].selected_new , new { @readonly = "readonly" })*@
+
+
+
+@*//@Html.CheckBox("db_links[" + @i + "].selected_new", Model[i].selected_new[check it if is true value], new { @readonly = "readonly" })*@
+//@*if you do it manually ,<input type="checkbox" checked="checked" value="Model[i].selected_new" name="db_links[" + @i + "].selected_new" id="db_links[" + @i + "].selected_new" />*@
+//if you do it manually
+@{
+    if (Model[i].selected_new == true)
+    {
+        <input type="checkbox" checked="checked" value="Model[i].selected_new" name="db_links[" + @i + "].selected_new" id="db_links[" + @i + "].selected_new" />
+        @*<input type = "checkbox" checked="checked" name = "a" id = "a" />*@
+    }
+    else
+    {
+        <input type="checkbox"   value="Model[i].selected_new" name="db_links[" + @i + "].selected_new" id="db_links[" + @i + "].selected_new" />
+        @*<input type="checkbox" checked="checked" name="a" id="a" />*@
+    }    
+}

@@ -228,6 +228,7 @@
     <Compile Include="Controllers\MVC0120Controller.cs" />
     <Compile Include="Controllers\MVC0124Controller.cs" />
     <Compile Include="Controllers\MVC0126Controller.cs" />
+    <Compile Include="Controllers\MVC0128Controller.cs" />
     <Compile Include="Controllers\PartalController.cs" />
     <Compile Include="C__MigrationHistory.cs">
       <DependentUpon>Model1.tt</DependentUpon>
@@ -420,6 +421,7 @@
     <Content Include="Views\BookMasters1\Index.cshtml" />
     <Content Include="Views\MVC0126\Index.cshtml" />
     <Content Include="Views\MVC0126\Index2.cshtml" />
+    <Content Include="Views\MVC0128\Index.cshtml" />
     <None Include="Views\XMLSchema1.xsd">
       <SubType>Designer</SubType>
     </None>
