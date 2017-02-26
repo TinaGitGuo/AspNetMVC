@@ -6,11 +6,11 @@
 <h2>Index</h2>
 <script src="~/Scripts/jquery-1.10.2.js"></script>
 
-<input type="button" id="btnExport" value=" Export Table data into Excel " />
+<input type="button" id="btnExport" value="Export Table data into Excel" />
 <br />
 <br />
 <div id="dvData">
-    <table>
+    <table id="tablename">
         <tr>
             <th>Column One</th>
             <th>Column Two</th>
@@ -38,7 +38,45 @@
 <script>
     $("#btnExport").click(function (e) {
         //e.preventDefault();
-    window.open('data:application/vnd.ms-excel,' + $('#dvData').html());
+        //window.open('data:application/vnd.ms-excel,' + $('#dvData').html());
+        //window.open('data:application/vnd.ms-excel,' + $('#dvData').html(), 'ee.xlsx');
+        $.ajax("@Url.Action("YourMethodName")").done(function (data) {
+            var obj = eval('(' + data + ')');
+            alert(obj);
+            //var c = data;
+            //var json = (new Function("return " + data))();
+            //alert( json);
+           //alert( JSON.parse(data));
+            //alert(data+c);
+        })
   
-});
+    });
+
+</script>
+
+
+
+<a id="dlink" style="display:none;"></a>
+<input type="button" onclick="tableToExcel('tablename', 'name', 'myfile.xlsx')" value="Export to Excel">
+
+Notice also that the call to function tableToExcel now has 3rd parameter - where you specify file name.
+Now use this modified code of your original function:
+ 
+<script>
+var tableToExcel = (function () {
+    var uri = 'data:application/vnd.ms-excel;FileFormat:52,'
+        , template = $('#dvData').html()
+        , base64 = function (s) { return window.btoa(unescape(encodeURIComponent(s))) }
+        , format = function (s, c) { return s.replace(/{(\w+)}/g, function (m, p) { return c[p]; }) }
+        return function (table, name, filename) {
+            if (!table.nodeType) table = document.getElementById(table)
+            var ctx = { worksheet: name || 'Worksheet', table: table.innerHTML }
+
+            document.getElementById("dlink").href = uri + base64(format(template, ctx));
+            document.getElementById("dlink").download = filename;//这里是关键所在,当点击之后,设置a标签的属性,这样就可以更改标签的标题了
+            document.getElementById("dlink").click();
+
+        }
+})()
+
 </script>

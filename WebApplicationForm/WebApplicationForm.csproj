@@ -192,6 +192,7 @@
     <Content Include="WebForm0222a.aspx" />
     <Content Include="WebForm0223.aspx" />
     <Content Include="WebForm0224.aspx" />
+    <Content Include="WebForm0226.aspx" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -222,7 +223,6 @@
     <Content Include="Scripts\WebForms\WebParts.js" />
     <Content Include="Scripts\WebForms\WebUIValidation.js" />
     <Content Include="Scripts\_references.js" />
-    <Content Include="Default.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Site.Master" />
@@ -357,13 +357,6 @@
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
-    <Compile Include="Default.aspx.cs">
-      <DependentUpon>Default.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Default.aspx.designer.cs">
-      <DependentUpon>Default.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -432,6 +425,13 @@
     </Compile>
     <Compile Include="WebForm0224.aspx.designer.cs">
       <DependentUpon>WebForm0224.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WebForm0226.aspx.cs">
+      <DependentUpon>WebForm0226.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebForm0226.aspx.designer.cs">
+      <DependentUpon>WebForm0226.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

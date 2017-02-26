@@ -22,11 +22,24 @@
         </tr>
     </table>
 </form>
-@secon script
-<script src="~/Scripts/jquery-1.10.2.js"></script>
+ 
+@section scripts{
+    <script src="~/Scripts/jquery-1.10.2.js"></script>
 <script src="http://cdn.rawgit.com/davidstutz/bootstrap-multiselect/master/dist/js/bootstrap-multiselect.js"></script>
+
+<script>
+    $(function () {
+        $('#example-getting-started').multiselect({
+            includeSelectAllOption: true
+        });
+
+    });
+
+</script>
+}
+
 // 
-<select id="example-getting-started" multiple="multiple">
+<select id="example-getting-started" multiple="multiple" style="background-color:white">
     <option value="cheese">Cheese</option>
     <option value="tomatoes">Tomatoes</option>
     <option value="mozarella">Mozzarella</option>

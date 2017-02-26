@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title></title>
-    <style>
+<%--    <style>
         .boxright {
             float: left;
             height: 890px;
@@ -39,13 +39,14 @@
             padding: 15px;
             overflow: hidden;
         }
-    </style>
+    </style>--%>
 </head>
 <body>
     <form id="form1" runat="server">
         <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
+<%--        <asp:UpdatePanel ID="UpdatePanel2" runat="server"></asp:UpdatePanel>--%> UpdateMode="Conditional"  ChildrenAsTriggers="true"
     <div>
-    <asp:UpdatePanel ID="UpdatePanel1" runat="server" UpdateMode="Conditional" ChildrenAsTriggers="true">
+    <asp:UpdatePanel ID="UpdatePanel1" runat="server">
 
         <ContentTemplate>
             <div class="VDOContainer raw">
@@ -59,11 +60,11 @@
                         <li class="col-md-6 like-btn">
                             <asp:Button ID="btn_Like" runat="server" Text="Like" CssClass="btn btn-outline btn-lg"></asp:Button>
                             <div class="btn btn-lg" style="cursor:default;">
-                                <img class="vlike" src="img/like.png" alt="like image" />
+                                <%--<img class="vlike" src="img/like.png" alt="like image" />--%>
                                 <asp:Label ID="lblLike" runat="server"></asp:Label>
                             </div>
                             <div class="btn btn-lg" style="cursor:default;">
-                                <img class="vlike" src="img/like.png" alt="like image" />
+                                <%--<img class="vlike" src="img/like.png" alt="like image" />--%>
                                 <asp:Label ID="lblView" runat="server"></asp:Label>
                                 Views
                             </div>
@@ -73,50 +74,49 @@
                         <asp:Label ID="VDODesc" runat="server" CssClass="vdofonthead" Text="Video Description"></asp:Label>
                     </div>
                 </div>
-
+  OnSelectedIndexChanged="listviedo_SelectedIndexChanged"
+                       
                 <div class="boxright col-lg-4 col-md-4 col-sm-12">
-                    <asp:ListView runat="server" ID="listviedo"
-                        OnSelectedIndexChanged="listviedo_SelectedIndexChanged"
-                        OnSelectedIndexChanging="listviedo_SelectedIndexChanging"
-                        SelectedIndex="0" FullRowSelect="true" ClientIDMode="AutoID" DataSourceID="SqlDataSource1">
+                    <asp:ListView runat="server" OnSelectedIndexChanging="listviedo_SelectedIndexChanging" ID="listviedo"
+                      
+                        SelectedIndex="0"  ClientIDMode="AutoID"  >
                         <ItemTemplate>
-                            <asp:Panel runat="server" ID="selected_panel" >
+                            <asp:Panel runat="server" ID="selected_panel1" >
                                 <div class="vdofont">
-                                    <asp:LinkButton runat="server" ID="linkbtn" CommandName="Select" CommandArgument='<%# Eval("ID") %>'>
+                                    <asp:LinkButton runat="server" ID="linkbtn" CommandName="Select"><%-- CommandArgument='<%# Eval("ID") %>'--%>
                                       <%--  <asp:Label ID="lblname" runat="server" Text='<%# Eval("VideoName")%>'></asp:Label>
                                         <asp:Label ID="lblid" runat="server" Visible="false" Text='<%# Eval("ID")%>'></asp:Label>--%>
 
-                                        aaaa
+                                        aaaa vvvvvvvvvvvvvvv   <%# Eval("col1")%>
                                     </asp:LinkButton>
                                 </div>
                             </asp:Panel>
-                        </ItemTemplate>
-                        
+                        </ItemTemplate>                    
                         <SelectedItemTemplate>
                             <asp:Panel runat="server" ID="selected_panel" CssClass="boxright_active" BackColor="SkyBlue"> 
                                 <div class="vdofont boxright_active">
-                                    <asp:LinkButton runat="server" ID="linkbtn" CommandName="Select" CommandArgument='<%# Eval("ID") %>'>
-                                      <%--  <asp:Label ID="lblname" runat="server" Text='<%# Eval("VideoName")%>'></asp:Label>
-                                        <asp:Label ID="lblid" runat="server" Visible="false" Text='<%# Eval("VID")%>'></asp:Label>--%>
-                                       bbbb
+                                    <asp:LinkButton runat="server" ID="linkbtn1" CommandName="Select" > bbbb <%# Eval("col1")%>
                                     </asp:LinkButton>
                                 </div>
                             </asp:Panel>
-                        </SelectedItemTemplate>
-                    </asp:ListView>
-                    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:CodeFirstDbDemoConnectionString %>" SelectCommand="SELECT * FROM [BookMasters]"></asp:SqlDataSource>
+                         </SelectedItemTemplate>
+                    </asp:ListView><%--CommandArgument='<%# Eval("ID") %>'--%>
+                                      <%--  <asp:Label ID="lblname" runat="server" Text='<%# Eval("VideoName")%>'></asp:Label>
+                                        <asp:Label ID="lblid" runat="server" Visible="false" Text='<%# Eval("VID")%>'></asp:Label>--%>
+                                      
+                  <%--  <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:CodeFirstDbDemoConnectionString %>" SelectCommand="SELECT * FROM [BookMasters]"></asp:SqlDataSource>
                     <asp:EntityDataSource ID="EntityDataSource1" runat="server">
-                    </asp:EntityDataSource>
+                    </asp:EntityDataSource>--%>
                 </div>
             </div>
 
         </ContentTemplate>
         <Triggers>
-            <asp:AsyncPostBackTrigger ControlID="listviedo" EventName="SelectedIndexChanged" />
-            <asp:AsyncPostBackTrigger ControlID="listviedo" EventName="SelectedIndexChanging" />
-            <asp:AsyncPostBackTrigger ControlID="listviedo" EventName="ItemCommand" />
+          
+          
+           
         </Triggers>
-    </asp:UpdatePanel>
+    </asp:UpdatePanel><%--  <asp:AsyncPostBackTrigger ControlID="listviedo" EventName="ItemCommand" />  <asp:AsyncPostBackTrigger ControlID="listviedo" EventName="SelectedIndexChanged" /> <asp:AsyncPostBackTrigger ControlID="listviedo" EventName="SelectedIndexChanging" />--%>
     </div>
     </form>
 </body>
