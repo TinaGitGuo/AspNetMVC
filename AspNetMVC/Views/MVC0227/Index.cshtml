@@ -1,0 +1,14 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+@using (Html.BeginForm()) {
+
+    <input type="text" name="a" value="e"/>
+    @Html.Editor("Field A", new { htmlAttributes = new { @class = "form-control_Address", @id = "PV_FieldA", @name = "ParitalView_FieldA" } })
+    @Html.Label
+    <input type="text" id="ParentViewDetailsFieldB" name="ParentViewDetails_FieldB" class="control-label col-md-2" />
+<input type="submit"  value="Click Me"/>
+}

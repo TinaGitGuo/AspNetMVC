@@ -8,6 +8,7 @@ using System.IO;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Text;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
@@ -45,7 +46,46 @@ namespace AspNetMVC.Controllers
         /// 导出Excel
         /// </summary>
         /// <param name="obj"></param>
-        public void ExportData(   )
+          public void ExportData(   )
+        {
+            Response.ClearContent();
+            //string html = "<table><tr><td>1</td><td>11</td></tr><tr><td>2</td><td>22</td></tr></table>";
+            Response.ContentType = "application/force-download";
+            Response.AddHeader("content-disposition",
+                "attachment; filename=" + DateTime.Now.ToString("yyyyMMddHHmmss") + ".xls");
+            Response.Write("<html xmlns:x=\"urn:schemas-microsoft-com:office:excel\">");
+            Response.Write("<head>");
+            Response.Write("<META http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\">");
+            //string fileCss = Server.MapPath("~/css/daoChuCSS.css");
+            //string cssText = string.Empty;
+            //StreamReader sr = new StreamReader(fileCss);
+            //var line = string.Empty;
+            //while ((line = sr.ReadLine()) != null)
+            //{
+            //    cssText += line;
+            //}
+            //sr.Close();
+            //Response.Write("<style>" + cssText + "</style>");
+            Response.Write("<!--[if gte mso 9]><xml>");
+            Response.Write("<x:ExcelWorkbook>");
+            Response.Write("<x:ExcelWorksheets>");
+            Response.Write("<x:ExcelWorksheet>");
+            Response.Write("<x:Name>Report Data</x:Name>");
+            Response.Write("<x:WorksheetOptions>");
+            Response.Write("<x:Print>");
+            Response.Write("<x:ValidPrinterInfo/>");
+            Response.Write("</x:Print>");
+            Response.Write("</x:WorksheetOptions>");
+            Response.Write("</x:ExcelWorksheet>");
+            Response.Write("</x:ExcelWorksheets>");
+            Response.Write("</x:ExcelWorkbook>");
+            Response.Write("</xml>");
+            Response.Write("<![endif]--> ");
+            View().ExecuteResult(this.ControllerContext);//= Response.Write(whole HTML content); 
+            Response.Flush();
+            Response.End();          
+        }
+    public void ExportData1(   )
         {
             
                 string style = "";
@@ -66,22 +106,44 @@ namespace AspNetMVC.Controllers
                 Response.ContentType = "application/vnd.ms-excel"; 
                 Response.Charset = "GB2312";
                 Response.ContentEncoding = System.Text.Encoding.GetEncoding("GB2312");
-                StringWriter sw = new StringWriter();
-                HtmlTextWriter htw = new HtmlTextWriter(sw);
-
+                StringBuilder sb = new StringBuilder();
+               
 
             //GridView
-                View().ExecuteResult(this.ControllerContext);
-            Response.TrySkipIisCustomErrors = true;
-            Response.Write(this);
-                this.ControllerContext.HttpContext.Response.End();
-                //obj.RenderControl(htw);
-                //Response.Write(style);
-                //Response.Write(sw.ToString());
-                //Response.Write(d.ToString());
-                
-                //Response.End();
+            View().ExecuteResult(this.ControllerContext);
+            sb.Append(HttpContext.Response.Output.NewLine);
+                StringWriter sw = new StringWriter(sb );
+                HtmlTextWriter htw = new HtmlTextWriter(sw);
             
+                htw.BeginRender();
+            //Response.TrySkipIisCustomErrors = true;
+
+             Response.Write("<!--[if gte mso 9]><xml>");
+             Response.Write("<x:ExcelWorkbook>");
+             Response.Write("<x:ExcelWorksheets>");
+             Response.Write("<x:ExcelWorksheet>");
+             Response.Write("<x:Name>Report Data</x:Name>");
+             Response.Write("<x:WorksheetOptions>");
+             Response.Write("<x:Print>");
+             Response.Write("<x:ValidPrinterInfo/>");
+             Response.Write("</x:Print>");
+             Response.Write("</x:WorksheetOptions>");
+             Response.Write("</x:ExcelWorksheet>");
+             Response.Write("</x:ExcelWorksheets>");
+             Response.Write("</x:ExcelWorkbook>");
+             Response.Write("</xml>");
+             Response.Write("<![endif]--> ");
+             
+            Response.Write(sb);//这里
+            //Response.Write(this);
+            //this.ControllerContext.HttpContext.Response.End();
+            //obj.RenderControl(htw);
+            //Response.Write(style);
+            //Response.Write(sw.ToString());
+            //Response.Write(d.ToString());
+            Response.Flush();
+            Response.End();
+
         }
         //public virtual ActionResult GetFile()
         //   {

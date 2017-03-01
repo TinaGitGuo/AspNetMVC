@@ -1,0 +1,36 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+@*@model AspNetMVC.Models.Movies.MovieV
+@{
+
+    @Html.DisplayNameFor(m=>m.strActorName)
+    @Html.TextBoxFor(m=>m.strActorName, new {@id="e" })
+}*@
+<table>
+    <tr><td><input type="checkbox" value="3" /></td>a<td></td><td>5</td></tr>
+    <tr><td><input type="checkbox" value="2" checked="checked"  /></td>b<td></td><td>6</td></tr>
+    <tr><td><input type="checkbox" value="1" checked="checked" /></td>c<td></td><td>7</td></tr>
+
+</table>
+<button type="button">click me</button>
+@section scripts{
+    <script>
+    $(function(){
+        $('button').click(function(){
+        var a= 0;
+            $.each($('table input[type="checkbox"]:checked'),
+                function (i, val) {
+                    var c = $(val).val();
+                    //var c = $(val).parent().children("td").eq(2).val();
+                alert(c)
+                a+=eval(c);
+                })
+            alert(a);
+        })
+    })
+</script>
+}:checked

@@ -1,0 +1,53 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+@Html.Password("CVV", "1", new { @id = "txtCvc", @class = "form-control", @title = "CVV", onkeyup = "keyUp(this)" })
+<script src="~/Scripts/jquery-1.10.2.js"></script>
+@section scripts{
+ <script>
+function keyUp(me){
+ if(!(/^\d+$/.test(me.value)))
+    me.value=me.value.substr(0,me.value.length-1);
+}
+$("#myTable td").click(function () {
+    var celltext = $(this).text();
+    $("#txtName").val(celltext);
+});
+</script>   
+    }
+@Html.Password("CVV", "1")
+
+
+
+<input id="txtName" type="text" />
+<table id="myTable">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Comics</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Bruce Wayne</td>
+            <td>DC</td>
+        </tr>
+        <tr>
+            <td>Clark Kent</td>
+            <td>DC</td>
+            
+        </tr>
+        <tr>
+            <td>Anthony Stark</td>
+            <td>Marvel</td>
+        </tr>
+        <tr>
+            <td>Thor Odinson</td>
+            <td>Marvel</td>
+        </tr>
+    </tbody>
+</table>

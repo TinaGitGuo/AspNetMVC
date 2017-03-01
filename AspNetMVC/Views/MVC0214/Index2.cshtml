@@ -8,12 +8,14 @@
 <script src="~/Scripts/jquery.validate.unobtrusive.js"></script>
 @model AspNetMVC.Controllers.MVC0214Controller.MemberType
 
-@using (Html.BeginForm("Create","MVC0214", FormMethod.Post))
+@using (Html.BeginForm("Create", "MVC0214", FormMethod.Post))
 {
     @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-  
-   @Html.EditorFor(model => model.MemberTypeDescription  )
-            @Html.ValidationMessageFor(model => model.MemberTypeDescription, "" )
-          
+
+   @Html.EditorFor(model => model.MemberTypeDescription)
+            @Html.ValidationMessageFor(model => model.MemberTypeDescription, "")
+
 <input type="submit" value="Click Me" />
 }
+@{ (Convert.ToDateTime(Model.MemberTypeId)).ToString("yyyy-MM-dd"); }
+@{Model.MemberTypeId.ToString("yyyy-MM-dd") }
