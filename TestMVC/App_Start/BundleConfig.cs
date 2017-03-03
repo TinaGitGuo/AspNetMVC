@@ -1,7 +1,7 @@
 ﻿using System.Web;
 using System.Web.Optimization;
 
-namespace AspNetMVC
+namespace TestMVC
 {
     public class BundleConfig
     {
@@ -26,19 +26,6 @@ namespace AspNetMVC
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
                       "~/Content/site.css"));
-
-            bundles.Add(new StyleBundle("~/mycss").Include(
-                      "~/Content",
-                      "~/Content/site.css"));
-
-
-            ////定义名为"mycss"的捆绑,js对应为 new JsMinify() 
-            //var b = new Bundle("~/mycss", new CssMinify());
-            ////添加Content文件夹下的所有css文件到捆绑 
-            ////第三个参数false表示，Content文件夹下的子文件夹下不添加到捆绑 
-            ////b.AddDirectory("~/Content", "*.css", false);
-            ////添加到BundleTable 
-            //BundleTable.Bundles.Add(b);
         }
     }
 }

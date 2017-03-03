@@ -6,7 +6,7 @@ using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
 
-namespace AspNetMVC
+namespace TestMVC
 {
     public class MvcApplication : System.Web.HttpApplication
     {
@@ -16,15 +16,6 @@ namespace AspNetMVC
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
-
-
-            //定义名为"mycss"的捆绑,js对应为 new JsMinify() 
-            //var b = new Bundle("~/mycss", new CssMinify());
-            ////添加Content文件夹下的所有css文件到捆绑 
-            ////第三个参数false表示，Content文件夹下的子文件夹下不添加到捆绑 
-            //b.AddDirectory("~/Content", "*.css", false);
-            ////添加到BundleTable 
-            //BundleTable.Bundles.Add(b);
         }
     }
 }

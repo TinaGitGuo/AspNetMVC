@@ -194,6 +194,7 @@
     <Content Include="WebForm0224.aspx" />
     <Content Include="WebForm0226.aspx" />
     <Content Include="WebForm0228.aspx" />
+    <Content Include="WebForm0302.aspx" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -440,6 +441,13 @@
     </Compile>
     <Compile Include="WebForm0228.aspx.designer.cs">
       <DependentUpon>WebForm0228.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WebForm0302.aspx.cs">
+      <DependentUpon>WebForm0302.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebForm0302.aspx.designer.cs">
+      <DependentUpon>WebForm0302.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

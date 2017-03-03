@@ -282,6 +282,7 @@
     <Compile Include="Controllers\MVC0227Controller.cs" />
     <Compile Include="Controllers\MVC0228Controller.cs" />
     <Compile Include="Controllers\MVC0301Controller.cs" />
+    <Compile Include="Controllers\MVC0302Controller.cs" />
     <Compile Include="Controllers\PartalController.cs" />
     <Compile Include="Controllers\SSPClientMasterEntity.cs" />
     <Compile Include="Controllers\StateEntity.cs" />
@@ -526,6 +527,7 @@
     <Content Include="Views\MVC0227\Index.cshtml" />
     <Content Include="Views\MVC0228\Index.cshtml" />
     <Content Include="Views\MVC0301\Index.cshtml" />
+    <Content Include="Views\MVC0302\Index.cshtml" />
     <None Include="Views\XMLSchema1.xsd">
       <SubType>Designer</SubType>
     </None>

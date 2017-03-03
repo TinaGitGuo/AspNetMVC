@@ -5,9 +5,9 @@ using Microsoft.Owin;
 using Microsoft.Owin.Security.Cookies;
 using Microsoft.Owin.Security.Google;
 using Owin;
-using AspNetMVC.Models;
+using TestMVC.Models;
 
-namespace AspNetMVC
+namespace TestMVC
 {
     public partial class Startup
     {
@@ -58,6 +58,11 @@ namespace AspNetMVC
             //   appId: "",
             //   appSecret: "");
 
+            //app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
+            //{
+            //    ClientId = "",
+            //    ClientSecret = ""
+            //});
             app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
             {
                 ClientId = "1044818299258-t3oajabgnggm04j5c527ec7ca52gdiq4.apps.googleusercontent.com",

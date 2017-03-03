@@ -20,6 +20,7 @@ namespace AspNetMVC.Controllers
      
     public class MVC0220Controller : Controller
     {
+        CodeFirstDbDemoEntities db = new CodeFirstDbDemoEntities();
         public byte[] FileVirtualPath { get; private set; }
 
         // GET: MVC0220
@@ -81,7 +82,13 @@ namespace AspNetMVC.Controllers
             Response.Write("</x:ExcelWorkbook>");
             Response.Write("</xml>");
             Response.Write("<![endif]--> ");
-            View().ExecuteResult(this.ControllerContext);//= Response.Write(whole HTML content); 
+
+
+           
+            BookMaster bookMaster = db.BookMasters.Find(1);
+            
+       
+            View(bookMaster).ExecuteResult(this.ControllerContext);//= Response.Write(whole HTML content); 
             Response.Flush();
             Response.End();          
         }

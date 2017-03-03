@@ -29,7 +29,7 @@
 <ItemTemplate> 
      
 <%#this.GridView1.Rows.Count+ Container.DataItemIndex+1%> 
-  <asp:Label ID="Label2" runat="server" Text='<%# Bind("Id") %>'></asp:Label>
+  <asp:Label ID="Label2" runat="server" Text='<%# int.Parse( Bind("Id"))*int.Parse(Bind("Id")) %>'></asp:Label>
 
 </ItemTemplate> 
 </asp:TemplateField> 
