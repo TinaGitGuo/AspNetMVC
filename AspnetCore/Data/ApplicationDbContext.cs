@@ -36,8 +36,8 @@ namespace AspnetCore.Data
                 entity.HasKey(e => e.Accountno);
                 entity.HasOne(d => d.Contact1s)
                     .WithOne(p => p.Contact4s);
-                    
-                    //.HasForeignKey(d => d.);
+
+                //.HasForeignKey(d => d.);
             });
 
             //builder.Entity<Contact1>().HasKey(e => e.Accountno);

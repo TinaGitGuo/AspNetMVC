@@ -81,7 +81,7 @@ namespace AspnetCore
             {
                 routes.MapRoute(
                     name: "default",
-                    template: "{controller=Home}/{action=Index}/{id?}");
+                    template: "{controller=Core0309}/{action=Create}/{id?}");
             });
             DbInitializer.Initialize(context);
         }

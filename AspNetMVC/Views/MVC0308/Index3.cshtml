@@ -1,0 +1,18 @@
+﻿
+@{
+    ViewBag.Title = "Index3";
+}
+
+<h2>Index3</h2>
+
+ 
+@model IEnumerable<AspNetMVC.BookMaster>
+
+@{
+    ViewBag.Title = "Overzicht materiaal";
+}
+
+<h2>@ViewData["Title"]</h2>
+<p>Welkom <strong>@Model.First().Id </strong>!</p>
+
+@{Html.RenderPartial("_MateriaalPerGebruiker", new List<AspNetMVC.Publisher> { new  Publisher() });}

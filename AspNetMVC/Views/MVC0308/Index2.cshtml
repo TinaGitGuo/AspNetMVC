@@ -1,0 +1,39 @@
+﻿
+@{
+    ViewBag.Title = "Index2";
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+   @* <script src="~/Scripts/jquery-3.1.1.min.js"></script>*@
+    <script src="http://code.jquery.com/jquery-3.1.1.js" integrity="sha256-16cdPddA6VdVInumRGo6IbivbERE8p7CQR3HzTBuELA=" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="http://beneposto.pl/jqueryrotate/js/jQueryRotateCompressed.js"></script>
+
+    <title>TestJQuery</title>
+</head>
+<body>
+
+    <img id="bild" src="http://www.webdeveloper.com/forum/images/webdev-logo2.gif">
+
+    Einstellen: <input type="range" min="0" max="360" id="ranger" onchange="bilddrehen(this.value)" />
+
+
+</body>
+
+</html>
+<script>
+
+
+    function bilddrehen(newVal) {
+
+        $("#bild").rotate({ angle: eval( newVal ) }); //$("#bild").rotate(newVal)
+        //alert(newVal);
+
+    }
+
+</script>
+

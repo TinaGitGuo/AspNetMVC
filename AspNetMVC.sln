@@ -35,6 +35,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApplicationMVCAPI", "Web
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestMVC", "TestMVC\TestMVC.csproj", "{050DC320-5FD6-4828-A3D7-9B872F78BBB3}"
 EndProject
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "AspnetCoreAll", "AspnetCoreAll\AspnetCoreAll.xproj", "{5D9E00A4-E8C2-43DC-8B55-D6B3BB0B4150}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -105,6 +107,10 @@ Global
 		{050DC320-5FD6-4828-A3D7-9B872F78BBB3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{050DC320-5FD6-4828-A3D7-9B872F78BBB3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{050DC320-5FD6-4828-A3D7-9B872F78BBB3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5D9E00A4-E8C2-43DC-8B55-D6B3BB0B4150}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5D9E00A4-E8C2-43DC-8B55-D6B3BB0B4150}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5D9E00A4-E8C2-43DC-8B55-D6B3BB0B4150}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5D9E00A4-E8C2-43DC-8B55-D6B3BB0B4150}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

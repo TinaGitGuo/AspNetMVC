@@ -82,9 +82,6 @@
       <HintPath>..\packages\Microsoft.Report.Viewer.11.0.0.0\lib\net\Microsoft.ReportViewer.WebForms.DLL</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="office, Version=16.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c">
-      <EmbedInteropTypes>True</EmbedInteropTypes>
-    </Reference>
     <Reference Include="SchoStack.Web, Version=0.6.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\SchoStack.Web.0.6.43\lib\net40\SchoStack.Web.dll</HintPath>
       <Private>True</Private>
@@ -111,6 +108,7 @@
       <HintPath>..\packages\System.Spatial.5.6.0\lib\net40\System.Spatial.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="System.Speech" />
     <Reference Include="System.Web.DataVisualization" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
@@ -283,6 +281,11 @@
     <Compile Include="Controllers\MVC0228Controller.cs" />
     <Compile Include="Controllers\MVC0301Controller.cs" />
     <Compile Include="Controllers\MVC0302Controller.cs" />
+    <Compile Include="Controllers\MVC0306Controller.cs" />
+    <Compile Include="Controllers\MVC0307Controller.cs" />
+    <Compile Include="Controllers\MVC0308Controller.cs" />
+    <Compile Include="Controllers\MVC0309Controller.cs" />
+    <Compile Include="Controllers\MVC0310Controller.cs" />
     <Compile Include="Controllers\PartalController.cs" />
     <Compile Include="Controllers\SSPClientMasterEntity.cs" />
     <Compile Include="Controllers\StateEntity.cs" />
@@ -308,6 +311,7 @@
       <DependentUpon>Model1.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\ClassA.cs" />
     <Compile Include="Models\Conexion.cs" />
     <Compile Include="Models\DateInValidationAttribute.cs" />
     <Compile Include="Models\DomainAttribute.cs" />
@@ -338,6 +342,7 @@
     <Content Include="Content\Images\timg[2].jpg" />
     <Content Include="Content\Images\timg[6].jpg" />
     <Content Include="Content\JavaScript.js" />
+    <Content Include="Content\Test.css" />
     <Content Include="HtmlPage1.html" />
     <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
     <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
@@ -528,6 +533,17 @@
     <Content Include="Views\MVC0228\Index.cshtml" />
     <Content Include="Views\MVC0301\Index.cshtml" />
     <Content Include="Views\MVC0302\Index.cshtml" />
+    <Content Include="Views\MVC0306\Index.cshtml" />
+    <Content Include="Views\MVC0307\Index.cshtml" />
+    <Content Include="Views\MVC0308\Index.cshtml" />
+    <Content Include="Views\MVC0308\Index2.cshtml" />
+    <Content Include="Views\MVC0308\Index3.cshtml" />
+    <Content Include="Views\MVC0308\_MateriaalPerGebruiker.cshtml" />
+    <Content Include="Views\MVC0308\Index4.cshtml" />
+    <Content Include="Views\MVC0308\_PartialStepTwo.cshtml" />
+    <Content Include="Views\MVC0308\_PartialStepThree.cshtml" />
+    <Content Include="Views\MVC0309\Index.cshtml" />
+    <Content Include="Views\MVC0309\Index2.cshtml" />
     <None Include="Views\XMLSchema1.xsd">
       <SubType>Designer</SubType>
     </None>
@@ -536,6 +552,7 @@
     <Folder Include="App_Data\" />
     <Folder Include="Views\MVC0221\" />
     <Folder Include="Views\MVC0223\" />
+    <Folder Include="Views\MVC0310\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

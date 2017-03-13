@@ -1,0 +1,17 @@
+﻿@model AspNetMVC.BookMaster 
+    <div id="RegSuccessDivThree">
+    @using (Ajax.BeginForm("_PartialStepThree", "MVC0308", new AjaxOptions
+    {
+        InsertionMode = InsertionMode.Replace,
+        UpdateTargetId = "RegSuccessDivThree",
+        HttpMethod = "Post"
+    }))
+    {
+        <script src="~/Scripts/jquery-1.10.2.js"></script>
+        <script src="~/Scripts/jquery.unobtrusive-ajax.js"></script>
+        <h2>_PartialStepThree</h2>
+
+        @Html.TextBoxFor(m => m.Id)
+        <button type="submit">Three Step</button>
+    }
+</div>

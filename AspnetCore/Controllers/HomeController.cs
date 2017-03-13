@@ -17,19 +17,23 @@ namespace AspnetCore.Controllers
         }
         public IActionResult Index()
         {
-          
-                // Create and save a new Blog 
-                //Console.Write("Enter a name for a new Blog: ");
-                //var name = Console.ReadLine();
-                //db.Database.CreateIfNotExists();
-                //db.Contact1s.Add(new Contact1() { Accountno="v", Recid = "1" });
-                ////var blog = new Blog { Name = name };
-                ////db.Blogs.Add(blog);
-                 //db.Database.EnsureCreated();
-            db.Contact1ss.Add(new Contact1() { Accountno = "1", Recid="5"});
-                db.SaveChanges();
-          
-                return View();
+
+            // Create and save a new Blog 
+            //Console.Write("Enter a name for a new Blog: ");
+            //var name = Console.ReadLine();
+            //db.Database.CreateIfNotExists();
+            //db.Contact1s.Add(new Contact1() { Accountno="v", Recid = "1" });
+            ////var blog = new Blog { Name = name };
+            ////db.Blogs.Add(blog);
+            //db.Database.EnsureCreated();
+            for (int i = 2; i < 6; i++) {
+
+           db.Contact1ss.Add(new Contact1() { Accountno = i.ToString() ,Recid="Recid"+i, Company= "Company"+i });
+            }
+           
+            db.SaveChanges();
+
+            return View();
         }
 
         public IActionResult About()

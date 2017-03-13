@@ -1,0 +1,365 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = null;
+}
+
+<h2>Index</h2>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = null;
+}
+
+<HTML>
+
+<HEAD>
+    <script src="~/Scripts/jquery-1.10.2.js"></script>
+
+    <TITLE>JavaScript--execCommand指令集</TITLE>
+
+
+
+</HEAD>
+
+<body>
+
+    <input id="edit" value="范例"  NAME="edit"><br>
+
+    <button onclick="fn_doufucopy()" ID="Button1">Copy</button> <button onclick="fn_doufupaste()" ID="Button2">
+
+        paste
+    </button><br>
+
+    <textarea id="tt" rows="10"  cols="50"  NAME="tt"></textarea>
+
+    <hr>
+
+    <br>
+
+    浮沉聚散变化又再,但是总可卷土重来.<br>
+
+    天若有情天亦老,人间正道是沧桑.<br>
+
+    都怪我,太执着,却也等不到花开叶落.<br>
+
+    <br>
+
+    Please selectabove letters, thenclick followingbuttons:<br>
+
+    <hr>
+    <button onclick="fn_creatlink()">创建</button>
+    @*  <input type="button" value="创建CreateLink"  onclick="fn_creatlink()"  ID="Button3"  NAME="Button3"><br>*@
+    <button onclick="fn_change_backcolor()">改变文字背景色</button>
+    @*<input type="button" value="改变文字背景色"  onclick="fn_change_backcolor()"  ID="Button4"  NAME="Button4">*@<br>
+    <button onclick="fn_change_forecolor()">改变文字前景色</button>
+    @*<input type="button" value="改变文字前景色"  onclick="fn_change_forecolor()"  ID="Button5"  NAME="Button5">*@<br>
+    <button onclick="fn_change_selection()">给文字加线条</button>
+    @*<input type="button" value="给文字加线条"  onclick="fn_change_selection()"  ID="Button6"  NAME="Button6">*@<br>
+    <button onclick="fn_format()">改变文字的排列</button>
+    @*<input type="button" value="改变文字的排列"  onclick="fn_format()"  ID="Button7"  NAME="Button7">*@<br>
+    <button onclick="fn_CutOrDel()">删除或剪下选中的部分</button>
+    @*<input type="button" value="删除或剪下选中的部分"  onclick="fn_CutOrDel()"  ID="Button8"  NAME="Button8">*@<br>
+    <button onclick="fn_InsObj()">插入Object</button>
+    @*<input type="button" value="插入Object"  onclick="fn_InsObj()"  ID="Button9"  NAME="Button9">*@<br>
+
+    @* <input type="button" value="保存或打印文件"  onclick="fn_save()"  ID="Button10"  NAME="Button10"><br>*@
+
+    @* <input type="button" value="测试Refresh属性"  onclick="document.execCommand('Refresh')"  ID="Button11"*@
+
+    @*NAME="Button11">*@
+    <input type="file" id="upload" />
+    <label id="message"></label>
+    <button id="contentplace"  onclick="selectfile()">upload file</button>
+    <button id="content">content</button>
+
+
+    focus contextmenu
+</body>
+
+</HTML>
+<SCRIPT LANGUAGE="javascript">
+
+
+   
+ function fn_doufucopy()
+      {
+
+ edit.select();
+
+ document.execCommand('Copy');
+
+ }   
+   
+ function fn_doufupaste()
+      {
+
+ tt.focus();
+
+ document.execCommand('paste');
+
+ }   
+   
+ function fn_creatlink()
+   
+ {   
+     alert("fn_creatlink")
+  document.execCommand('CreateLink',true,'true');//弹出一个对话框输入URL   
+   
+ //document.execCommand('CreateLink',false,'http://www.51js.com');   
+   
+ }   
+   
+ function fn_change_backcolor()
+   
+ {   
+   
+ document.execCommand('BackColor',true,'#FFbbDD');//true或false都可以   
+   
+ }   
+   
+ function fn_change_forecolor()
+   
+ {   
+   
+ //指定前景色   
+   
+ document.execCommand('ForeColor',false,'#BBDDCC');//true或false都可以   
+   
+ //指定背景色   
+   
+ document.execCommand('FontSize',false,7);  //true或false都可以   
+   
+ //字体必须是系统支持的字体   
+   
+ document.execCommand('FontName',false,'标楷体');  //true或false都可以   
+   
+ //字体变粗   
+   
+ document.execCommand('Bold');   
+   
+ //变斜体   
+   
+ document.execCommand('Italic');   
+   
+ }   
+   
+ function fn_change_selection()
+   
+ {   
+   
+ //将选中的文字加下划线   
+   
+ document.execCommand('Underline');   
+   
+ //在选中的文字上划粗线   
+   
+ document.execCommand('StrikeThrough');   
+   
+ //将选中的部分文字变细   
+   
+ document.execCommand('SuperScript');   
+   
+ //将选中区块的下划线取消掉   
+   
+ document.execCommand('Underline');   
+   
+ }   
+   
+ function fn_format()
+   
+ {   
+   
+ //有序列排列   
+   
+ document.execCommand('InsertOrderedList');   
+    
+  //实心无序列排列   
+    
+  document.execCommand('InsertUnorderedList');   
+    
+  //空心无序列排列   
+    
+  document.execCommand('Indent');   
+    
+  }   
+    
+  function fn_CutOrDel()
+    
+  {   
+    
+  //删除选中的区块   
+    
+  //document.execCommand('Delete');   
+    
+  //剪下选中的区块   
+    
+  document.execCommand('Cut');   
+    
+  }   
+  function selectfile() {
+      var file = document.getElementById('upload').files[0];
+      var imagesize = 1572864;
+      if (file && file.type.match('image.*') && file.size < imagesize) {
+          var reader = new FileReader();
+          document.getElementById('message').innerHTML = 'Click to insert image: <strong>' + file.name.substring(0, 30) + '</strong>';
+          document.getElementById('message').style.display = 'block';
+          reader.onload = function (e) {
+
+              var img = new Image();
+              img.src = reader.result;
+
+              var canvas = document.createElement('canvas');
+              var width = img.width;
+              var height = img.height;
+              var max_width = max_height = 1200;
+              // calculate the width and height, constraining the proportions
+
+              if (width > max_width) {
+                  height = Math.round(height *= max_width / width);
+                  width = max_width;
+              }
+              else if (height > max_height) {
+                  width = Math.round(width *= max_height / height);
+                  height = max_height;
+              }
+
+              // resize the canvas and draw the image data into it
+              canvas.width = width;
+              canvas.height = height;
+              var ctx = canvas.getContext("2d");
+              ctx.drawImage(img, 0, 0, width, height);
+
+              var image = canvas.toDataURL("image/jpeg", 0.7);
+
+              $("#contentplace").one("click", function () {
+                  //document.getElementById('contentplace').focus();
+                  document.execCommand("insertImage", false, image);
+                  document.getElementById("upload").value = "";
+                  document.getElementById('message').innerHTML = '';
+                  document.getElementById('message').style.display = 'none';
+              //    return false;
+              });
+          }
+
+          reader.readAsDataURL(file);
+
+      }
+      else {
+          document.getElementById('message').innerHTML = 'File not supported!';
+          document.getElementById('message').style.display = 'block';
+      }
+  }
+ function fn_InsObj()
+   
+ {   
+   
+ //重设为一个fieldset   
+   
+ //插入一个水平线   
+   
+ //document.execCommand('InsertHorizontalRule',true,"aa");   
+   
+ //插入一个iframe   
+   
+ //document.execCommand('InsertIFrame',true,"aa");   
+   
+ //插入一个InsertImage,设为true时需要图片,false时不需图片   
+   
+ document.execCommand('InsertImage',false,"aa");   
+   
+ //插入一个checkbox   
+   
+ //document.execCommand('InsertInputCheckbox',true,"aa");   
+   
+ //插入一个file类型的object   
+   
+ //document.execCommand('InsertInputFileUpload',false,"aa");   
+   
+ //插入一个hidden   
+   
+ //插入一个InputImage   
+   
+ //插入一个Password   
+   
+ //document.execCommand('InsertInputPassword',true,"aa");   
+   
+ //插入一个Radio   
+   
+ //document.execCommand('InsertInputRadio',false,"aa");   
+   
+ //插入一个Reset   
+   
+ //document.execCommand('InsertInputReset',true,"aa");   
+   
+ //插入一个Submit   
+   
+ //document.execCommand('InsertInputSubmit',false,"aa");   
+   
+ //插入一个input text   
+   
+ //document.execCommand('InsertInputText',false,"aa");   
+   
+ //插入一个textarea   
+   
+ //document.execCommand('InsertTextArea',true,"aa");   
+   
+ //插入一个 select list box   
+   
+ //document.execCommand('InsertSelectListbox',false,"aa");   
+   
+ //插入一个single select   
+   
+ //document.execCommand('InsertSelectDropdown',true,"aa");   
+   
+ //插入一个line break(硬回车??)   
+   
+ //document.execCommand('InsertParagraph');   
+   
+ //插入一个marquee   
+   
+ //用于取消选中的阴影部分   
+   
+ //document.execCommand('Unselect');   
+   
+ //选中页面上的所有元素   
+   
+ //document.execCommand('SelectAll');   
+   
+ }   
+   
+ function fn_save()
+   
+ {   
+   
+ //第二个参数为欲保存的文件名   
+   
+ document.execCommand('SaveAs','mycodes.txt');   
+   
+ //打印整个页面   
+   
+ //document.execCommand('print');   
+   
+ }   
+   
+ $(document).ready(function () {
+     // Format contenteditable
+     $('#content').on('click', function () {
+         //alert("content")
+         document.execCommand('ForeColor', false, '#BBDDCC');
+         document.execCommand("insertText", true, "abcderff");
+         //if ($(this).html().trim() == "") {
+         //    formatDoc('formatblock', '<p>');
+         //}
+     });
+     // keep text only
+     //document.querySelector("#content").addEventListener("paste", function (e) {
+     //    e.preventDefault();
+     //    var text = e.clipboardData.getData("text/plain");
+     //    document.execCommand("insertHTML", false, text);
+     //});
+ });
+   
+</SCRIPT>
+
+
