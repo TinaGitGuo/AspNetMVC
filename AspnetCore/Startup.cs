@@ -33,25 +33,73 @@ namespace AspnetCore
             builder.AddEnvironmentVariables();
             Configuration = builder.Build();
         }
-
-        public IConfigurationRoot Configuration { get; }
-
+        public static IConfigurationRoot Configuration { get; set; }
+        //public IConfigurationRoot Configuration { get; }
+        public static string connectionString = "US";
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
-        {
-            // Add framework services.
-            services.AddDbContext<ApplicationDbContext>(options =>
-                options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+        {     // Add framework services.
+           
 
-            services.AddIdentity<ApplicationUser, IdentityRole>()
+            services.AddTransient(provider =>
+            {
+                
+                connectionString = Configuration["ConnectionStrings:MyEntities" + connectionString];
+                return GetStr.getss (Configuration["ConnectionStrings:MyEntities" + connectionString]);
+            });
+
+            services.AddIdentity<ApplicationUser, IdentityRole>( config =>
+            {
+                config.User.RequireUniqueEmail = true;
+                config.Password.RequiredLength = 8;
+                config.Cookies.ApplicationCookie.LoginPath = "/Account/Login";
+
+            })
                 .AddEntityFrameworkStores<ApplicationDbContext>()
-                .AddDefaultTokenProviders();
+               ;
+ services.AddDbContext<ApplicationDbContext>(options =>
+
+                options.UseSqlServer(Configuration["DefaultConnection"]));
+
+         
 
             services.AddMvc();
 
             // Add application services.
             services.AddTransient<IEmailSender, AuthMessageSender>();
             services.AddTransient<ISmsSender, AuthMessageSender>();
+
+            // Configure Identity
+            //services.Configure<IdentityOptions>(options =>
+            //{
+            //    // Password settings
+            //    options.Password.RequireDigit = true;
+            //    options.Password.RequiredLength = 8;
+            //    options.Password.RequireNonAlphanumeric = false;
+            //    options.Password.RequireUppercase = true;
+            //    options.Password.RequireLowercase = false;
+
+            //    // Lockout settings
+            //    options.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(30);
+            //    options.Lockout.MaxFailedAccessAttempts = 10;
+            //    options.Lockout.AllowedForNewUsers = true;
+
+            //    // Cookie settings
+            //    options.Cookies.ApplicationCookie.CookieName = "YouAppCookieName";
+            //    options.Cookies.ApplicationCookie.ExpireTimeSpan = TimeSpan.FromDays(150);
+            //    options.Cookies.ApplicationCookie.LoginPath = "/Account/LogIn";
+            //    options.Cookies.ApplicationCookie.LogoutPath = "/Account/LogOff";
+            //    options.Cookies.ApplicationCookie.AccessDeniedPath = "/Account/AccessDenied";
+            //    options.Cookies.ApplicationCookie.AutomaticAuthenticate = true;
+            //    options.Cookies.ApplicationCookie.AuthenticationScheme = Microsoft.AspNetCore.Authentication.Cookies.CookieAuthenticationDefaults.AuthenticationScheme;
+            //});
+            //    services.AddMvc();
+
+
+
+            //// Add application services.
+            //services.AddTransient<IEmailSender, AuthMessageSender>();
+            //services.AddTransient<ISmsSender, AuthMessageSender>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -81,7 +129,7 @@ namespace AspnetCore
             {
                 routes.MapRoute(
                     name: "default",
-                    template: "{controller=Core0309}/{action=Create}/{id?}");
+                    template: "{controller=Core0321}/{action=Index}/{id?}");
             });
             DbInitializer.Initialize(context);
         }

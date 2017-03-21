@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using AspnetCore.Data;
 using AspnetCore;
+using Microsoft.Extensions.Configuration;
 
 namespace AspnetCore.Controllers
 {
@@ -17,7 +18,13 @@ namespace AspnetCore.Controllers
         }
         public IActionResult Index()
         {
-
+            var a = Startup.Configuration["DefaultConnection"];
+            //if (true)
+            //{
+            Startup.Configuration["DefaultConnection"] = "123";
+            var b = Startup.Configuration["DefaultConnection"];
+            //}
+           
             // Create and save a new Blog 
             //Console.Write("Enter a name for a new Blog: ");
             //var name = Console.ReadLine();
@@ -31,7 +38,7 @@ namespace AspnetCore.Controllers
            db.Contact1ss.Add(new Contact1() { Accountno = i.ToString() ,Recid="Recid"+i, Company= "Company"+i });
             }
            
-            db.SaveChanges();
+            //db.SaveChanges();
 
             return View();
         }
