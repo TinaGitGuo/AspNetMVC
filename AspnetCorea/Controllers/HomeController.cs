@@ -5,12 +5,18 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Http;
 using AspnetCorea.ViewComponents;
+using System.Xml;
+
 namespace AspnetCorea.Controllers
 {
     public class HomeController : Controller
     {
         public IActionResult Index()
         {
+
+            //string strUrl = "http://www.w3school.com.cn/example/xmle/note.xml";
+            //XmlDocument doc = new XmlDocument();
+            //doc.Load(strUrl);
             return View();
         }
 

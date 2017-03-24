@@ -10,6 +10,9 @@ namespace AspnetCoreAll.Controllers
     {
         public IActionResult Index()
         {
+            string strUrl = "http://www.w3school.com.cn/example/xmle/note.xml";
+            XmlDocument doc = new XmlDocument();
+            doc.Load(strUrl);
             return View();
         }
 

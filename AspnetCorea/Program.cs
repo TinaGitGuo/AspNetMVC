@@ -15,6 +15,7 @@ namespace AspnetCorea
                 .UseKestrel()
                 .UseContentRoot(Directory.GetCurrentDirectory())
                 .UseIISIntegration()
+                //.UseUrls("http://localhost:9191")
                 .UseStartup<Startup>()
                 .Build();
 
