@@ -22,7 +22,9 @@ namespace AspNetMVC
         }
     [Required]
         public int Id { get; set; }
+        [Required]
         public string strBookTypeId { get; set; }
+        [Required]
         public string strAccessionId { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

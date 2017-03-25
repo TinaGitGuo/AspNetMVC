@@ -1,0 +1,23 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+ 
+@section scripts{
+    <script src="~/Scripts/jquery.unobtrusive-ajax.js"></script>
+}
+@*@model Contact1*@
+<div id="RegSuccessDivOne">
+    <h2>First Step</h2>
+    @*@using (Html.BeginForm("_PartialStepOne", "MVC0308", new AjaxOptions
+    {
+        InsertionMode = InsertionMode.Replace,
+        UpdateTargetId = "RegSuccessDivOne",
+        HttpMethod = "Post"
+    }))
+    {
+        @Html.TextBoxFor(m => m.Id)
+        <button type="submit">First Step</button>
+    }*@
+</div>

@@ -14,7 +14,7 @@ namespace ConsoleCodeFirst
             {              
                 db.Database.CreateIfNotExists();
                 db.SaveChanges();
-                 
+                
                 Console.WriteLine("Press any key to exit...");
                 Console.ReadKey();
             }

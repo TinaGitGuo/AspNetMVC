@@ -1,0 +1,50 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@model Contact1
+<div class="form-group">
+    <label asp-for="Contact" class="col-md-2 control-label"></label>
+    <div class="col-md-10">
+        <select asp-for="Contact" class="form-control" asp-items="ViewBag.Accountno" id="site-target">
+            <option>--Select Site --</option>
+        </select>
+    </div>
+</div>
+
+
+
+<div class="form-group">
+    <label asp-for="Company" class="col-md-2 control-label"></label>
+    <div class="col-md-10 ">
+        <select asp-for="Company" class="form-control"
+                asp-items="ViewBag.Company" id="wb-target">
+            <option>--Select Site First--</option>
+        </select>
+    </div>
+</div>
+@section scripts{
+<script>
+    $(document).ready(function () {
+        $("#site-target").on("change", function () {
+            $list = $("#wb-target");
+            $.ajax({
+                url: "Core0309/GetWaterBody",
+                type: "GET",
+                data: { id: $("#site-target").val() }, //id of the site which is used to extract waterbodies
+                traditional: true,
+                success: function (result) {
+                    $list.empty();
+                    $.each(result, function (i, item) {
+                        $list.append('<option value="' + item["contact"] + '"> ' + item["accountno"] + ' </option>');
+                    });
+                },
+                error: function () {
+                    alert("Danger!! Will Robertson Danger!!!!!!!!!!!");
+                }
+            });
+        });
+    });
+</script>
+}

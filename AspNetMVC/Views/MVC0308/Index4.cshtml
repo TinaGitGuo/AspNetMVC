@@ -1,0 +1,29 @@
+﻿@{
+    ViewBag.Title = "Index4";
+}
+@section scripts{
+<script src="~/Scripts/jquery.unobtrusive-ajax.js"></script> 
+}
+@model AspNetMVC.BookMaster
+ <div id="RegSuccessDivOne">
+     <h2>First Step</h2>
+    @using (Ajax.BeginForm("_PartialStepOne", "MVC0308", new AjaxOptions
+    {
+        InsertionMode = InsertionMode.Replace,
+        UpdateTargetId = "RegSuccessDivOne",
+        HttpMethod = "Post"
+    }))
+    {
+        @Html.TextBoxFor(m => m.Id)
+        <button type="submit">First Step</button>
+    }
+</div>
+
+@*<script>
+    function RegisterSuccess(data) {     
+        $("#RegSuccessDiv").html(data);
+    }
+</script>*@
+ 
+
+

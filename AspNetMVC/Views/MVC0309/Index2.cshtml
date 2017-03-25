@@ -1,0 +1,49 @@
+﻿
+@{
+    ViewBag.Title = "Index2";
+}
+
+<h2>Index2</h2>
+
+<div class="form-group">
+    <label asp-for="Waterbody.SiteID" class="col-md-2 control-label"></label>
+    <div class="col-md-10">
+        <select asp-for="Waterbody.SiteID" class="form-control" asp-items="ViewBag.SiteID" id="site-target">
+            <option>--Select Site --</option>
+        </select>
+    </div>
+</div>
+
+
+
+<div class="form-group">
+    <label asp-for="Waterbody.WaterBodyID" class="col-md-2 control-label"></label>
+    <div class="col-md-10 ">
+        <select asp-for="WaterBodyID" class="form-control"
+                asp-items="ViewBag.WaterBodyID" id="wb-target">
+            <option>--Select Site First--</option>
+        </select>
+    </div>
+</div>
+<script>
+    $(document).ready(function () {
+        $("#site-target").on("change", function () {
+            $list = $("#wb-target");
+            $.ajax({
+                url: "/GetWaterBody",
+                type: "GET",
+                data: { id: $("#site-target").val() }, //id of the site which is used to extract waterbodies
+                traditional: true,
+                success: function (result) {
+                    $list.empty();
+                    $.each(result, function (i, item) {
+                        $list.append('<option value="' + item["WaterBodyId"] + '"> ' + item["WBName"] + ' </option>');
+                    });
+                },
+                error: function () {
+                    alert("Danger!! Will Robertson Danger!!!!!!!!!!!");
+                }
+            });
+        });
+    });
+</script>
