@@ -5,14 +5,37 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Http;
 using AspnetCorea.ViewComponents;
+using Microsoft.Extensions.Options;
+
 namespace AspnetCorea.Controllers
 {
     public class HomeController : Controller
     {
+        private readonly MySubOptions _subOptionsAccessor;
+ 
+        private readonly MyOptions _optionsAccessor;
+
+        public HomeController(IOptions<MyOptions> optionsAccessor, IOptionsSnapshot<MySubOptions> options)
+        {
+            _optionsAccessor = optionsAccessor.Value;
+            _subOptionsAccessor = options.Value;
+        }
+
         public IActionResult Index()
         {
-            return View();
+            var option1 = _optionsAccessor.Option1;
+            var option2 = _optionsAccessor.Option2;
+
+            var subOption1 = _subOptionsAccessor.SubOption1;
+            var subOption2 = _subOptionsAccessor.SubOption2;
+            var subOption3 = _subOptionsAccessor.CreationTime;
+            return Content($"option1 = {option1}, option2 = {option2},subOption1 = {subOption1}, subOption2 = {subOption2},subOption3={subOption3}");
         }
+
+        //public IActionResult Index()
+        //{
+        //    return View();
+        //}
 
         public IActionResult About()
         {
