@@ -244,6 +244,7 @@
     </Compile>
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BookMasters1Controller.cs" />
+    <Compile Include="Controllers\BookMasters2Controller.cs" />
     <Compile Include="Controllers\BookMastersController.cs" />
     <Compile Include="Controllers\CommonController.cs" />
     <Compile Include="Controllers\Default1Controller.cs" />
@@ -316,6 +317,7 @@
       <DependentUpon>Model1.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\ActionAuthorizeAttribute.cs" />
     <Compile Include="Models\Class0315.cs" />
     <Compile Include="Models\ClassA.cs" />
     <Compile Include="Models\Conexion.cs" />
@@ -551,6 +553,13 @@
     <Content Include="Views\MVC0309\Index2.cshtml" />
     <Content Include="Views\MVC0313\Index.cshtml" />
     <Content Include="Views\MVC0314\Index.cshtml" />
+    <Content Include="Views\MVC0321\Index2.cshtml" />
+    <Content Include="Views\MVC0321\Details.cshtml" />
+    <Content Include="Views\BookMasters2\Create.cshtml" />
+    <Content Include="Views\BookMasters2\Delete.cshtml" />
+    <Content Include="Views\BookMasters2\Details.cshtml" />
+    <Content Include="Views\BookMasters2\Edit.cshtml" />
+    <Content Include="Views\BookMasters2\Index.cshtml" />
     <None Include="Views\XMLSchema1.xsd">
       <SubType>Designer</SubType>
     </None>
@@ -563,7 +572,6 @@
     <Folder Include="Views\MVC0310\" />
     <Folder Include="Views\MVC0315\" />
     <Folder Include="Views\MVC0316\" />
-    <Folder Include="Views\MVC0321\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

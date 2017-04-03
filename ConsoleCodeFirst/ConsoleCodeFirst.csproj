@@ -53,8 +53,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ApplicatioDbContext0403.cs" />
     <Compile Include="ApplicatioDbContext0217.cs" />
     <Compile Include="ApplicatioDbContext.cs" />
+    <Compile Include="Class0403.cs" />
     <Compile Include="Contact1.cs" />
     <Compile Include="Contact4.cs" />
     <Compile Include="Program.cs" />
