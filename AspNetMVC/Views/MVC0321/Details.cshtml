@@ -1,0 +1,96 @@
+﻿@using System.Web.Mvc.Html
+@model AspNetMVC.BookMaster
+
+@{
+    ViewBag.Title = "Details";
+}
+<style>
+    .main {
+        background-color: #009966;
+    }
+
+        .main dt {
+            color: #003333;
+        }
+
+    .id {
+        color: #009966;
+        font-weight: bold;
+    }
+</style>
+
+
+@*<h2>Details</h2>
+
+<div>
+    <h4>BookMaster</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+         
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.strBookTypeId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.strAccessionId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.strAccessionId)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>*@
+
+
+
+
+
+
+<h2>Details</h2>
+<div class="w3-container main w3-card-24">
+    <hr />
+    <br />
+    <br />
+    <dl class="dl-horizontal w3-container">
+        <dt>
+          
+        </dt>
+        <dd class="id">
+            @Html.DisplayNameFor(model => model.strBookTypeId)
+            @*@Html.TextBoxFor(model => model.GROUPID, new { disabled = "disabled", @class = "form-control" })*@
+        </dd>
+        @*<dt>
+            @Html.DisplayNameFor(model => model.DEPTCODE)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.DEPTCODE)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.DEPARTMENTNAME)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.DEPARTMENTNAME)
+        </dd>*@
+    </dl>
+    @*@Html.Action("GroupUsers", new { groupid = Model.GROUPID })*@
+    <br />
+    <br />
+</div>
+<div class="container">
+        @*<p>
+            @Html.ActionLink("Add user", "AddUser", new { id = Model.GROUPID.Trim() }, new { @class = "btn btn-success btn-sm" })
+            @Html.ActionLink("Edit", "Edit", new { id = Model.GROUPID.Trim() }, new { @class = "btn btn-primary btn-sm" })
+            @Html.ActionLink("Back", "Index", null, new { @class = "btn btn-info btn-sm" })
+
+            
+        </p>*@@Html.ActionLink("Back to List", "Index2",new { flag = ViewBag.flag })
+</div>
+ 

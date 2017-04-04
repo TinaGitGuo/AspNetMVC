@@ -35,7 +35,7 @@ namespace MVCAPI.Providers
 
             if (user == null)
             {
-                context.SetError("invalid_grant", "用户名或密码不正确。");
+                context.SetError("invalid_grant", "The user name or password is incorrect.");
                 return;
             }
 
@@ -62,7 +62,7 @@ namespace MVCAPI.Providers
 
         public override Task ValidateClientAuthentication(OAuthValidateClientAuthenticationContext context)
         {
-            // 资源所有者密码凭据未提供客户端 ID。
+            // Resource owner password credentials does not provide a client ID.
             if (context.ClientId == null)
             {
                 context.Validated();

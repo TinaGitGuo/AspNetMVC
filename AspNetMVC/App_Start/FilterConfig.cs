@@ -1,4 +1,5 @@
-﻿using System.Web;
+﻿using AspNetMVC.Models;
+using System.Web;
 using System.Web.Mvc;
 
 namespace AspNetMVC
@@ -8,6 +9,7 @@ namespace AspNetMVC
         public static void RegisterGlobalFilters(GlobalFilterCollection filters)
         {
             filters.Add(new HandleErrorAttribute());
+            //filters.Add(new ActionAuthorizeAttribute());
         }
     }
 }

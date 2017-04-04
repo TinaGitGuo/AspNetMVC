@@ -9,6 +9,7 @@ namespace AspnetCoreAll.Models.AccountViewModels
     public class ForgotPasswordViewModel
     {
         [Required]
+        [Required]
         [EmailAddress]
         public string Email { get; set; }
     }

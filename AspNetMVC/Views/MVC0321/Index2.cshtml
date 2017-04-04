@@ -1,3 +1,207 @@
-﻿ 
+﻿@model IEnumerable<AspNetMVC.BookMaster>
+@using System.Linq;
+@{
+    ViewBag.Title = "Index";
+}
 
- 222
+<h2>Index</h2>
+
+@*<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.strBookTypeId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.strAccessionId)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.strBookTypeId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.strAccessionId)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+            </td>
+        </tr>
+    }
+
+</table>*@
+
+<form id="form1" action="Index3" method="post" >
+    <input type="file" name="file1" />
+    @*<asp:FileUpload ID="FileUpload1" runat="server" AllowMultiple="true" />*@
+    <input type="submit" value="sumbit" />
+</form>
+
+<h2>DEPT/SECTIONS</h2>
+<div style="background:#ddd; color: black; padding: 20px;">
+    <p>
+        @Html.ActionLink("Create New", "Create", null, new { @class = "btn btn-success btn-sm" })
+    </p>
+    <ul class="nav nav-tabs" id="myTab">
+        <li class="active"><a href="#PHM" class="w3-blue-grey w3-text-black"><strong>PHM </strong></a></li>
+        <li><a href="#PHQ" class="w3-green w3-text-black">PHQ </a></li>
+        <li><a href="#PMS" class="w3-dark-grey w3-text-amber"><strong>PMS</strong> </a></li>
+
+    </ul>
+    <div class="tab-content">
+        <div class="tab-pane active w3-blue-grey" id="PHM">
+            <br />
+            <table class="table  w3-white table-hover table-bordered">
+                <tr class="w3-text-blue-grey">
+                    <th>
+                        @Html.DisplayNameFor(model => model.strBookTypeId)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.strAccessionId)
+                    </th>
+                    <th></th>
+                </tr>
+                @foreach (var item in Model)
+                {
+                    //if (item.INVORG.Trim() == "PHM")
+                    if (true)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.strBookTypeId)
+                            </td>
+                            @*<td>
+                                @Html.DisplayFor(modelItem => item.DEPTCODE)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.DEPARTMENTNAME)
+                            </td>*@
+                            <td>
+                                @*@Html.ActionLink("View", "Details", new { id = item.GROUPID }, new { @class = "btn btn-success btn-sm" })
+                                @Html.ActionLink("Edit", "Edit", new { id = item.GROUPID }, new { @class = "btn btn-primary btn-sm" })
+                                @Html.ActionLink("Delete", "Delete", new { id = item.GROUPID }, new { @class = "btn btn-danger btn-sm" })*@
+                            </td>
+                        </tr>
+                    }
+                }
+            </table>
+        </div>
+        <div class="tab-pane w3-green " id="PHQ">
+            <br />
+            @Html.ActionLink("View", "Details", new { id =1 , flag= "PHQ" }, new { @class = "btn btn-success btn-sm" })
+            PHQ PHQ PHQ
+            @*<table class="table w3-white table-bordered">
+                <tr class="w3-text-green">
+                    <th>
+                        @Html.DisplayNameFor(model => model.GROUPID)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.DEPTCODE)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.DEPARTMENTNAME)
+                    </th>
+                    <th>
+                    <th></th>
+                </tr>
+                @foreach (var item in Model)
+                {
+                    if (item.INVORG.Trim() == "PHQ")
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.GROUPID)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.DEPTCODE)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.DEPARTMENTNAME)
+                            </td>
+                            <td>
+                                @Html.ActionLink("View", "Details", new { id = item.GROUPID }, new { @class = "btn btn-success btn-sm" })
+                                @Html.ActionLink("Edit", "Edit", new { id = item.GROUPID }, new { @class = "btn btn-primary btn-sm" })
+                                @Html.ActionLink("Delete", "Delete", new { id = item.GROUPID }, new { @class = "btn btn-danger btn-sm" })
+                            </td>
+                        </tr>
+                    }
+                }
+            </table>*@
+
+        </div>
+        <div class="tab-pane w3-dark-grey" id="PMS">
+            <br />
+            PMS
+            @*<table class="table w3-white table-bordered">
+                <tr class="w3-text-dark-grey">
+                    <th>
+                        @Html.DisplayNameFor(model => model.GROUPID)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.DEPTCODE)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.DEPARTMENTNAME)
+                    </th>
+                    <th></th>
+                </tr>
+                @foreach (var item in Model)
+                {
+                    if (item.INVORG.Trim() == "PMS")
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.GROUPID)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.DEPTCODE)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.DEPARTMENTNAME)
+                            </td>
+                            <td>
+                                @Html.ActionLink("View", "Details", new { id = item.GROUPID }, new { @class = "btn btn-success btn-sm" })
+                                @Html.ActionLink("Edit", "Edit", new { id = item.GROUPID }, new { @class = "btn btn-primary btn-sm" })
+                                @Html.ActionLink("Delete", "Delete", new { id = item.GROUPID }, new { @class = "btn btn-danger btn-sm" })
+                            </td>
+                        </tr>
+                    }
+                }
+            </table>*@
+        </div>
+    </div>
+    <div style="display:none" id="flag">@ViewBag.flag</div>
+    @section scripts{
+    <script>
+$(function () {
+$('#myTab a').click(function (e) {
+e.preventDefault();
+$(this).tab('show');
+})
+
+ 
+ 
+var a = '#myTab a[href="#' + $('#flag').text() + '"]';
+//alert(a);
+$(a).tab('show');
+
+})
+
+//window.onload = function () { $("#myTab a[href='#PHQ']").tab('show'); }
+    </script>      
+        }
+
+
+</div>
+<br />
+<br />
+<br />
+
