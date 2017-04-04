@@ -53,11 +53,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ApplicatioDbContext0325.cs" />
     <Compile Include="ApplicatioDbContext0217.cs" />
     <Compile Include="ApplicatioDbContext.cs" />
     <Compile Include="Contact1.cs" />
     <Compile Include="Contact4.cs" />
-    <Compile Include="Program.cs" />
+    <Compile Include="Program0325.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

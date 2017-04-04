@@ -100,6 +100,7 @@ namespace AspNetMVC.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "Id,strBookTypeId,strAccessionId")] BookMaster bookMaster)
         {
+            //db.BookMasters.OrderBy(a=>a.Id).ThenBy(a=>a.strAccessionId)
             if (ModelState.IsValid)
             {
                 db.Entry(bookMaster).State = EntityState.Modified;

@@ -96,6 +96,14 @@
                             <asp:Panel runat="server" ID="selected_panel" CssClass="boxright_active" BackColor="SkyBlue"> 
                                 <div class="vdofont boxright_active">
                                     <asp:LinkButton runat="server" ID="linkbtn1" CommandName="Select" > bbbb <%# Eval("col1")%>
+
+                                     <%--    <%  
+                                             double a=0;
+                                             double.TryParse(Eval("col1").ToString(), out a);
+        %>--%>
+
+<asp:Label ID="L4" runat="server" Text='<%= Eval("m_Closing") * Eval("ChemicalRatePerUnit")%>'></asp:Label>
+
                                     </asp:LinkButton>
                                 </div>
                             </asp:Panel>

@@ -551,6 +551,8 @@
     <Content Include="Views\MVC0309\Index2.cshtml" />
     <Content Include="Views\MVC0313\Index.cshtml" />
     <Content Include="Views\MVC0314\Index.cshtml" />
+    <Content Include="Views\MVC0321\Index.cshtml" />
+    <Content Include="Views\MVC0321\Index2.cshtml" />
     <None Include="Views\XMLSchema1.xsd">
       <SubType>Designer</SubType>
     </None>
@@ -563,7 +565,6 @@
     <Folder Include="Views\MVC0310\" />
     <Folder Include="Views\MVC0315\" />
     <Folder Include="Views\MVC0316\" />
-    <Folder Include="Views\MVC0321\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

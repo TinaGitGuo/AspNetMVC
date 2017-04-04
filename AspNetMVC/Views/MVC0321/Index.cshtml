@@ -1,0 +1,51 @@
+﻿@model AspNetMVC.BookMaster
+@{
+    ViewBag.Title = "View";
+}
+@Html.Action("Index2")
+@Html.Partial("Index2",Model)
+@*<h2>View</h2>
+
+<p>This is my View: for ChangeSupplier</p>
+<p>
+    <br>
+    @model FpisNada.Models.Supplier<br>
+    @{<br>
+    ViewBag.Title = &quot; Index & quot; ;
+</p>
+    <p>
+        Layout = null;<br>
+        }
+    </p>
+    <p>
+        @using (Html.BeginForm())<br>
+ {<br>
+@Html.AntiForgeryToken()<br>
+@Html.ValidationSummary(true)
+</p>
+<p>@Html.TextBoxFor(model = &gt; model.< span > SupplierID </ span >, new { @placeholder = &quot; pib dobavljaca&quot;, style = &quot; float:left & quot;
+})</p>
+<p>
+    &lt;div class=&quot;col-md-9&quot;&gt;<br>
+    @if (ViewBag.ListaMesta != null)<br>
+    {<br>
+    @Html.DropDownListFor(m =&gt; m.<span>TownID</span>, ViewBag.ListaMesta as SelectList, &quot;--select mesto--&quot;, new { @class = &quot;form-control&quot;, style = &quot; float:left&quot; })
+</p>
+<p>}</p>
+<p>@Html.DropDownListFor(m =&gt; m.<span>StreetID</span>, new SelectList(&quot;&quot;), &quot;--select ulicu--&quot;, new { @class = &quot;form-control&quot;, style = &quot; float:left&quot; })</p>
+<p>
+    <br>
+    &lt;div class=&quot;container&quot;&gt;
+</p>
+<p>
+    <br>
+    @Html.TextBoxFor(model =&gt; model.<span>NumberAdress</span>, new { @class = &quot;form-control&quot;})<br>
+    @Html.TextBoxFor(model =&gt; model.Email, new { @class = &quot;form-control&quot; })<br>
+    @Html.TextBoxFor(model =&gt; model.<span>NameSupplier</span>, new { @class = &quot;form-control&quot; })<br>
+    @Html.TextBoxFor(model =&gt; model.NumberOfPhone, new { @class = &quot;form-control&quot; })<br>
+    &lt;/div&gt;<br>
+    &lt;/div&gt;<br>
+    &lt;input type=&quot;submit&quot; value=&quot;Edit&quot; /&gt;<br>
+    }
+</p>
+<p><span>I appreciate any advise or help!&nbsp;</span></p>*@
