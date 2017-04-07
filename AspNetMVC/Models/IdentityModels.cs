@@ -3,6 +3,7 @@ using System.Security.Claims;
 using System.Threading.Tasks;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
+using static AspNetMVC.Controllers.MVC0405Controller;
 
 namespace AspNetMVC.Models
 {
@@ -31,5 +32,7 @@ namespace AspNetMVC.Models
         }
 
         public System.Data.Entity.DbSet<AspNetMVC.BookMaster> BookMasters { get; set; }
+        public System.Data.Entity.DbSet<Product> Products { get; set; }
+        
     }
 }

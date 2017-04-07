@@ -318,6 +318,7 @@
     <Content Include="blog.mn886.net\jqgrid\js\i18n\grid.locale-vi.js" />
     <Content Include="blog.mn886.net\jqgrid\js\jquery.jqGrid.src.js" />
     <Content Include="blog.mn886.net\index2.html" />
+    <Content Include="blog.mn886.net\js\index - Copy %282%29.js" />
     <Content Include="blog.mn886.net\js\index - Copy.js" />
     <Content Include="blog.mn886.net\js\index.js" />
     <Content Include="blog.mn886.net\js\jquery-1.7.1.js" />

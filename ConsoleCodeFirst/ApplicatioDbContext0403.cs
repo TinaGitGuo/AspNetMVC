@@ -26,22 +26,20 @@ namespace ConsoleCodeFirst
 
 
             //modelBuilder.Entity<Street>()
-            //    .HasOptional<Town>(s => s.Town)
+            //    .HasMany<Town>(s => s.Town)
             //    .WithMany(c => c.Streets)
             //    .Map(cs =>
             //    {
-            //        cs.MapKey("StreetID");
-            //        cs.MapKey("TownID");
+            //        cs.MapLeftKey("StreetID");
+            //        cs.MapRightKey("TownID");
             //        cs.ToTable("Adress");
             //    });
-
-
         }
 
 
         public DbSet<Town> Town { get; set; }
         public DbSet<Street> Street { get; set; }
-        //public DbSet<Adress> Adress { get; set; }
+        public DbSet<Adress> Adress { get; set; }
         public DbSet<Supplier> Supplier { get; set; }
 
     }

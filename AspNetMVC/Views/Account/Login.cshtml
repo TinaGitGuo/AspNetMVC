@@ -42,6 +42,28 @@
                     </div>
                 </div>
                 <p>
+
+                    @*@{
+                        ViewBag.Title = "Index";
+                    }*@
+                    @section scripts{
+                        <script src="~/Scripts/jquery.unobtrusive-ajax.js"></script>
+                    }
+                    @*@model AspNetMVC.BookMaster*@
+                    <div id="RegSuccessDivOne">
+                        <h2>First Step</h2>
+                        @using (Ajax.BeginForm("Register",  new AjaxOptions
+                        {
+                            InsertionMode = InsertionMode.Replace,
+                            UpdateTargetId = "RegSuccessDivOne",
+                            HttpMethod = "Post"
+                        }))
+                        {
+                            @*@Html.TextBoxFor(m => m.Id)*@
+                            <button type="submit">Register as a new user</button>
+                        }
+                    </div>
+
                     @Html.ActionLink("Register as a new user", "Register")
                 </p>
                 @* Enable this once you have account confirmation enabled for password reset functionality

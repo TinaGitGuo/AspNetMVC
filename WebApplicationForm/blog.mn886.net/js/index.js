@@ -29,63 +29,72 @@ function pageInit(){
 			});
 	/*创建jqGrid的操作按钮容器*/
 	/*可以控制界面上增删改查的按钮是否显示*/
-	jQuery("#list2").jqGrid('navGrid', '#pager2', {edit : false,add : false,del : false});
+	jQuery("#list2").jqGrid('navGrid', '#pager2', { edit: false, add: false, del: false })
+.navGrid('#pager2', { refresh: true }  )
+        .jqGrid('setGroupHeaders', {
+            useColSpanStyle: false,
+            groupHeaders: [
+                { startColumnName: 'amount', numberOfColumns: 2, titleText: '<em>Actions</em>' }
+            ]
+        })
+      
+ //.jqGrid('setGroupHeaders', {
+ //    useColSpanStyle: false,
+ //    groupHeaders: [
+ //        { startColumnName: 'amount', numberOfColumns: 2, titleText: '<em>Actions</em>' }
+ //    ]
+ //})
+
+
+
+	//$("#grid").jqGrid({
+	//    defaults: {
+	//        loadtext: "Loading Data please wait ...",
+	//    },
+	//    url: "/User/GetUsers",
+	//    datatype: 'json',
+	//    mtype: 'GET',
+	//    colNames: ["Edit", "Delete", 'Id', 'FirstName', 'LastName'],
+	//    colModel: [
+    //        { name: 'Edit', search: false, width: 30, sortable: false, formatter: editLink },
+    //        { name: 'Delete', search: false, width: 45, sortable: false, formatter: deleteLink },
+    //        { key: false, name: 'UserId', index: 'UserId', sorttype: "int" },
+    //        { key: false, name: 'FirstName', index: 'FirstName' },
+    //        { key: false, name: 'LastName', index: 'LastName' }],
+
+	//    pager: jQuery('#pager'),
+	//    rowNum: 5,
+	//    rowList: [5, 10, 15, 20, 25],
+	//    height: '100%',
+	//    sortname: 'UserId',
+	//    sortorder: 'asc',
+	//    viewrecords: true,
+	//    jsonReader: {
+	//        root: "rows",
+	//        page: "page",
+	//        total: "total",
+	//        records: "records",
+	//        repeatitems: false,
+	//        Id: "0"
+	//    },
+	//    autowidth: true,
+	//    multiselect: false
+	//}).navGrid('#pager', { refresh: true }
+    //    .jqGrid('setGroupHeaders', {
+    //        useColSpanStyle: false,
+    //        groupHeaders: [
+    //            { startColumnName: 'Edit', numberOfColumns: 2, titleText: '<em>Actions</em>' }
+    //        ]
+    //    })
+    //    );
+    //;
+	//jQuery("#list2").jqGrid('setGroupHeaders', {
+	//    useColSpanStyle: false,
+	//    groupHeaders: [
+    //      { startColumnName: 'amount', numberOfColumns: 3, titleText: '<em>Price</em>' },
+    //      { startColumnName: 'closed', numberOfColumns: 2, titleText: 'Shiping' }
+	//    ]
+	//});
 }
 
 
-$(function () {
-
-    $("#grid").jqGrid({
-        url: "/Registerations/GetList",
-        datatype: 'json',
-        mtype: 'Get',
-        colNames: ['FirstName', 'LastName', 'Gender', 'State'],
-        colModel: [
-            { key: false, name: 'FirstName', index: 'FirstName', editable: true },
-            { key: false, name: 'LastName', index: 'LastName', editable: true },
-            { key: false, name: 'Gender', index: 'Gender', editable: true },
-            { key: false, name: 'StateName', index: 'StateName', editable: true }],
-        pager: jQuery('#pager'),
-        rowNum: 10,
-        rowList: [10, 20, 30, 40, 50],
-        height: '100%',
-        viewrecords: true,
-        emptyrecords: 'No Records are Available to Display',
-        jsonReader: {
-            root: "rows",
-            page: "page",
-            total: "total",
-            records: "records",
-            repeatitems: false,
-            Id: "0"
-        },
-        autowidth: true,
-        multiselect: false
-    }).navGrid('#pager', { edit: true, add: true, del: true, refresh: true },
-        {
-            zIndex: 100,
-            url: '/Registerations/Edit',
-            closeOnEscape: true,
-            closeAfterEdit: true,
-            recreateForm: true,
-            afterComplete: function (response) {
-                if (response.responseText) {
-                    alert(response.responseText);
-                }
-            }
-        },
-
-        {
-            zIndex: 100,
-            url: "/Registerations/Delete",
-            closeOnEscape: true,
-            closeAfterDelete: true,
-            recreateForm: true,
-            msg: "Are you sure you want to delete ? ",
-            afterComplete: function (response) {
-                if (response.responseText) {
-                    alert(response.responseText);
-                }
-            }
-        });
-});

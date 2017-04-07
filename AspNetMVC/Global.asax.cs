@@ -25,6 +25,18 @@ namespace AspNetMVC
             //b.AddDirectory("~/Content", "*.css", false);
             ////添加到BundleTable 
             //BundleTable.Bundles.Add(b);
+
+        }
+        protected void Application_BeginRequest()
+        {
+            //RegExRewriteRule rule = new RegExRewriteRule();
+            //rule.VirtualUrl = "~/test";
+            //rule.DestinationUrl = "/";
+            //rule.IgnoreCase = true;
+            //rule.Redirect = RedirectOption.Application;
+            //rule.RewriteUrlParameter = RewriteUrlParameterOption.ExcludeFromClientQueryString;
+
+            //UrlRewriting.AddRewriteRule("ruleTest", rule);
         }
     }
 }
